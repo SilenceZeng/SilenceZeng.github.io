@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的第一篇博客 | 欢迎来到曾安的博客</title>
+    <title>CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Ang-Zeng">
     
-    <meta name="description" content="我的第一篇博客说什么好呢？一个走在转行路上的菜鸟，内心充满了迷茫，希望自己能内心始终向往光明！">
+    <meta name="description" content="前言我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。
+一、为什么元素浮动后其容器高度">
     
     
     
@@ -65,15 +66,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/15/我的第一篇博客/" title="我的第一篇博客" itemprop="url">我的第一篇博客</a>
+      <a href="/2016/04/17/CSS篇01--从清除浮动说起/" title="CSS篇01--从清除浮动说起" itemprop="url">CSS篇01--从清除浮动说起</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-08-15T07:57:14.000Z" itemprop="datePublished">2015-08-15</time>
-    更新日期:<time datetime="2015-08-15T10:35:25.608Z" itemprop="dateModified">2015-08-15</time>
+    <time datetime="2016-04-17T15:30:56.298Z" itemprop="datePublished">2016-04-17</time>
+    更新日期:<time datetime="2016-04-17T15:30:56.298Z" itemprop="dateModified">2016-04-17</time>
     
   </p>
 </header>
@@ -82,30 +83,31 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">一、为什么元素浮动后其容器高度会塌陷？</span></a></li></ol>
 		</div>
 		
-		<p>我的第一篇博客说什么好呢？一个走在转行路上的菜鸟，内心充满了迷茫，希望自己能内心始终向往光明！</p>
+		<h2 id="前言">前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
+<h2 id="一、为什么元素浮动后其容器高度会塌陷？">一、为什么元素浮动后其容器高度会塌陷？</h2><p>1.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/生活/">生活</a>
+  <span></span> <a href="/tags/css/">css</a><a href="/tags/前端/">前端</a><a href="/tags/计算机/">计算机</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活琐事/">生活琐事</a>
+  <a class="article-category-link" href="/categories/计算机/">计算机</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/08/15/我的第一篇博客/" data-title="我的第一篇博客 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/04/17/CSS篇01--从清除浮动说起/" data-title="CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -114,14 +116,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/21/命令行与git常用命令/" title="命令行与git常用命令">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  命令行与git常用命令</span>
+
+<div class="next">
+<a href="/2016/04/17/hello-world/"  title="Hello World">
+ <strong>NEXT:</strong><br/> 
+ <span>Hello World
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -131,7 +133,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">一、为什么元素浮动后其容器高度会塌陷？</span></a></li></ol>
   </div>
 
 <div id="asidepart">
