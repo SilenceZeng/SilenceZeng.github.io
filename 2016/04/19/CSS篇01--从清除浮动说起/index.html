@@ -73,8 +73,8 @@
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-04-19T14:35:21.997Z" itemprop="datePublished">2016-04-19</time>
-    更新日期:<time datetime="2016-04-19T14:35:21.997Z" itemprop="dateModified">2016-04-19</time>
+    <time datetime="2016-04-19T14:37:05.154Z" itemprop="datePublished">2016-04-19</time>
+    更新日期:<time datetime="2016-04-19T14:37:05.154Z" itemprop="dateModified">2016-04-19</time>
     
   </p>
 </header>
@@ -94,7 +94,7 @@
 <pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"clear:both;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
 </code></pre><p>2.css after伪元素底部生成：</p>
 <pre><code><span class="class">.clearfix</span><span class="pseudo">::after</span>{<span class="attribute">content</span>: <span class="string">""</span>; <span class="attribute">display</span>: block; <span class="attribute">clear</span>: both;}
-<span class="class">.clearfix</span>{*<span class="attribute">zoom</span>: <span class="number">1</span>;}
+<span class="class">.clearfix</span>{*<span class="attribute">zoom</span>: <span class="number">1</span>;} <span class="comment">// IE hack</span>
 </code></pre><p>PS.我们常见的是clearfix:after这种写法,中间不是两个:，两个:是css3的写法，是一种改进，一个:是css2的设计失误，不够优雅，一个:表示状态，before和after应该用两个:。<br>为什么可以通过clear:both来清除浮动呢？<br>1.如前所诉，容器高度默认是里面文档流的高度<br>2.带有clear:both的元素左右不能有浮动元素，元素加上clear:both能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
   
 	</div>
