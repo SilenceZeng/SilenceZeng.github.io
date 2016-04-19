@@ -66,15 +66,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/17/CSS篇01--从清除浮动说起/" title="CSS篇01--从清除浮动说起" itemprop="url">CSS篇01--从清除浮动说起</a>
+      <a href="/2016/04/19/CSS篇01--从清除浮动说起/" title="CSS篇01--从清除浮动说起" itemprop="url">CSS篇01--从清除浮动说起</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-04-17T15:34:01.507Z" itemprop="datePublished">2016-04-17</time>
-    更新日期:<time datetime="2016-04-17T15:34:01.507Z" itemprop="dateModified">2016-04-17</time>
+    <time datetime="2016-04-19T14:35:21.997Z" itemprop="datePublished">2016-04-19</time>
+    更新日期:<time datetime="2016-04-19T14:35:21.997Z" itemprop="dateModified">2016-04-19</time>
     
   </p>
 </header>
@@ -83,11 +83,19 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档流"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动(float)"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动的两种方法"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触发BFC来清除浮动"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过clear:both来清除浮动"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
 		</div>
 		
 		<h2 id="前言">前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
-<h2 id="为什么元素浮动后其容器高度会塌陷？">为什么元素浮动后其容器高度会塌陷？</h2><p>1.</p>
+<h2 id="为什么元素浮动后其容器高度会塌陷？">为什么元素浮动后其容器高度会塌陷？</h2><h3 id="文档流">文档流</h3><p>经常听到文档流的说法，但是在W3C规范中并没有发现document flow这个概念，只有常规流(normal flow)。在常规流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。文档流也可以认为是一层一层嵌套的，因此n多个空div嵌套，最外面那个div高度仍为0（本文float元素容器默认都是指div，其他块级元素其实效果一样，只是可能会有默认的样式，因此高度不一定为0）。</p>
+<h3 id="浮动(float)">浮动(float)</h3><p>float的引入最初是为了解决图文混排的，元素float后会脱离文档流，而div的高度默认是里面文档流的高度，因此容器内若没有其他文档流，容器高度为0。</p>
+<h2 id="清除浮动的两种方法">清除浮动的两种方法</h2><h3 id="触发BFC来清除浮动">触发BFC来清除浮动</h3><p>BFC(block formatting context)俗称块级格式化上下文。下图是MDN的一些总结。<br><img src="../../../../img/bfc.png" alt="BFC"><br>BFC有一下特性：<br>1.内部的Box会在垂直方向，从顶部开始一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加<br>3.每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>4.BFC的区域不会与float box叠加。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。<br>6.计算BFC的高度时，浮动元素也参与计算。<br>正因为性质6，可以利用BFC来清除浮动。<br>参考：<br>1.<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">CSS之BFC详解</a></p>
+<h3 id="通过clear:both来清除浮动">通过clear:both来清除浮动</h3><p>1.底部加html block水平元素：</p>
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"clear:both;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>2.css after伪元素底部生成：</p>
+<pre><code><span class="class">.clearfix</span><span class="pseudo">::after</span>{<span class="attribute">content</span>: <span class="string">""</span>; <span class="attribute">display</span>: block; <span class="attribute">clear</span>: both;}
+<span class="class">.clearfix</span>{*<span class="attribute">zoom</span>: <span class="number">1</span>;}
+</code></pre><p>PS.我们常见的是clearfix:after这种写法,中间不是两个:，两个:是css3的写法，是一种改进，一个:是css2的设计失误，不够优雅，一个:表示状态，before和after应该用两个:。<br>为什么可以通过clear:both来清除浮动呢？<br>1.如前所诉，容器高度默认是里面文档流的高度<br>2.带有clear:both的元素左右不能有浮动元素，元素加上clear:both能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,7 +115,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/04/17/CSS篇01--从清除浮动说起/" data-title="CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/04/19/CSS篇01--从清除浮动说起/" data-title="CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -133,7 +141,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档流"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动(float)"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动的两种方法"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触发BFC来清除浮动"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过clear:both来清除浮动"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
