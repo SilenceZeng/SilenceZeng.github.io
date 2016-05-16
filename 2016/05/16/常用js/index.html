@@ -4,12 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的第一篇博客 | 欢迎来到曾安的博客</title>
+    <title>常用js | 欢迎来到曾安的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Ang-Zeng">
     
-    <meta name="description" content="我的第一篇博客说什么好呢？一个走在转行路上的菜鸟，内心充满了迷茫，希望自己能内心始终向往光明！">
+    <meta name="description" content="1.类数组（Array-like）对象/集合转换成一个数组
+function list() {
+  return Array.prototype.slice.call(arguments);
+}
+或者
+[].slice.call(arguments)
+或者
+var unboundSlice = Ar">
     
     
     
@@ -65,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/15/我的第一篇博客/" title="我的第一篇博客" itemprop="url">我的第一篇博客</a>
+      <a href="/2016/05/16/常用js/" title="常用js" itemprop="url">常用js</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-08-15T07:57:14.000Z" itemprop="datePublished">2015-08-15</time>
-    更新日期:<time datetime="2015-08-15T10:35:25.608Z" itemprop="dateModified">2015-08-15</time>
+    <time datetime="2016-05-16T13:22:30.206Z" itemprop="datePublished">2016-05-16</time>
+    更新日期:<time datetime="2016-05-16T13:22:30.206Z" itemprop="dateModified">2016-05-16</time>
     
   </p>
 </header>
@@ -85,27 +92,61 @@
 		
 		</div>
 		
-		<p>我的第一篇博客说什么好呢？一个走在转行路上的菜鸟，内心充满了迷茫，希望自己能内心始终向往光明！</p>
+		<p>1.类数组（Array-like）对象/集合转换成一个数组</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">list</span>(<span class="params"></span>) </span>{
+  <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
+}
+</code></pre><p>或者</p>
+<pre><code><span class="attr_selector">[]</span><span class="class">.slice</span><span class="class">.call</span>(<span class="tag">arguments</span>)
+</code></pre><p>或者</p>
+<pre><code><span class="keyword">var</span> unboundSlice = <span class="keyword">Array</span>.prototype.slice;
+<span class="keyword">var</span> slice = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span>.<span class="title">call</span>.<span class="title">bind</span><span class="params">(unboundSlice)</span></span>;
+<span class="function"><span class="keyword">function</span> <span class="title">list</span><span class="params">()</span> </span>{
+  <span class="keyword">return</span> slice(arguments);
+}
+<span class="keyword">var</span> list1 = <span class="keyword">list</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [1, 2, 3]</span>
+</code></pre><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="external">更可靠地跨浏览器</a></p>
+<p>2.验证是否是数字</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">n</span>)</span>{
+    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n);
+}
+
+<span class="built_in">isFinite</span>(<span class="literal">null</span>) <span class="comment">//true</span>
+</code></pre><p>或者用正则</p>
+<p>3.验证是否是数组<br>可以使用Array.isArray()方法<br>Polyfill:假如不存在Array.isArray()，则在其他代码之前运行下面的代码将创建该方法。</p>
+<pre><code><span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray) {
+  <span class="built_in">Array</span>.isArray = <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>{
+    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arg) === <span class="string">'[object Array]'</span>;
+  };
+}
+</code></pre><p>如果toString()方法被重写过，就行不通了。简单环境也可以使用instanceof。</p>
+<p>4.获取数组中的最大值和最小值</p>
+<pre><code>Math.<span class="built_in">max</span>.apply(<span class="literal">null</span>,arr)<span class="comment">;</span>
+Math.<span class="built_in">min</span>.apply(<span class="literal">null</span>,arr)<span class="comment">;</span>
+</code></pre><p>如数组太大，会遇到方法参数个数越界的问题，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="external">参考MDN</a></p>
+<p>5.保留指定小数位数字<br>var numStr = num.toFixed(2); //注意返回的是字符串，不改变num</p>
+<p>6.不要用delete删除数组元素，否则会留坑，只是将元素位置变为了undefined，应该使用splice。删除对象属性时可以使用delete</p>
+<p>6.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/生活/">生活</a>
+  <span></span> <a href="/tags/javascript/">javascript</a><a href="/tags/前端/">前端</a><a href="/tags/积累/">积累</a><a href="/tags/计算机/">计算机</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活琐事/">生活琐事</a>
+  <a class="article-category-link" href="/categories/计算机/">计算机</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/08/15/我的第一篇博客/" data-title="我的第一篇博客 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/05/16/常用js/" data-title="常用js | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -114,14 +155,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/21/命令行与git常用命令/" title="命令行与git常用命令">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  命令行与git常用命令</span>
+
+<div class="next">
+<a href="/2016/05/16/javascript篇01--javascript事件/"  title="javascript篇01">
+ <strong>NEXT:</strong><br/> 
+ <span>javascript篇01
+</span>
 </a>
 </div>
-
 
 </nav>
 
