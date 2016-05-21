@@ -77,8 +77,8 @@ function isFunction(value){
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-21T11:25:43.080Z" itemprop="datePublished">2016-05-21</time>
-    更新日期:<time datetime="2016-05-21T11:25:43.080Z" itemprop="dateModified">2016-05-21</time>
+    <time datetime="2016-05-21T11:41:24.411Z" itemprop="datePublished">2016-05-21</time>
+    更新日期:<time datetime="2016-05-21T11:41:24.411Z" itemprop="dateModified">2016-05-21</time>
     
   </p>
 </header>
@@ -252,7 +252,20 @@ EventUtil.addHandler(btn, <span class="string">"click"</span>, handler.handleCli
         <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, finalArgs);
     }
 }
-</code></pre><p>函数柯里化还常常作为函数绑定的一部分包含在其中，构造出更为复杂的bind函数<br>    function bind(fn,contenxt) {<br>        var args = Array.prototype.slice.call(arguments,2);<br>        return function() {<br>            var innerArgs = Array.prototype.slice.call(arguments);<br>            var finalArgs = args.cancat(innerArgs);<br>            return fn.apply(context,finalArgs);<br>        }<br>    }<br>当你想除了event对象再额外给事件处理程序传递参数时，这非常有用。<br>    EventUtil.addHandler(btn, “click”, bind(handler.handleClick,handler,”my-btn”));<br>ES5的bind方法也实现了函数柯里化，只需要在this值后再传另一个参数<br>    EventUtil.addHandler(btn, “click”, handler.handleClick.bind(handler,”my-btn”));<br>函数绑定和柯里化都不应滥用，因为每个函数会带来额外的开销</p>
+</code></pre><p>函数柯里化还常常作为函数绑定的一部分包含在其中，构造出更为复杂的bind函数</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contenxt</span>) </span>{
+    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>,<span class="number">2</span>);
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="keyword">var</span> innerArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
+        <span class="keyword">var</span> finalArgs = args.cancat(innerArgs);
+        <span class="keyword">return</span> fn.apply(context,finalArgs);
+    }
+}
+</code></pre><p>当你想除了event对象再额外给事件处理程序传递参数时，这非常有用。</p>
+<pre><code>EventUtil.addHandler(btn, <span class="string">"click"</span>, bind(<span class="keyword">handler</span>.handleClick,<span class="keyword">handler</span>,<span class="string">"my-btn"</span>)); 
+</code></pre><p>ES5的bind方法也实现了函数柯里化，只需要在this值后再传另一个参数</p>
+<pre><code>EventUtil.addHandler(btn, <span class="string">"click"</span>, <span class="keyword">handler</span>.handleClick.bind(<span class="keyword">handler</span>,<span class="string">"my-btn"</span>));
+</code></pre><p>函数绑定和柯里化都不应滥用，因为每个函数会带来额外的开销</p>
   
 	</div>
 		<footer class="article-footer clearfix">
