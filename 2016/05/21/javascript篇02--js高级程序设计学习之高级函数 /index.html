@@ -70,15 +70,15 @@ function isFunction(value){
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/18/javascript篇02--js高级程序设计学习之高级函数 /" title="js高级程序设计学习之高级函数" itemprop="url">js高级程序设计学习之高级函数</a>
+      <a href="/2016/05/21/javascript篇02--js高级程序设计学习之高级函数 /" title="js高级程序设计学习之高级函数" itemprop="url">js高级程序设计学习之高级函数</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-18T15:29:42.938Z" itemprop="datePublished">2016-05-18</time>
-    更新日期:<time datetime="2016-05-18T15:29:42.938Z" itemprop="dateModified">2016-05-18</time>
+    <time datetime="2016-05-21T11:25:43.080Z" itemprop="datePublished">2016-05-21</time>
+    更新日期:<time datetime="2016-05-21T11:25:43.080Z" itemprop="dateModified">2016-05-21</time>
     
   </p>
 </header>
@@ -87,7 +87,7 @@ function isFunction(value){
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安全的类型检测"><span class="toc-number">1.</span> <span class="toc-text">安全的类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域安全的构造函数"><span class="toc-number">2.</span> <span class="toc-text">作用域安全的构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#惰性载入函数"><span class="toc-number">3.</span> <span class="toc-text">惰性载入函数</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安全的类型检测"><span class="toc-number">1.</span> <span class="toc-text">安全的类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域安全的构造函数"><span class="toc-number">2.</span> <span class="toc-text">作用域安全的构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#惰性载入函数"><span class="toc-number">3.</span> <span class="toc-text">惰性载入函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数绑定"><span class="toc-number">4.</span> <span class="toc-text">函数绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数柯里化"><span class="toc-number">5.</span> <span class="toc-text">函数柯里化</span></a></li></ol>
 		</div>
 		
 		<h2 id="安全的类型检测">安全的类型检测</h2><pre><code><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>)</span>{
@@ -195,6 +195,64 @@ console.log(p.age); //18
     }
 })();
 </code></pre><p>这个例子中使用的技巧是创建一个匿名、自执行的函数，用以确定应该使用哪一个函数实现。</p>
+<h2 id="函数绑定">函数绑定</h2><p>函数绑定要创建一个函数，可以在特定的this环境中以指定参数调用另一个函数。该技巧常常和回调函数与事件处理程序一起使用， 以便在将函数作为变量传递的同时保留代码的执行环境。</p>
+<pre><code><span class="keyword">var</span> handler = {
+  message: <span class="string">"Event handled"</span>,
+  handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.message);
+  }
+};
+
+handler.handleClick();
+
+<span class="keyword">var</span> a = handler.handleClick;
+a();
+
+<span class="keyword">var</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">'my-btn1'</span>);
+btn1.addEventListener(<span class="string">'click'</span>,handler.handleClick,<span class="literal">false</span>);
+
+<span class="keyword">var</span> btn2 = <span class="built_in">document</span>.getElementById(<span class="string">'my-btn2'</span>);
+btn2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  handler.handleClick();
+},<span class="literal">false</span>);
+</code></pre><p>btn1点击后显示undefined，btn2利用闭包来修正这个问题</p>
+<p>由于代码之中存在着this变量，而this在当前环境下指向确定的对象，但是当更改代码的执行环境时，就会出现问题了。为了解决这个问题， javascript函数库中实现了一个bind() 函数来解决这个问题。</p>
+<p>一个简单的bind() 函数接收一个函数和一个环境， 并返回一个在给定环境中调用给定函数的函数， 并且将所有参数原封不动传递过去。 语法如下：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, context</span>) </span>{
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="keyword">return</span> fn.apply(context, <span class="built_in">arguments</span>);
+    }
+}
+</code></pre><p>注意这里使用的arguments并不是bind() 的， 是内部函数的。</p>
+<pre><code><span class="keyword">var</span> handler = {
+    message: <span class="string">"Event handled"</span>,
+    handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{
+        alert(<span class="keyword">this</span>.message);
+    }
+};
+<span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"my-btn"</span>);
+EventUtil.addHandler(btn, <span class="string">"click"</span>, bind(handler.handleClick, handler));
+</code></pre><p>ECMAScript5为所有函数定义了一个原生的bind() 方法， 进一步简化了操作。</p>
+<pre><code><span class="keyword">var</span> handler = {
+    message: <span class="string">"Event handled"</span>,
+    handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{
+        alert(<span class="keyword">this</span>.message);
+    }
+};
+<span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"my-btn"</span>);
+EventUtil.addHandler(btn, <span class="string">"click"</span>, handler.handleClick.bind(handler));
+</code></pre><p>它们主要用于事件处理程序以及setTimeout() 和setInterval()。 然而被绑定函数与普通函数相比有更多的开销， 它们需要更多内存， 同时也因为多重函数调用稍微慢一些， 所以最好只在必要时使用。</p>
+<h2 id="函数柯里化">函数柯里化</h2><p>它用于创建已经设置好了一个或多个参数的函数。 函数柯里化的基本方法是： 使用一个闭包返回一个函数。 当函数被调用时， 返回的函数还需要设置一些传入的参数。</p>
+<p>柯里化函数通常由以下步骤动态的创建： 调用另一个函数并为它传入要柯里化的函数和必要参数。 下面是创建柯里化函数的通用方式：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>) </span>{
+    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="keyword">var</span> innerArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
+        <span class="keyword">var</span> finalArgs = args.concat(innerArgs);
+        <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, finalArgs);
+    }
+}
+</code></pre><p>函数柯里化还常常作为函数绑定的一部分包含在其中，构造出更为复杂的bind函数<br>    function bind(fn,contenxt) {<br>        var args = Array.prototype.slice.call(arguments,2);<br>        return function() {<br>            var innerArgs = Array.prototype.slice.call(arguments);<br>            var finalArgs = args.cancat(innerArgs);<br>            return fn.apply(context,finalArgs);<br>        }<br>    }<br>当你想除了event对象再额外给事件处理程序传递参数时，这非常有用。<br>    EventUtil.addHandler(btn, “click”, bind(handler.handleClick,handler,”my-btn”));<br>ES5的bind方法也实现了函数柯里化，只需要在this值后再传另一个参数<br>    EventUtil.addHandler(btn, “click”, handler.handleClick.bind(handler,”my-btn”));<br>函数绑定和柯里化都不应滥用，因为每个函数会带来额外的开销</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -214,7 +272,7 @@ console.log(p.age); //18
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/05/18/javascript篇02--js高级程序设计学习之高级函数 /" data-title="js高级程序设计学习之高级函数 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/05/21/javascript篇02--js高级程序设计学习之高级函数 /" data-title="js高级程序设计学习之高级函数 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -223,19 +281,11 @@ console.log(p.age); //18
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/20/【翻译】CSS水平和垂直居中的12种方法/" title="【翻译】CSS水平和垂直居中的12种方法">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  【翻译】CSS水平和垂直居中的12种方法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/05/16/常用js/"  title="常用js">
+<a href="/2016/05/20/【翻译】CSS水平和垂直居中的12种方法/"  title="【翻译】CSS水平和垂直居中的12种方法">
  <strong>NEXT:</strong><br/> 
- <span>常用js
+ <span>【翻译】CSS水平和垂直居中的12种方法
 </span>
 </a>
 </div>
@@ -248,7 +298,7 @@ console.log(p.age); //18
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安全的类型检测"><span class="toc-number">1.</span> <span class="toc-text">安全的类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域安全的构造函数"><span class="toc-number">2.</span> <span class="toc-text">作用域安全的构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#惰性载入函数"><span class="toc-number">3.</span> <span class="toc-text">惰性载入函数</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安全的类型检测"><span class="toc-number">1.</span> <span class="toc-text">安全的类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域安全的构造函数"><span class="toc-number">2.</span> <span class="toc-text">作用域安全的构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#惰性载入函数"><span class="toc-number">3.</span> <span class="toc-text">惰性载入函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数绑定"><span class="toc-number">4.</span> <span class="toc-text">函数绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数柯里化"><span class="toc-number">5.</span> <span class="toc-text">函数柯里化</span></a></li></ol>
   </div>
 
 <div id="asidepart">
