@@ -1,0 +1,353 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>AngularJS学习总结 | 欢迎来到曾安的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Ang-Zeng">
+    
+    <meta name="description" content="前言AngularJS是一款来自Google的前端JS框架，起源于2009年的Google Feedback项目。Misko Hevery为AngularJS之父。这款框架的核心特性有MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入等。AngularJS框架本身是通过TDD（测试驱动）的方式">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="欢迎来到曾安的博客" title="欢迎来到曾安的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="欢迎来到曾安的博客">欢迎来到曾安的博客</a></h1>
+				<h2 class="blog-motto">最简单的在心头挥之不去</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/21/angularjs学习总结/" title="AngularJS学习总结" itemprop="url">AngularJS学习总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-06-21T14:53:55.738Z" itemprop="datePublished">2016-06-21</time>
+    更新日期:<time datetime="2016-06-21T14:53:55.738Z" itemprop="dateModified">2016-06-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端模板"><span class="toc-number">2.1.</span> <span class="toc-text">客户端模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.2.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据绑定"><span class="toc-number">2.3.</span> <span class="toc-text">数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖注入"><span class="toc-number">2.4.</span> <span class="toc-text">依赖注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令"><span class="toc-number">2.5.</span> <span class="toc-text">指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS应用骨架"><span class="toc-number">3.</span> <span class="toc-text">AngularJS应用骨架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用Angular"><span class="toc-number">3.1.</span> <span class="toc-text">调用Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Model_View_Controller"><span class="toc-number">3.2.</span> <span class="toc-text">Model View Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板和数据绑定"><span class="toc-number">3.3.</span> <span class="toc-text">模板和数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示文本"><span class="toc-number">3.4.</span> <span class="toc-text">显示文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅谈非入侵式JavaScript"><span class="toc-number">3.5.</span> <span class="toc-text">浅谈非入侵式JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-number">3.6.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示和隐藏"><span class="toc-number">3.7.</span> <span class="toc-text">显示和隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS类和样式"><span class="toc-number">3.8.</span> <span class="toc-text">CSS类和样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反思src和href"><span class="toc-number">3.9.</span> <span class="toc-text">反思src和href</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式"><span class="toc-number">3.10.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器"><span class="toc-number">3.11.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用$scope暴露模型数据"><span class="toc-number">3.12.</span> <span class="toc-text">利用$scope暴露模型数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用$scope监控数据模型的变化"><span class="toc-number">3.13.</span> <span class="toc-text">使用$scope监控数据模型的变化</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="前言">前言</h2><p>AngularJS是一款来自Google的前端JS框架，起源于2009年的Google Feedback项目。Misko Hevery为AngularJS之父。<br>这款框架的核心特性有MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入等。<br>AngularJS框架本身是通过TDD（测试驱动）的方式来开发的，从这个角度来看，AngularJS是敏捷开发的一次成功实践。<br>AngularJS让单元测试和集成测试成为可能。</p>
+<h2 id="简介">简介</h2><p>一些概念</p>
+<h3 id="客户端模板">客户端模板</h3><p>在AngularJS中，模板和数据都会发送到浏览器中，然后在客户端进行装配。</p>
+<h3 id="MVC">MVC</h3><p>MVC背后的核心理念是：将管理数据的代码(model)、应用逻辑代码(controller)、以及向用户展示数据的代码(view)清晰地分离开。<br>在AngularJS应用中，视图就是Document Object Model(DOM，文档对象模型)，控制器就是JavaScript类(function)，而模型数据则被存储在对象的属性中。</p>
+<h3 id="数据绑定">数据绑定</h3><p>仅仅声明UI中的某个部分需要映射到某个JavaScript属性，然后让他们自己去同步。这种编程风格叫数据绑定。</p>
+<h3 id="依赖注入">依赖注入</h3><p>依赖注入是一种软件设计模式，用来处理代码的依赖问题。<br>AngularJS的依赖注入只是简单的获取它所需要的东西，而不需要创建那些他们所依赖的东西。这种风格遵循了一种叫做迪米特法则（核心含义是一个类要尽量少地知道其他类的相关知识）的设计模式，也叫做最少知识原则。那么用这法则就意味着，它不应该去操心任何其他东西，例如$scope是如何创建的，以及到哪里找这个对象等。</p>
+<h3 id="指令">指令</h3><p>Angular在模板中定义的一些新属性，不属于HTML规范，Angular利用这些属性来实现各种功能，我们把这些叫做HTML扩展指令。<br>Angular内置了很多指令，我们也可以自定义指令。</p>
+<h2 id="AngularJS应用骨架">AngularJS应用骨架</h2><h3 id="调用Angular">调用Angular</h3><p>为了使用Angular，所有应用都必须首先做两件事情：<br>1)加载Angular.js库<br>2)使用ng-app指令告诉Angular应该管理DOM中的哪一个部分</p>
+<h3 id="Model_View_Controller">Model View Controller</h3><p>1)用来容纳数据的模型，模型代表当前的状态<br>2)用来展示数据的一些视图<br>3)用来管理模型和视图之间关系的一些控制器<br>对于大多数的应用来说，你都需要创建模型对象类来容纳你的数据。<br>定义控制器的正确方式是把它定义成模块的一部分，控制器可以为应用里面相关的部分提供命名空间机制。</p>
+<h3 id="模板和数据绑定">模板和数据绑定</h3><p>Angular应用中的模板只是一些HTML片段而已。<br>使用Angular构建应用的时候，可以将应用中的模板和数据分离开来。这样就可以把这些模板缓存起来。这样可以提升应用的性能。</p>
+<h3 id="显示文本">显示文本</h3><p>双花括号插值语法阅读起来比较自然，输入的内容也更少。但是在Angular使用数据替换这些花括号之前，其未被渲染好的模板可能被用户看到。此时，可以使用ng-bind指令。<br>在大多数模板中，依然可以使用双花括号，但是对于index.html页面的数据绑定操作，建议使用ng-bind。</p>
+<h3 id="浅谈非入侵式JavaScript">浅谈非入侵式JavaScript</h3><p>ng-click<br>这些指令和原来的事件处理器有以下不同之处：<br>1.在所有的浏览器中具有相同的行为，Angular将会帮你屏蔽差异性<br>2.不会在全局命名空间中进行操作。你所指定的表达式只能访问元素控制器作用域范围内的函数和数据</p>
+<p>事件处理器会绑定数据结构和行为，但Angular并不会产生什么副作用，我们有一种简单的测试方法可以验证：我们能否为应用逻辑编写一个单元测试而不需要DOM结构存在。</p>
+<h3 id="迭代">迭代</h3><p>ng-repeat $index $first $last $middle</p>
+<h3 id="显示和隐藏">显示和隐藏</h3><p>ng-show ng-hide</p>
+<h3 id="CSS类和样式">CSS类和样式</h3><p>可以这样设置类class=”munu-disabled-“,也可以这样设置内联样式，但最好使用ng-class或ng-style指令。这两个指令都可以接受一个表达式，表达式执行的结果可能是以下取值之一：<br>1.表示CSS类名的字符串，以空格分隔<br>2.CSS类名数组<br>3.CSS类名到布尔值的映射</p>
+<h3 id="反思src和href">反思src和href</h3><p>ng-src ng-href</p>
+<h3 id="表达式">表达式</h3><p>ng支持的表达式<br>1.简单的数学运算：+ - * / %<br>2.进行比较运算：== != &gt; &lt; &gt;= &lt;=<br>3.执行布尔逻辑: &amp;&amp; || !<br>4.位运算：\^ &amp; |<br>5.调用控制器中$scope对象上暴露的函数，引用数组和对象符号：[] {} .<br>不支持循环结构（for、while等）、流程控制操作符（if-else，throw）以及修改数据的操作符（++、–）</p>
+<h3 id="控制器">控制器</h3><p>在应用中控制器有三个职责：<br>1.为应用中的模型设置初始状态<br>2.通过$scope对象把数据模型和函数暴露给视图（UI模板）<br>3.监视模型其余部分的变化，并采取相应的动作。<br>从概念上讲，控制器存在的目的是：当用户与视图进行交互时，它负责提供代码或逻辑以便执行用户的想法。</p>
+<h3 id="利用$scope暴露模型数据">利用$scope暴露模型数据</h3><p>可以显示地创建$scope属性，也可以间接地通过模板自身创建数据模型：<br>1.表达式：在表达式设置属性值和设置控制器中$scope的属性值是一样的</p>
+<ol>
+<li>在表单输入项上使用ng-model<h3 id="使用$scope监控数据模型的变化">使用$scope监控数据模型的变化</h3>$watch(watchFn,watchAction,deepWatch)<br>### </li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/AngularJS/">AngularJS</a><a href="/tags/前端/">前端</a><a href="/tags/积累/">积累</a><a href="/tags/计算机/">计算机</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/计算机/">计算机</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/06/21/angularjs学习总结/" data-title="AngularJS学习总结 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/06/14/HTML5学习总结/"  title="HTML5学习总结">
+ <strong>NEXT:</strong><br/> 
+ <span>HTML5学习总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端模板"><span class="toc-number">2.1.</span> <span class="toc-text">客户端模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.2.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据绑定"><span class="toc-number">2.3.</span> <span class="toc-text">数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖注入"><span class="toc-number">2.4.</span> <span class="toc-text">依赖注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令"><span class="toc-number">2.5.</span> <span class="toc-text">指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS应用骨架"><span class="toc-number">3.</span> <span class="toc-text">AngularJS应用骨架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用Angular"><span class="toc-number">3.1.</span> <span class="toc-text">调用Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Model_View_Controller"><span class="toc-number">3.2.</span> <span class="toc-text">Model View Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板和数据绑定"><span class="toc-number">3.3.</span> <span class="toc-text">模板和数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示文本"><span class="toc-number">3.4.</span> <span class="toc-text">显示文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅谈非入侵式JavaScript"><span class="toc-number">3.5.</span> <span class="toc-text">浅谈非入侵式JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-number">3.6.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示和隐藏"><span class="toc-number">3.7.</span> <span class="toc-text">显示和隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS类和样式"><span class="toc-number">3.8.</span> <span class="toc-text">CSS类和样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反思src和href"><span class="toc-number">3.9.</span> <span class="toc-text">反思src和href</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式"><span class="toc-number">3.10.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器"><span class="toc-number">3.11.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用$scope暴露模型数据"><span class="toc-number">3.12.</span> <span class="toc-text">利用$scope暴露模型数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用$scope监控数据模型的变化"><span class="toc-number">3.13.</span> <span class="toc-text">使用$scope监控数据模型的变化</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/生活琐事/" title="生活琐事">生活琐事<sup>1</sup></a></li>
+		
+			<li><a href="/categories/计算机/" title="计算机">计算机<sup>10</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>4</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>9</sup></a></li>
+		
+			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
+		
+			<li><a href="/tags/积累/" title="积累">积累<sup>4</sup></a></li>
+		
+			<li><a href="/tags/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		
+			<li><a href="/tags/计算机/" title="计算机">计算机<sup>10</sup></a></li>
+		
+			<li><a href="/tags/计算机基础/" title="计算机基础">计算机基础<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="Ang-Zeng">Ang-Zeng</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
