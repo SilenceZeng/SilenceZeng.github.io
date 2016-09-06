@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客</title>
+    <title>fiddler学习总结 | 欢迎来到曾安的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Ang-Zeng">
     
-    <meta name="description" content="前言我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。
-为什么元素浮动后其容器高度会塌">
+    <meta name="description" content="fiddler1.基本功能监控HTTP/HTTPs流量查看截获的内容伪造请求（伪造服务器返回来的请求，还可以发送给服务器）测试网站性能解密HTTPs的web会话2.原理：Fiddler的工作原理类似于一个代理。因此，在使用中可能会出现网络问题，可以直接关闭或者点击关掉左下角的capture，也要关闭">
     
     
     
@@ -66,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/19/CSS篇01--从清除浮动说起/" title="CSS篇01--从清除浮动说起" itemprop="url">CSS篇01--从清除浮动说起</a>
+      <a href="/2016/09/06/fiddler学习总结/" title="fiddler学习总结" itemprop="url">fiddler学习总结</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-04-19T14:47:31.792Z" itemprop="datePublished">2016-04-19</time>
-    更新日期:<time datetime="2016-04-19T14:47:31.792Z" itemprop="dateModified">2016-04-19</time>
+    <time datetime="2016-09-06T14:49:21.769Z" itemprop="datePublished">2016-09-06</time>
+    更新日期:<time datetime="2016-09-06T14:49:21.769Z" itemprop="dateModified">2016-09-06</time>
     
   </p>
 </header>
@@ -83,28 +82,17 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档流"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动(float)"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动的两种方法"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触发BFC来清除浮动"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过clear:both来清除浮动"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#fiddler"><span class="toc-number">1.</span> <span class="toc-text">fiddler</span></a></li></ol>
 		</div>
 		
-		<h2 id="前言">前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
-<h2 id="为什么元素浮动后其容器高度会塌陷？">为什么元素浮动后其容器高度会塌陷？</h2><h3 id="文档流">文档流</h3><p>经常听到文档流的说法，但是在W3C规范中并没有发现document flow这个概念，只有常规流(normal flow)。在常规流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。文档流也可以认为是一层一层嵌套的，因此n多个空div嵌套，最外面那个div高度仍为0（本文float元素容器默认都是指div，其他块级元素其实效果一样，只是可能会有默认的样式，因此高度不一定为0）。</p>
-<h3 id="浮动(float)">浮动(float)</h3><p>float的引入最初是为了解决图文混排的，元素float后会脱离文档流，而div的高度默认是里面文档流的高度，因此容器内若没有其他文档流，容器高度为0。</p>
-<h2 id="清除浮动的两种方法">清除浮动的两种方法</h2><h3 id="触发BFC来清除浮动">触发BFC来清除浮动</h3><p>BFC(block formatting context)俗称块级格式化上下文。下图是MDN的一些总结。<br><img src="../../../../img/bfc.png" alt="BFC"><br>BFC有一下特性：<br>1.内部的Box会在垂直方向，从顶部开始一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加<br>3.每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>4.BFC的区域不会与float box叠加。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。<br>6.计算BFC的高度时，浮动元素也参与计算。</p>
-<p>正因为性质6，可以利用BFC来清除浮动。<br>参考：<br>1.<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">CSS之BFC详解</a></p>
-<h3 id="通过clear:both来清除浮动">通过clear:both来清除浮动</h3><p>1.底部加html block水平元素：</p>
-<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"clear:both;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>2.css after伪元素底部生成：</p>
-<pre><code><span class="class">.clearfix</span><span class="pseudo">::after</span>{<span class="attribute">content</span>: <span class="string">""</span>; <span class="attribute">display</span>: block; <span class="attribute">clear</span>: both;}
-<span class="class">.clearfix</span>{*<span class="attribute">zoom</span>: <span class="number">1</span>;} <span class="comment">// IE hack</span>
-</code></pre><p>PS.我们常见的是clearfix:after这种写法,中间不是两个:，两个是css3的写法，是一种改进，一个是css2的设计失误，不够优雅，一个表示状态,是伪类，两个是伪元素，CSS3对这两种进行了区分。如不用兼容IE8，最好用两个:的写法。</p>
-<p>为什么可以通过clear:both来清除浮动呢？<br>1.如前所诉，容器高度默认是里面文档流的高度<br>2.带有clear:both的元素左右不能有浮动元素，元素加上clear:both能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
+		<h3 id="fiddler">fiddler</h3><p>1.基本功能<br>监控HTTP/HTTPs流量<br>查看截获的内容<br>伪造请求（伪造服务器返回来的请求，还可以发送给服务器）<br>测试网站性能<br>解密HTTPs的web会话<br>2.原理：Fiddler的工作原理类似于一个代理。因此，在使用中可能会出现网络问题，可以直接关闭或者点击关掉左下角的capture，也要关闭翻墙软件。fiddler的代理模式有两种：<br>流模式：（streaming）实时传送给客户端（更接近于浏览器本身真实的行为）<br>缓冲模式：（buffering）等http请求所有东西都准备好后才返回给应用程序（可控制最后的服务器响应）<br>在Fiddler的工具栏的Stream可以进行两种模式的切换，默认是缓冲模式<br>3.fiddler使用场景：<br>（1）开发环境host配置：<br>通常情况下，配置host需要改变系统文件很不方便，在多个开发环境下切换很低效。fiddler提供了相对高效的host配置方法<br>（2）前后端接口调试：<br>通常情况下，调试前后端的接口需要真是的环境，一大推假数据，写javascript代码。fiddler只需要一个ui界面进行配置即可<br>（3）线上bugfix<br>fiddler可以将发布文件代理到本地，快速定位线上bug<br>（4）性能分析和优化<br>fiddler会提供请求的实际图，清晰明了，网站需要优化的部分<br>4.工具栏常用功能介绍<br>Replay：回放会话，选中会话并按R键即可回放会话（可多条），清空监控面板，快捷键ctrl+x<br>go：断点调试<br>stream：切换代理模式<br>Decode：解压请求<br>keep all session选项可选保存会话的数量，默认的保存所有，保存的会话越多，fiddler占用的内存越大，可以设置下，而且调试也不希望看到太多会话，可以根据需要清空监控面板或过滤请求<br>All Process：可以用来控制如只捕获chrome浏览器的请求<br>Find：可以查找会话并选择颜色高亮标明<br>TextWizard：解码/编码功能，可选选项很多，避免去网上找解码工具<br>5.状态栏<br>Capture用来控制Fiddler是否工作，点击即可切换状态<br>All Process控制请求来源<br>旁边的数字代表当前会话数量<br>6.命令行<br>help<br>cls    清屏  (Ctrl+x 也可以清屏)<br>select  选择会话的命令<br>?.png  用来选择png后缀的图片<br>bpu  截获request<br>7.右侧窗口功能<br>（1）Statistics： 一个会话的统计信息，可以为优化提供依据，rtt表示一次往返时间<br>（2）Inspectors： 对请求进行解包，可以查看相应的请求，响应信息<br>（3）AutoResponder： 文件代理，可以把请求的资源用本地文件代理掉，方便调试线上bug文件<br>Fiddler的AutoResponder tab允许你从本地返回文件，而不用将http request 发送到服务器上。<br>打开Fiddler把这个文件所在的会话拖到AutoResponer Tab下<br>选择Enable automatic reaponses和Unmatched requests passthrough<br>在下面的Rule Editor下面选择 Find a file… 选择本地保存的图片，最后点击Save保存下。<br>刷新页面，你可以看到请求的文件是本地的。<br>（4）Composer： 前后端端口连调，可以用来伪造请求<br>（5）Log： 记录日志<br>（6）Timeline：网站性能分析<br>8.fiddler插件<br>Fiddler Add-ons 插件：javaScript formatter -&gt; 对关于js文件右击 -&gt; 选择 -&gt; make javascript pretty -&gt; textview / syntaxview 代码全部高亮<br>traffic differ（对比两个不同的会话）： 直接拖进两个不同的请求，会显示完整的对比数据 -&gt; 可以用来对比优化前后的不同<br>willow -&gt; 快速管理host列表 完全可视化 http代理插件 可视化限速<br>9.高级应用<br>网速限速<br>10.tips<br>（1）chrome和firefox浏览器无法被监听<br>fiddler安装之后，默认会在IE浏览器中安装一个fiddler的插件，所以它对IE及国内基于IE内核的各类浏览器都能实现监听，但其他内核的浏览器无法被监听。<br>解决办法：禁用chrome和firefox中具有代理功能的插件，比如chrome如果安装了switchSharp，禁用它或选择“使用系统代理设置”，或在switchSharp中新配置一个代理项（比如名为fiddler，用于指向代理127.0.0.1，端口8888），即可实现监听。<br>（2）抓取HTTPS包<br>这里默认的只会抓取HTTP请求包，如果也要抓取HTTPS包，则在HTTPS标签栏里设置，把Capture HTTPS CONNECTs选项勾上。<br>（3）真机调试<br>首先我们打开Fiddler -&gt; Tools-&gt;Fiddler Options在Connection面板里将Allow remote computers to connect勾选起来，确定后，关闭Fiddler并重新打开Fiddler。<br>然后把手机端的代理设置为Fiddler的代理，代理设置需要一个ip和一个端口，ip就是Fiddler所运行的电脑的局域网ip地址，端口默认是Fiddler代理的端口，请确保手机所在的网段可以访问到电脑所在的网段，同一个局域网里一般没什么问题。<br>（4）设置断点了<br>设置好断点后，你可以修改httpRequest 的任何信息包括host, cookie或者表单中的数据。设置断点有两种方法<br>第一种：打开Fiddler 点击Rules -&gt; Automatic Breakpoint -&gt; Before Requests(这种方法会中断所有的会话)<br>如何消除命令呢？点击Rules -&gt; Automatic Breakpoint -&gt;Disabled<br>第二种:  在命令行中输入命令: bpu www.baidu.com (这种方法只会中断www.baidu.com)<br>如何消除命令呢？在命令行中输入命令 bpu</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/css/">css</a><a href="/tags/前端/">前端</a><a href="/tags/计算机/">计算机</a>
+  <span></span> <a href="/tags/fiddler/">fiddler</a><a href="/tags/前端/">前端</a><a href="/tags/计算机/">计算机</a><a href="/tags/调试/">调试</a>
   </div>
 
 
@@ -117,7 +105,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/04/19/CSS篇01--从清除浮动说起/" data-title="CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/06/fiddler学习总结/" data-title="fiddler学习总结 | 欢迎来到曾安的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -126,19 +114,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/07/CSS篇02--margin和padding/" title="CSS篇02--margin和padding">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  CSS篇02--margin和padding</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/21/命令行与git常用命令/"  title="命令行与git常用命令">
+<a href="/2016/08/30/张鑫旭CSS深入系列学习总结/"  title="张鑫旭CSS深入系列学习总结">
  <strong>NEXT:</strong><br/> 
- <span>命令行与git常用命令
+ <span>张鑫旭CSS深入系列学习总结
 </span>
 </a>
 </div>
@@ -151,7 +131,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么元素浮动后其容器高度会塌陷？"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档流"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动(float)"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动的两种方法"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触发BFC来清除浮动"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过clear:both来清除浮动"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#fiddler"><span class="toc-number">1.</span> <span class="toc-text">fiddler</span></a></li></ol>
   </div>
 
 <div id="asidepart">
