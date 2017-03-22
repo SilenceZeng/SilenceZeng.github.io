@@ -82,8 +82,8 @@ Plugin System
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-22T03:26:26.680Z" itemprop="datePublished">2017-03-22</time>
-    更新日期:<time datetime="2017-03-22T03:26:26.680Z" itemprop="dateModified">2017-03-22</time>
+    <time datetime="2017-03-22T03:34:54.460Z" itemprop="datePublished">2017-03-22</time>
+    更新日期:<time datetime="2017-03-22T03:34:54.460Z" itemprop="dateModified">2017-03-22</time>
     
   </p>
 </header>
@@ -110,24 +110,14 @@ Plugin System
     <span class="comment">// configuration</span>
 };
 </code></pre><p>常见CLI option</p>
-<ol>
-<li>开发环境简写 -d</li>
-</ol>
+<p>1)开发环境简写 -d</p>
 <p>等价于：–debug –devtool source-map –output-pathinfo</p>
-<ol>
-<li>生产环境简写 -p</li>
-</ol>
+<p>2)生产环境简写 -p</p>
 <p>等价于：–optimize-minimize –optimize-occurrence-order</p>
-<ol>
-<li><p>监视模式 –watch</p>
-</li>
-<li><p>配置文件 –config example.config.js</p>
-</li>
-</ol>
+<p>3)监视模式 –watch</p>
+<p>4)配置文件 –config example.config.js</p>
 <p>指定新的配置文件，而不是默认的webpack.config.js</p>
-<ol>
-<li>常见的显示选项</li>
-</ol>
+<p>5)常见的显示选项</p>
 <ul>
 <li><p>–progress</p>
 </li>
@@ -214,15 +204,11 @@ Plugin System
 <li><p>在命令行中指定</p>
 </li>
 </ul>
-<ol>
-<li><a href="https://www.npmjs.com/package/babel-loader" target="_blank" rel="external">babel-loader</a></li>
-</ol>
+<p>1)<a href="https://www.npmjs.com/package/babel-loader" target="_blank" rel="external">babel-loader</a></p>
 <p>转换ES6语法或React语法</p>
 <p>通过presets选择ES6特性，也可以在package.json中指定</p>
 <p>解决babel-loader处理React的preset问题：npm i –save-dev babel-preset-react</p>
-<ol>
-<li>css相关</li>
-</ol>
+<p>2)css相关</p>
 <ul>
 <li><p>style-loader 将模块的导出作为样式添加到DOM中</p>
 </li>
@@ -239,9 +225,7 @@ Plugin System
 <p>CSS中@import另一个CSS怎么处理？（非SASS、LESS）</p>
 <p>给css-loader添加参数</p>
 <pre><code><span class="rule"><span class="attribute">loader</span>:<span class="value"> <span class="string">'style-loader!css-loader?importLoaders=1!postcss-loader'</span></span></span>
-</code></pre><ol>
-<li>模板相关</li>
-</ol>
+</code></pre><p>3)模板相关</p>
 <ul>
 <li><p>html-loader 导出HTML为字符串，需要引用静态资源</p>
 </li>
@@ -254,9 +238,7 @@ Plugin System
 <li><p>ejs-loader 将underscore模板转换为HTML</p>
 </li>
 </ul>
-<ol>
-<li>图片相关</li>
-</ol>
+<p>4)图片相关</p>
 <ul>
 <li><p>file-loader</p>
 </li>
