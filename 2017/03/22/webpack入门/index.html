@@ -82,8 +82,8 @@ Plugin System
       <a href="http://yoursite.com" title="Ang-Zeng">Ang-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-22T03:34:54.460Z" itemprop="datePublished">2017-03-22</time>
-    更新日期:<time datetime="2017-03-22T03:34:54.460Z" itemprop="dateModified">2017-03-22</time>
+    <time datetime="2017-03-22T03:37:24.662Z" itemprop="datePublished">2017-03-22</time>
+    更新日期:<time datetime="2017-03-22T03:37:24.662Z" itemprop="dateModified">2017-03-22</time>
     
   </p>
 </header>
@@ -249,13 +249,9 @@ Plugin System
 </ul>
 <p>components模板引用相对路径图片不会替换？</p>
 <p>可以使用绝对路径或者这样写src=”${require(‘../../assets/bg.png’)}”</p>
-<ol>
-<li>bundle-loader</li>
-</ol>
+<p>5)bundle-loader</p>
 <p>bundle-loader是一个用来在运行时异步加载模块的loader。可以用来做代码分割</p>
-<ol>
-<li>exports-loader</li>
-</ol>
+<p>6)exports-loader</p>
 <p>可以从模块中导出变量。</p>
 <p>在实际使用中，用exports-loader最多的场景是将某些不支持模块化规范的模块所声明的全局变量作为模块内容导出。<br>如下可以导出全局变量Hello，exports-loader还可以支持同时导出多个变量，例如exports?HELLO,WORLD</p>
 <pre><code><span class="module"><span class="keyword">module</span>.exports = </span>{
@@ -265,20 +261,14 @@ Plugin System
         ]
     }
 };
-</code></pre><ol>
-<li>imports-loaders</li>
-</ol>
+</code></pre><p>7)imports-loaders</p>
 <p>用于向一个模块的作用域内注入变量（Can be used to inject variables into the scope of a module）</p>
-<ol>
-<li>expose-loader</li>
-</ol>
+<p>8)expose-loader</p>
 <p>把一个模块导出并付给一个全局变量</p>
 <pre><code>require(<span class="string">"expose?libraryName!./file.js"</span>);
 // Exposes the exports <span class="keyword">for</span> <span class="keyword">file</span>.js <span class="keyword">to</span> the global <span class="keyword">context</span> <span class="keyword">on</span> <span class="keyword">property</span> <span class="string">"libraryName"</span>.
 // <span class="keyword">In</span> web browsers, window.libraryName <span class="keyword">is</span> <span class="keyword">then</span> available.
-</code></pre><h2 id="各种plugins">各种plugins</h2><ol>
-<li><a href="https://github.com/jantimon/html-webpack-plugin#configuration" target="_blank" rel="external">HtmlWebpackPlugin</a></li>
-</ol>
+</code></pre><h2 id="各种plugins">各种plugins</h2><p>1)<a href="https://github.com/jantimon/html-webpack-plugin#configuration" target="_blank" rel="external">HtmlWebpackPlugin</a></p>
 <p>参数：</p>
 <ul>
 <li><p>template html模板地址，默认为webpack.config.js所在的目录</p>
@@ -290,17 +280,11 @@ Plugin System
 <li><p>date等</p>
 </li>
 </ul>
-<ol>
-<li>CommonsChunkPlugin    </li>
-</ol>
+<p>2)CommonsChunkPlugin    </p>
 <p>将多个入口起点之间共享的公共模块，生成为一些 chunk，并且分离到单独的 bundle 中，例如，1vendor.bundle.js 和 app.bundle.js</p>
-<ol>
-<li>ExtractTextWebpackPlugin    </li>
-</ol>
+<p>3)ExtractTextWebpackPlugin    </p>
 <p>从 bundle 中提取文本（CSS）到分离的文件（app.bundle.css）</p>
-<ol>
-<li>ProvidePlugin</li>
-</ol>
+<p>4)ProvidePlugin</p>
 <p>ProvidePlugin可以将模块作为一个变量，被webpack在其他每个模块中引用。只有你需要使用此变量的时候，这个模块才会被 require进来。多数之前遗留的模块，会依赖于已存在的某些特定全局变量，比如jQuery插件中的$或者jQuery。在这种场景，你可以在每次遇到全局标识符$的时候，在webpack中预先设置var $ = require(“jquery”)。</p>
 <pre><code><span class="module"><span class="keyword">module</span>.exports = </span>{
   plugins: [
