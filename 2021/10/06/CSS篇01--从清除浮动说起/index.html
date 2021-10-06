@@ -1,0 +1,371 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="angus-Zeng">
+    
+    <meta name="description" content="前言我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。
+为什么元素浮动后其容器高度会塌">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="欢迎来到曾安的博客" title="欢迎来到曾安的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="欢迎来到曾安的博客">欢迎来到曾安的博客</a></h1>
+				<h2 class="blog-motto">最简单的在心头挥之不去</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:example.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2021/10/06/CSS篇01--从清除浮动说起/" title="CSS篇01--从清除浮动说起" itemprop="url">CSS篇01--从清除浮动说起</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://example.com" title="angus-Zeng">angus-Zeng</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2021-10-06T10:11:04.134Z" itemprop="datePublished">2021-10-06</time>
+    更新日期:<time datetime="2021-10-06T10:11:04.134Z" itemprop="dateModified">2021-10-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%83%E7%B4%A0%E6%B5%AE%E5%8A%A8%E5%90%8E%E5%85%B6%E5%AE%B9%E5%99%A8%E9%AB%98%E5%BA%A6%E4%BC%9A%E5%A1%8C%E9%99%B7%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8-float"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91BFC%E6%9D%A5%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87clear-both%E6%9D%A5%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
+<h2 id="为什么元素浮动后其容器高度会塌陷？"><a href="#为什么元素浮动后其容器高度会塌陷？" class="headerlink" title="为什么元素浮动后其容器高度会塌陷？"></a>为什么元素浮动后其容器高度会塌陷？</h2><h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p>经常听到文档流的说法，但是在W3C规范中并没有发现document flow这个概念，只有常规流(normal flow)。在常规流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。文档流也可以认为是一层一层嵌套的，因此n多个空div嵌套，最外面那个div高度仍为0（本文float元素容器默认都是指div，其他块级元素其实效果一样，只是可能会有默认的样式，因此高度不一定为0）。</p>
+<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><p>float的引入最初是为了解决图文混排的，元素float后会脱离文档流，而div的高度默认是里面文档流的高度，因此容器内若没有其他文档流，容器高度为0。</p>
+<h2 id="清除浮动的两种方法"><a href="#清除浮动的两种方法" class="headerlink" title="清除浮动的两种方法"></a>清除浮动的两种方法</h2><h3 id="触发BFC来清除浮动"><a href="#触发BFC来清除浮动" class="headerlink" title="触发BFC来清除浮动"></a>触发BFC来清除浮动</h3><p>BFC(block formatting context)俗称块级格式化上下文。下图是MDN的一些总结。<br><img src="../../../../img/bfc.png" alt="BFC"><br>BFC有一下特性：<br>1.内部的Box会在垂直方向，从顶部开始一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加<br>3.每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>4.BFC的区域不会与float box叠加。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。<br>6.计算BFC的高度时，浮动元素也参与计算。</p>
+<p>正因为性质6，可以利用BFC来清除浮动。<br>参考：<br>1.<a target="_blank" rel="noopener" href="http://www.html-js.com/article/1866">CSS之BFC详解</a></p>
+<h3 id="通过clear-both来清除浮动"><a href="#通过clear-both来清除浮动" class="headerlink" title="通过clear:both来清除浮动"></a>通过clear:both来清除浮动</h3><p>1.底部加html block水平元素：</p>
+<pre><code>&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>2.css after伪元素底部生成：</p>
+<pre><code>.clearfix::after&#123;content: &quot;&quot;; display: block; clear: both;&#125;
+.clearfix&#123;*zoom: 1;&#125; // IE hack
+</code></pre>
+<p>PS.我们常见的是clearfix:after这种写法,中间不是两个:，两个是css3的写法，是一种改进，一个是css2的设计失误，不够优雅，一个表示状态,是伪类，两个是伪元素，CSS3对这两种进行了区分。如不用兼容IE8，最好用两个:的写法。</p>
+<p>为什么可以通过clear:both来清除浮动呢？<br>1.如前所诉，容器高度默认是里面文档流的高度<br>2.带有clear:both的元素左右不能有浮动元素，元素加上clear:both能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/计算机/">计算机</a><a href="/tags/前端/">前端</a><a href="/tags/css/">css</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://example.com/2021/10/06/CSS%E7%AF%8701--%E4%BB%8E%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E8%AF%B4%E8%B5%B7/" data-title="CSS篇01--从清除浮动说起 | 欢迎来到曾安的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2021/10/06/CSS篇02--margin和padding/" title="CSS篇02--margin和padding">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  CSS篇02--margin和padding</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2021/10/06/CSS3学习总结/"  title="CSS3学习总结">
+ <strong>NEXT:</strong><br/> 
+ <span>CSS3学习总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%83%E7%B4%A0%E6%B5%AE%E5%8A%A8%E5%90%8E%E5%85%B6%E5%AE%B9%E5%99%A8%E9%AB%98%E5%BA%A6%E4%BC%9A%E5%A1%8C%E9%99%B7%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么元素浮动后其容器高度会塌陷？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">2.1.</span> <span class="toc-text">文档流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8-float"><span class="toc-number">2.2.</span> <span class="toc-text">浮动(float)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">清除浮动的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91BFC%E6%9D%A5%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">3.1.</span> <span class="toc-text">触发BFC来清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87clear-both%E6%9D%A5%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">3.2.</span> <span class="toc-text">通过clear:both来清除浮动</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
+		
+			<li><a href="/categories/生活琐事/" title="生活琐事">生活琐事<sup>1</sup></a></li>
+		
+			<li><a href="/categories/计算机/" title="计算机">计算机<sup>20</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>3</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/SASS/" title="SASS">SASS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>6</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/fiddler/" title="fiddler">fiddler<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/tags/javascript/" title="javascript">javascript<sup>11</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webstorm/" title="webstorm">webstorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>22</sup></a></li>
+		
+			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
+		
+			<li><a href="/tags/积累/" title="积累">积累<sup>5</sup></a></li>
+		
+			<li><a href="/tags/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		
+			<li><a href="/tags/计算机/" title="计算机">计算机<sup>20</sup></a></li>
+		
+			<li><a href="/tags/计算机基础/" title="计算机基础">计算机基础<sup>1</sup></a></li>
+		
+			<li><a href="/tags/调试/" title="调试">调试<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2021 
+		
+		<a href="http://example.com" target="_blank" title="angus-Zeng">angus-Zeng</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
