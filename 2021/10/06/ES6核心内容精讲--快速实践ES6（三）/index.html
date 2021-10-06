@@ -76,8 +76,8 @@
       <a href="http://example.com" title="angus-Zeng">angus-Zeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2021-10-06T10:11:04.138Z" itemprop="datePublished">2021-10-06</time>
-    更新日期:<time datetime="2021-10-06T10:11:04.138Z" itemprop="dateModified">2021-10-06</time>
+    <time datetime="2021-10-06T09:38:21.912Z" itemprop="datePublished">2021-10-06</time>
+    更新日期:<time datetime="2021-10-06T10:25:28.300Z" itemprop="dateModified">2021-10-06</time>
     
   </p>
 </header>
@@ -118,20 +118,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        resolve(<span class="string">&#x27;成功&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 3s后打印&#x27;成功&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>catch方法是then(null, rejection)的别名，用于指定发生错误时的回调函数。</p>
-<pre><code>var promise = new Promise(function (resolve, reject) &#123;
-    setTimeout(function () &#123;
-        reject(&#39;失败&#39;)
-    &#125;, 3000)
-&#125;)
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        reject(<span class="string">&#x27;失败&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">promise.catch(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 3s后打印&#x27;失败&#x27;</span></span><br></pre></td></tr></table></figure>
 
-promise.catch(function (data)&#123;
-    console.log(data)
-&#125;)
-// 3s后打印&#39;失败&#39;
-</code></pre>
 <h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h4><p>Promise.all方法用于将多个Promise实例，包装成一个新的Promise实例。</p>
-<pre><code>var p = Promise.all([p1, p2, p3])
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3])</span><br></pre></td></tr></table></figure>
+
 <p>上面代码中，Promise.all方法接受一个数组作为参数，p1、p2、p3都是Promise对象的实例，如果不是，就会先调用下面讲到的Promise.resolve方法，将参数转为Promise实例，再进一步处理。（Promise.all方法的参数可以不是数组，但必须具有Iterator接口，且返回的每个成员都是Promise实例。）</p>
 <p>p的状态由p1、p2、p3决定，分成两种情况。</p>
 <p>（1）只有p1、p2、p3的状态都变成resolved，p的状态才会变成resolved，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。</p>
@@ -437,14 +428,6 @@ let bar = await barPromise
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2021/10/06/ES6核心内容精讲--快速实践ES6（二）/" title="ES6核心内容精讲--快速实践ES6（二）">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  ES6核心内容精讲--快速实践ES6（二）</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2021/10/06/ES6核心内容精讲--快速实践ES6（一）/"  title="ES6核心内容精讲--快速实践ES6（一）">

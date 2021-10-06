@@ -1,0 +1,448 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>javaScript篇01--javascript事件 | 欢迎来到曾安的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="angus-Zeng">
+    
+    <meta name="description" content="事件JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。我们可以给这个事件注册相应的事件处理程序，事件处理程序也就是事件发生后的处理动作。
+事件流事件流描述的是从页面中接收事件的顺序。">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="欢迎来到曾安的博客" title="欢迎来到曾安的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="欢迎来到曾安的博客">欢迎来到曾安的博客</a></h1>
+				<h2 class="blog-motto">最简单的在心头挥之不去</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:example.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/21/javaScript篇01--javascript事件/" title="javaScript篇01--javascript事件" itemprop="url">javaScript篇01--javascript事件</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://example.com" title="angus-Zeng">angus-Zeng</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-06-21T15:08:00.000Z" itemprop="datePublished">2016-06-21</time>
+    更新日期:<time datetime="2016-06-21T15:08:00.000Z" itemprop="dateModified">2016-06-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">DOM中的事件对象：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">IE中的事件对象：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.3.</span> <span class="toc-text">跨浏览器的事件对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%A8%A1%E6%8B%9F"><span class="toc-number">5.</span> <span class="toc-text">事件模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">绑定事件处理程序的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">事件委托（事件代理）是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">8.</span> <span class="toc-text">其他</span></a></li></ol>
+		</div>
+		
+		<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。我们可以给这个事件注册相应的事件处理程序，事件处理程序也就是事件发生后的处理动作。</p>
+<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>事件流描述的是从页面中接收事件的顺序。<br>DOM2级事件规定事件流包含三个阶段<br>1.document往事件触发地点，捕获前进，遇到相同注册事件立即触发执行<br>2.到达事件位置，触发事件，如果该处既注册了冒泡事件，也注册了捕获事件，按照注册顺序执行<br>3.事件触发地点往document方向，冒泡前进，遇到相同注册事件立即触发<br>IE8及IE8以下不支持事件捕获，只支持事件冒泡，早期Netscape只支持事件捕获，现代浏览器采用DOM2级事件流模型。</p>
+<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p>响应某个事件的函数叫做事件处理程序或事件侦听器（listener），事件处理程序的名字以“on”开头。</p>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>在触发DOM上某个事件时，会产生一个事件对象event，它包含着所有与事件有关的信息。只有在事件处理程序执行期间event对象才会存在，执行完毕后event对象被销毁。</p>
+<h3 id="DOM中的事件对象："><a href="#DOM中的事件对象：" class="headerlink" title="DOM中的事件对象："></a>DOM中的事件对象：</h3><p>无论指定事件处理程序时使用了哪种方法，兼容DOM的浏览器都会将一个event对象传入到事件处理程序中。<br>HTML方法添加时，变量event中保存着event对象。<br>event对象通用的属性和方法中比较常用的有：<br>currentTarget：其事件处理程序当前正处理事件的元素<br>target：事件的目标<br>preventDefault()：阻止事件的默认行为<br>stopPropagation()：阻止事件的进一步捕获或冒泡<br>type：被触发的事件类型</p>
+<h3 id="IE中的事件对象："><a href="#IE中的事件对象：" class="headerlink" title="IE中的事件对象："></a>IE中的事件对象：</h3><p>DOM0级方法添加事件处理程序时，event对象是window的属性；<br>IE方法添加时，event对象会像DOM中一样，作为参数被传递到事件处理程序函数中。<br>HTML方法添加时，和DOM相同，event对象保存在变量event中。<br>常用方法和属性：<br>srcElement：等于target，默认目标<br>returnValue：等于preventDefault()，阻止默认行为<br>cancelBubble：设为true取消事件冒泡，等于stopPropagation()<br>type：被触发的事件类型</p>
+<h3 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h3><p>虽然DOM和IE的event对象不同，但基于它们的相似性，我们还是可以写出跨浏览器的事件对象方案</p>
+<pre><code>function getEvent(e) &#123;
+    return e || window.event;
+&#125;
+
+function getTarget(e) &#123;
+    return e.target || e.scrElement;
+&#125;
+
+function preventDefault(e) &#123;
+    if (e.preventDefault)
+        e.preventDefault();
+    else
+        e.returnValue = false;
+&#125;
+
+function stopPropagation(e) &#123;
+    if (e.stopPropagation)
+        e.stopPropagation();
+    else
+        e.cancelBubble = true;
+&#125;
+</code></pre>
+<h2 id="事件模拟"><a href="#事件模拟" class="headerlink" title="事件模拟"></a>事件模拟</h2><p>DOM：<br>(1) 创建：用document.createEvent()方法创建event对象，该方法接受一个参数，即要创建的事件类型的字符串。<br>(2) 初始化：不同类型的event有不同名字的初始化方法：<br>鼠标事件：”MouseEvents”，”initMouseEvent()”，接受15个参数<br>键盘事件：”KeyboardEvent”，”initKeyEvent()”，接受10个参数。键盘事件只有支持DOM3的浏览器才能用，要先检测。<br>其他事件：变动事件，HTML事件，方法类似，很少使用。<br>自定义DOM事件：”CustonEvent”，”initCustonEvent()”，接受4个参数（type字符串、bubbles布尔值、cancelable布尔值、detail对象）。<br>(3) 触发：dispatchEvent()方法，接受一个参数，即要触发事件的event对象。<br>IE9+开始支持DOM方式。</p>
+<p>IE：<br>(1) 创建：document.createEventObject()创建event对象。<br>(2) 初始化：用event.propertyName = …的形式手动添加信息，没有特别的方法。<br>(3) 触发：fireEvent()方法，接受两个参数：事件处理程序的名称、event对象。</p>
+<h2 id="绑定事件处理程序的方法"><a href="#绑定事件处理程序的方法" class="headerlink" title="绑定事件处理程序的方法"></a>绑定事件处理程序的方法</h2><p>共有四种方法：HTML、DOM0、DOM2、IE，也可将后三种整合为跨浏览器方法。<br>(1) HTML：<br>对于不同元素，它支持的事件可以用一个与相应事件处理程序同名的HTML attribute来指定。如</p>
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;click here&quot; onclick=&quot;alert(&#39;hi&#39;)&quot;/&gt;
+</code></pre>
+<p>两个缺点：从HTML元素出现到事件处理程序就绪之间存在时差；HTML和JS代码紧密耦合。</p>
+<p>(2) DOM0：<br>先取得一个对象的引用，再将一个函数赋值给该引用的一个事件处理程序属性。</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function()&#123;
+    alert(&quot;Clicked&quot;);
+&#125;
+</code></pre>
+<p>DOM0是元素的方法，事件处理程序是在元素的作用域中运行，在冒泡阶段被处理。在代码运行到它们前不会指定事件处理程序，和HTML方法一样存在时差，可能某段时间内怎么点都没反应。</p>
+<p>(3) DOM2：<br>绑定事件处理程序：addEventListener()<br>删除事件处理程序：removeEventListener()<br>三个参数：要处理的事件名、作为事件处理程序的函数、表示调用事件处理程序阶段的布尔值（true捕获阶段，false冒泡阶段，一般都设为false以保证兼容性）。<br>好处：可以添加多个事件处理程序（按添加他们的顺序触发）。<br>注意事项：通过addEventListener()添加的匿名函数无法移除。<br>备注：IE9起支持DOM2方法。</p>
+<pre><code>//&lt;div id=&quot;div&quot;&gt;click this division&lt;/div&gt;
+var div = document.getElementById(&quot;div&quot;);
+function sayHi()&#123;console.log(&quot;hi&quot;);&#125;
+function sayHi2()&#123;console.log(&quot;hi again&quot;);&#125;
+
+div.addEventListener(&quot;click&quot;,sayHi,false);
+div.addEventListener(&quot;click&quot;,sayHi2,false);
+</code></pre>
+<p>(4) IE：<br>绑定：attachEvent()<br>删除：detachEvent()<br>参数：事件处理名称（以“on”开头，不同于DOM）、事件处理函数<br>注意事项：<br>[1] 匿名函数同样不能移除；<br>[2] 跟使用DOM0方法事件处理程序的作用域不同。DOM0方法中事件处理程序在其所属元素的作用域上运行，IE方法在全局作用域运行，this等于window；<br>[3] 执行顺序跟添加顺序相反；<br>[4] 老版本IE只支持冒泡，所以事件处理程序都会被添加到冒泡阶段；<br>[5] IE9开始不建议使用IE专属方法，IE11彻底取消支持。</p>
+<p>(5) 在添加事件处理程序事addEventListener和attachEvent主要有几个区别</p>
+<p>1.参数个数不相同，这个最直观，addEventListener有三个参数，attachEvent只有两个，attachEvent添加的事件处理程序只能发生在冒泡阶段，addEventListener第三个参数可以决定添加的事件处理程序是在捕获阶段还是冒泡阶段处理（我们一般为了浏览器兼容性都设置为冒泡阶段）</p>
+<p>2.第一个参数意义不同，addEventListener第一个参数是事件类型（比如click，load），而attachEvent第一个参数指明的是事件处理函数名称（onclick，onload）</p>
+<p>3.事件处理程序的作用域不相同，addEventListener的作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id</p>
+<p>4.为一个事件添加多个事件处理程序时，执行顺序不同，addEventListener添加会按照添加顺序执行，而attachEvent添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器</p>
+<p>(6) 跨浏览器：<br>function addEvent(node, type, handler) {<br>    if (!node) return false;<br>    if (node.addEventListener) {<br>        node.addEventListener(type, handler, false);<br>        return true;<br>    }<br>    else if (node.attachEvent) {<br>        node.attachEvent(‘on’ + type, function() { handler.apply(node); });<br>        return true;<br>    }<br>    return false;<br>}<br>这样处理就可以解决handler中有this的问题了，但是新的问题又来了，我们这样等于添加了一个匿名的事件处理程序，无法用detachEvent取消事件处理程序，有很多解决方案，我们可以借鉴大师的处理方式，jQuery创始人John Resig很巧妙地利用了闭包，是这样做的</p>
+<pre><code>function addEvent(node, type, handler) &#123;
+    if (!node) return false;
+    if (node.addEventListener) &#123;
+        node.addEventListener(type, handler, false);
+        return true;
+    &#125;
+    else if (node.attachEvent) &#123;
+        node[&#39;e&#39; + type + handler] = handler;
+        node[type + handler] = function() &#123;
+            node[&#39;e&#39; + type + handler](window.event);
+        &#125;;
+        node.attachEvent(&#39;on&#39; + type, node[type + handler]);
+        return true;
+    &#125;
+    return false;
+&#125;
+</code></pre>
+<p>在取消事件处理程序的时候</p>
+<pre><code>function removeEvent(node, type, handler) &#123;
+    if (!node) return false;
+    if (node.removeEventListener) &#123;
+        node.removeEventListener(type, handler, false);
+        return true;
+    &#125;
+    else if (node.detachEvent) &#123;
+        node.detachEvent(&#39;on&#39; + type, node[type + handler]);
+        node[type + handler] = null;
+    &#125;
+    return false;
+&#125;
+</code></pre>
+<h2 id="事件委托（事件代理）是什么？"><a href="#事件委托（事件代理）是什么？" class="headerlink" title="事件委托（事件代理）是什么？"></a>事件委托（事件代理）是什么？</h2><p>事件委托的意义：<br>1.委托事件有一个优势，他们能在后代元素添加到文档后，可以处理这些事件。在确保所选择的元素已经存在的情况下，进行事件绑定时，可以使用委派的事件，以避免频繁的绑定事件及解除绑定事件。<br>2.除了可以给未创建的后代元素绑定事件外，代理事件的另一个好处就是，当需要监视很多元素的时候，代理事件的开销更小。<br>原理：<br>事件委托利用了事件冒泡，只绑定一个事件处理程序，就可以管理某一类型的所有事件。<br>使用事件委托只需要在DOM树中尽量高的层次上添加一个使用了switch-case的事件处理程序。<br>适用情况：<br>所有用到按钮的事件都适合采用事件委托，最适合的有click、mousedown、mouseup、keydown、keyup、keypress。<br>移除事件处理程序：<br>内存中留有过时不用的空事件处理程序会造成性能问题：<br>1.文档中移除带有事件处理程序的元素（removeChild()、replaceChild()、innerHTML）<br>2.卸载页面<br>针对1：如果知道某个元素即将被移除，最好手工移除事件处理程序，如bt.onclick = null;<br>针对2：在页面卸载前通过onunload事件处理程序移除所有事件处理程序。这时使用事件委托会有明显优势，即需要跟踪的事件处理程序越少，移除越容易。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.stopImmediatePropagation的使用<br>这玩意儿是w3c的东西，使用的也不是特别多，我们知道stopPropagation 可以阻止事件的进一步传播，但是他阻止不了该元素上绑定的其他函数的执行，比如我们在obj上绑定了func1和func2，如果我们在func1中使用了stopPropagation，那func2依然还是会执行出来。倘若这里使用stopImmediatePropagation，结果就不一样了，他不仅阻止事件的传播，还阻止func2的执行。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/计算机/">计算机</a><a href="/tags/前端/">前端</a><a href="/tags/javascript/">javascript</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://example.com/2016/06/21/javaScript%E7%AF%8701--javascript%E4%BA%8B%E4%BB%B6/" data-title="javaScript篇01--javascript事件 | 欢迎来到曾安的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/06/21/HTML5学习总结/" title="HTML5学习总结">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  HTML5学习总结</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/06/14/CSS3学习总结/"  title="CSS3学习总结">
+ <strong>NEXT:</strong><br/> 
+ <span>CSS3学习总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">DOM中的事件对象：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">IE中的事件对象：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.3.</span> <span class="toc-text">跨浏览器的事件对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%A8%A1%E6%8B%9F"><span class="toc-number">5.</span> <span class="toc-text">事件模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">绑定事件处理程序的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">事件委托（事件代理）是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">8.</span> <span class="toc-text">其他</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
+		
+			<li><a href="/categories/生活琐事/" title="生活琐事">生活琐事<sup>1</sup></a></li>
+		
+			<li><a href="/categories/计算机/" title="计算机">计算机<sup>20</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>3</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/SASS/" title="SASS">SASS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>6</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/fiddler/" title="fiddler">fiddler<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/tags/javascript/" title="javascript">javascript<sup>11</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webstorm/" title="webstorm">webstorm<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>22</sup></a></li>
+		
+			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
+		
+			<li><a href="/tags/积累/" title="积累">积累<sup>5</sup></a></li>
+		
+			<li><a href="/tags/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		
+			<li><a href="/tags/计算机/" title="计算机">计算机<sup>20</sup></a></li>
+		
+			<li><a href="/tags/计算机基础/" title="计算机基础">计算机基础<sup>1</sup></a></li>
+		
+			<li><a href="/tags/调试/" title="调试">调试<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2021 
+		
+		<a href="http://example.com" target="_blank" title="angus-Zeng">angus-Zeng</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
