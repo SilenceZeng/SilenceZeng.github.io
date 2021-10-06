@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>秋山的博客</title>
+  
+  <subtitle>最简单的在心头挥之不去</subtitle>
+  <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
+  
+  <link href="https://github.com/SilenceZeng/"/>
+  <updated>2021-10-06T13:01:46.527Z</updated>
+  <id>https://github.com/SilenceZeng/</id>
+  
+  <author>
+    <name>Angus</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6核心内容精讲--快速实践ES6（三）</title>
+    <link href="https://github.com/SilenceZeng/posts/64450.html"/>
+    <id>https://github.com/SilenceZeng/posts/64450.html</id>
+    <published>2021-10-06T09:38:21.912Z</published>
+    <updated>2021-10-06T13:01:46.527Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Promise&quot;&gt;&lt;a href=&quot;#Promise&quot; class=&quot;headerlink&quot; title=&quot;Promise&quot;&gt;&lt;/a&gt;Promise&lt;/h2&gt;&lt;h3 id=&quot;是什么&quot;&gt;&lt;a href=&quot;#是什么&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="ES6" scheme="https://github.com/SilenceZeng/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6核心内容精讲--快速实践ES6（一）</title>
+    <link href="https://github.com/SilenceZeng/posts/26561.html"/>
+    <id>https://github.com/SilenceZeng/posts/26561.html</id>
+    <published>2021-10-06T09:20:22.054Z</published>
+    <updated>2021-10-06T13:42:29.888Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文大量参考了阮一峰老师的开源教程&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="ES6" scheme="https://github.com/SilenceZeng/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6核心内容精讲--快速实践ES6（二）</title>
+    <link href="https://github.com/SilenceZeng/posts/63419.html"/>
+    <id>https://github.com/SilenceZeng/posts/63419.html</id>
+    <published>2021-10-06T09:20:22.054Z</published>
+    <updated>2021-10-06T13:42:30.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Iterator和for…of&quot;&gt;&lt;a href=&quot;#Iterator和for…of&quot; class=&quot;headerlink&quot; title=&quot;Iterator和for…of&quot;&gt;&lt;/a&gt;Iterator和for…of&lt;/h2&gt;&lt;h3 id=&quot;是什么：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="ES6" scheme="https://github.com/SilenceZeng/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SASS学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/31259.html"/>
+    <id>https://github.com/SilenceZeng/posts/31259.html</id>
+    <published>2017-03-22T03:58:26.000Z</published>
+    <updated>2021-10-06T13:42:29.893Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/06/sass.html&quot;&gt;SASS用法指南&lt;/a&gt;&lt;br&gt;SASS是一种CSS预处理器（css</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
+    
+    <category term="SASS" scheme="https://github.com/SilenceZeng/tags/SASS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javaScript篇03--promise</title>
+    <link href="https://github.com/SilenceZeng/posts/20535.html"/>
+    <id>https://github.com/SilenceZeng/posts/20535.html</id>
+    <published>2017-03-22T03:49:14.000Z</published>
+    <updated>2021-10-06T13:42:29.899Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Promise是一种异步处理模式。&lt;br&gt;Promise这种规范，它能帮助开发者用同步的方式，编写异步的代码。&lt;br&gt;再说的直白点，Promise就是一种对执行结果不确定的一种预先定义，如果成功，就xxxx；如果失败，就xxxx，就像事先给出了一些承诺。&lt;/p&gt;
+&lt;p&gt;使用</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack入门</title>
+    <link href="https://github.com/SilenceZeng/posts/23985.html"/>
+    <id>https://github.com/SilenceZeng/posts/23985.html</id>
+    <published>2017-03-22T03:37:26.000Z</published>
+    <updated>2021-10-06T13:42:29.903Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;webpack简述&quot;&gt;&lt;a href=&quot;#webpack简述&quot; class=&quot;headerlink&quot; title=&quot;webpack简述&quot;&gt;&lt;/a&gt;webpack简述&lt;/h2&gt;&lt;p&gt;按照&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="webpack" scheme="https://github.com/SilenceZeng/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>web组件开发入门</title>
+    <link href="https://github.com/SilenceZeng/posts/22329.html"/>
+    <id>https://github.com/SilenceZeng/posts/22329.html</id>
+    <published>2017-03-22T03:21:00.000Z</published>
+    <updated>2021-10-06T13:42:29.908Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本文是学习慕课网&lt;a href=&quot;http://www.imooc.com/learn/99&quot;&gt;阿当大话西游之WEB组件&lt;/a&gt;后的一个总结。&lt;/p&gt;
+&lt;h2 id=&quot;组件的分类&quot;&gt;&lt;a href=&quot;#组件的分类&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flexbox学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/7684.html"/>
+    <id>https://github.com/SilenceZeng/posts/7684.html</id>
+    <published>2017-03-22T03:20:20.000Z</published>
+    <updated>2021-10-06T13:42:29.890Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;flex语法&quot;&gt;&lt;a href=&quot;#flex语法&quot; class=&quot;headerlink&quot; title=&quot;flex语法&quot;&gt;&lt;/a&gt;flex语法&lt;/h2&gt;&lt;p&gt;采用Flex布局的元素，称为Flex容器（flex</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webstorm入门</title>
+    <link href="https://github.com/SilenceZeng/posts/31473.html"/>
+    <id>https://github.com/SilenceZeng/posts/31473.html</id>
+    <published>2017-03-22T03:13:00.000Z</published>
+    <updated>2021-10-06T13:42:29.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;主题和配色&quot;&gt;&lt;a href=&quot;#主题和配色&quot; class=&quot;headerlink&quot; title=&quot;主题和配色&quot;&gt;&lt;/a&gt;主题和配色&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="webstorm" scheme="https://github.com/SilenceZeng/tags/webstorm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery插件开发入门</title>
+    <link href="https://github.com/SilenceZeng/posts/14775.html"/>
+    <id>https://github.com/SilenceZeng/posts/14775.html</id>
+    <published>2017-03-22T03:09:00.000Z</published>
+    <updated>2021-10-06T13:42:29.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="jQuery" scheme="https://github.com/SilenceZeng/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript常见封装方法</title>
+    <link href="https://github.com/SilenceZeng/posts/48038.html"/>
+    <id>https://github.com/SilenceZeng/posts/48038.html</id>
+    <published>2017-03-22T03:07:56.000Z</published>
+    <updated>2021-10-06T13:42:29.891Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.最简单的，使用变量，然后用匿名函数包裹，不封装&lt;/p&gt;
+&lt;p&gt;2.对象字面量简单封装（不完整的模块模式，因为无法达到变量、方法私有效果。不过确实有分离和组织代码的能力，也就算一种简略的模块模式的实现方式）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var Carousel =</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js高级程序设计学习之高级函数</title>
+    <link href="https://github.com/SilenceZeng/posts/31836.html"/>
+    <id>https://github.com/SilenceZeng/posts/31836.html</id>
+    <published>2017-03-21T13:50:40.000Z</published>
+    <updated>2021-10-06T13:42:29.897Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安全的类型检测&quot;&gt;&lt;a href=&quot;#安全的类型检测&quot; class=&quot;headerlink&quot; title=&quot;安全的类型检测&quot;&gt;&lt;/a&gt;安全的类型检测&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;function isArray(value)&amp;#123;
+    return</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery API学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/25542.html"/>
+    <id>https://github.com/SilenceZeng/posts/25542.html</id>
+    <published>2016-12-11T15:17:40.000Z</published>
+    <updated>2021-10-06T13:42:30.044Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;jQuery，在工作中很常用，但是很多API或者使用这些API的注意事项也经常会忘记，因此写个博客总结一下，这样也能复习一下jQuery API。主要参考了&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="jQuery" scheme="https://github.com/SilenceZeng/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fiddler学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/18778.html"/>
+    <id>https://github.com/SilenceZeng/posts/18778.html</id>
+    <published>2016-09-06T14:49:22.000Z</published>
+    <updated>2021-10-06T13:42:29.894Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;fiddler&quot;&gt;&lt;a href=&quot;#fiddler&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="fiddler" scheme="https://github.com/SilenceZeng/tags/fiddler/"/>
+    
+    <category term="调试" scheme="https://github.com/SilenceZeng/tags/%E8%B0%83%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>张鑫旭CSS深入系列学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/37668.html"/>
+    <id>https://github.com/SilenceZeng/posts/37668.html</id>
+    <published>2016-08-30T14:08:04.000Z</published>
+    <updated>2021-10-06T13:42:30.011Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/&quot;&gt;大神博客地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="CSS" scheme="https://github.com/SilenceZeng/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/57973.html"/>
+    <id>https://github.com/SilenceZeng/posts/57973.html</id>
+    <published>2016-06-21T15:19:00.000Z</published>
+    <updated>2021-10-06T13:42:30.018Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;html5与html4区别&quot;&gt;&lt;a href=&quot;#html5与html4区别&quot; class=&quot;headerlink&quot; title=&quot;html5与html4区别&quot;&gt;&lt;/a&gt;html5与html4区别&lt;/h2&gt;&lt;h3 id=&quot;语法的改变&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="HTML5" scheme="https://github.com/SilenceZeng/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javaScript篇01--javascript事件</title>
+    <link href="https://github.com/SilenceZeng/posts/30021.html"/>
+    <id>https://github.com/SilenceZeng/posts/30021.html</id>
+    <published>2016-06-21T15:08:00.000Z</published>
+    <updated>2021-10-06T13:42:29.896Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;事件&quot;&gt;&lt;a href=&quot;#事件&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3学习总结</title>
+    <link href="https://github.com/SilenceZeng/posts/6917.html"/>
+    <id>https://github.com/SilenceZeng/posts/6917.html</id>
+    <published>2016-06-14T15:02:48.000Z</published>
+    <updated>2021-10-06T13:42:29.879Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在CSS3中，并没有采用总体结构，而是采用了分工协作的模块化结构&lt;/p&gt;
+&lt;h2 id=&quot;选择器&quot;&gt;&lt;a href=&quot;#选择器&quot; class=&quot;headerlink&quot; title=&quot;选择器&quot;&gt;&lt;/a&gt;选择器&lt;/h2&gt;&lt;h3 id=&quot;属性选择器：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
+    
+    <category term="css3" scheme="https://github.com/SilenceZeng/tags/css3/"/>
+    
+    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【翻译】CSS水平和垂直居中的12种方法</title>
+    <link href="https://github.com/SilenceZeng/posts/63277.html"/>
+    <id>https://github.com/SilenceZeng/posts/63277.html</id>
+    <published>2016-05-20T14:30:34.000Z</published>
+    <updated>2021-10-06T13:42:29.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
+    
+    <category term="翻译" scheme="https://github.com/SilenceZeng/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用js</title>
+    <link href="https://github.com/SilenceZeng/posts/34587.html"/>
+    <id>https://github.com/SilenceZeng/posts/34587.html</id>
+    <published>2016-05-16T13:22:32.000Z</published>
+    <updated>2021-10-06T13:42:29.912Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.类数组（Array-like）对象/集合转换成一个数组&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function list() &amp;#123;
+  return</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ES6核心内容精讲--快速实践ES6（二）, 秋山的技术博客">
+    <meta name="description" content="行之于途而应于心">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>ES6核心内容精讲--快速实践ES6（二） | 秋山的博客</title>
+    <link rel="icon" type="image/png" href="/SilenceZeng/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/css/my.css">
+
+    <script src="/SilenceZeng/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/SilenceZeng/atom.xml" title="秋山的博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/SilenceZeng/" class="waves-effect waves-light">
+                    
+                    <img src="/SilenceZeng/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">秋山的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/SilenceZeng/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">秋山的博客</div>
+        <div class="logo-desc">
+            
+            行之于途而应于心
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/SilenceZeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/SilenceZeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/SilenceZeng/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">ES6核心内容精讲--快速实践ES6（二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/SilenceZeng/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/ES6/">
+                                <span class="chip bg-color">ES6</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-10-06
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/SilenceZeng/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Iterator和for…of"><a href="#Iterator和for…of" class="headerlink" title="Iterator和for…of"></a>Iterator和for…of</h2><h3 id="是什么："><a href="#是什么：" class="headerlink" title="是什么："></a>是什么：</h3><p>Iterator(迭代器)是专门用来控制如何遍历的对象，具有特殊的接口。</p>
+<p>Iterator接口是一种数据遍历的协议，只要调用迭代器对象对象的next方法，就会得到一个对象，表示当前遍历指针所在的那个位置的信息，这个包含done和value两个属性。</p>
+<p>迭代器对象创建后，可以反复调用 next()使用。</p>
+<h3 id="怎么用："><a href="#怎么用：" class="headerlink" title="怎么用："></a>怎么用：</h3><p>Iterator对象带有next方法，每一次调用next方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含value和done两个属性的对象。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
+<p>ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。执行这个函数，就会返回一个遍历器。</p>
+<pre><code>let obj = &#123;
+  data: [ &#39;hello&#39;, &#39;world&#39; ],
+  [Symbol.iterator]() &#123;
+    const self = this
+    let index = 0
+    return &#123;
+      next() &#123;
+        if (index &lt; self.data.length) &#123;
+          return &#123;
+            value: self.data[index++],
+            done: false
+          &#125;
+        &#125; else &#123;
+          return &#123; value: undefined, done: true &#125;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+
+for(let item of obj)&#123;
+    console.log(item)
+&#125;
+// hello
+// world
+</code></pre>
+<p>如上，for-of循环首先调用obj对象的Symbol.iterator方法，紧接着返回一个新的迭代器对象。迭代器对象可以是任意具有.next()方法的对象,for-of循环将重复调用这个方法，每次循环调用一次。return的对象中value表示当前的值，done表示是否完成迭代。</p>
+<p>Iterator的作用有三个：</p>
+<ol>
+<li><p>为各种数据结构，提供一个统一的、简便的访问接口；</p>
+</li>
+<li><p>使得数据结构的成员能够按某种次序排列；</p>
+</li>
+<li><p>ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</p>
+</li>
+</ol>
+<p>一个数据结构只要部署了Symbol.iterator属性，就被视为具有iterator接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。</p>
+<p>for…of循环可以使用的范围包括数组、Set和Map结构、某些类似数组的对象（比如arguments对象、DOM NodeList对象）、后文的Generator对象，以及字符串。</p>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>ES6引入了一种第六种基本类型的数据：Symbol。Symbol是一种特殊的、不可变的数据类型，可以作为对象属性的标识符使用。</p>
+<h3 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h3><p>调用Symbol()创建一个新的symbol，它的值与其它任何值皆不相等。</p>
+<pre><code>var sym = new Symbol() // TypeError，阻止创建一个显式的Symbol包装器对象而不是一个Symbol值
+var s1 = Symbol(&#39;foo&#39;)
+var s2 = Symbol(&#39;foo&#39;)
+s1 === s2 // false
+</code></pre>
+<h3 id="常用使用场景："><a href="#常用使用场景：" class="headerlink" title="常用使用场景："></a>常用使用场景：</h3><p>由于每一个Symbol值都是不相等的，因此常作为对象的属性名来防止某一个键被不小心改写或覆盖，这个以symbol为键的属性可以保证不与任何其它属性产生冲突。</p>
+<p>作为对象属性名时的遍历：参见对象的遍历那节</p>
+<h3 id="内置的Symbol值："><a href="#内置的Symbol值：" class="headerlink" title="内置的Symbol值："></a>内置的Symbol值：</h3><p>除了定义自己使用的Symbol值以外，ES6还提供了11个内置的Symbol值，指向语言内部使用的方法。其中一个很重要的就是Iterator中提到的Symbol.iterator</p>
+<h2 id="Reflect（反射）"><a href="#Reflect（反射）" class="headerlink" title="Reflect（反射）"></a>Reflect（反射）</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>Reflect是一个内置的对象，它提供可拦截JavaScript操作的方法。</p>
+<h3 id="为什么要增加Reflect对象"><a href="#为什么要增加Reflect对象" class="headerlink" title="为什么要增加Reflect对象"></a>为什么要增加Reflect对象</h3><p><a href="https://github.com/tvcutsem/harmony-reflect/wiki#reflect">参考链接</a></p>
+<p>1）更有用的返回值</p>
+<p>比如，Object.defineProperty(obj, name, desc)在无法定义属性时，会抛出一个错误，而Reflect.defineProperty(obj, name, desc)则会返回false。</p>
+<pre><code>// 老写法
+try &#123;
+  Object.defineProperty(target, property, attributes);
+  // success
+&#125; catch (e) &#123;
+  // failure
+&#125;
+
+// 新写法
+if (Reflect.defineProperty(target, property, attributes)) &#123;
+  // success
+&#125; else &#123;
+  // failure
+&#125;
+</code></pre>
+<p>2）函数操作。某些Object操作是命令式，比如name in obj和delete obj[name]，而Reflect.has(obj, name)和Reflect.deleteProperty(obj, name)让它们变成了函数行为</p>
+<p>3）更加可靠的函数调用方式</p>
+<p>在ES5中，当我们想传一个参数数组args来调用函数f，并且将this绑定为this，可以这样写：</p>
+<pre><code>f.apply(obj, args)
+</code></pre>
+<p>但是，f可能是一个故意或者不小心定义了它自己的apply方法的对象。当你想确保你调用的是内置的apply方法时，一种典型的方法是这样写的：</p>
+<pre><code>Function.prototype.apply.call(f, obj, args)
+</code></pre>
+<p>但是这种方法不仅冗长而且难以理解。通过使用Reflect，你可以以一种更简单、容易的方式来可靠地进行函数调用</p>
+<pre><code>Reflect.apply(f, obj, args)
+</code></pre>
+<p>4）可变参数的构造函数</p>
+<p>假设你想调用一个参数是可变的构造函数。在ES6中，由于新的扩展运算符，你可能可以这样写：</p>
+<pre><code>var obj = new F(...args)
+</code></pre>
+<p>在ES5中，这更加难写，因为只有通过F.apply或者F.call传递可变参数来调用函数，但是没有F.contruct来传递可变参数实例化一个构造函数。通过Reflect，在ES5中可以这样写（内容翻译自参考链接，链接的项目是ES6 Reflect和Proxy的一个ES5 shim，所以会这么说）：</p>
+<pre><code>var obj = Reflect.construct(F, args)
+</code></pre>
+<p>5）为Proxy(代理，见下一章)的traps提供默认行为</p>
+<p>当使用Proxy对象去包裹存在的对象时，拦截一个操作是很常见的。执行一些行为，然后去“做默认的事情”，这是对包裹的对象进行拦截操作的典型形式。例如，我只是想在获取对象obj的属性时log出所有的属性：</p>
+<pre><code>var loggedObj = new Proxy(obj, &#123;
+  get: function(target, name) &#123;
+    console.log(&quot;get&quot;, target, name);
+    // now do the default thing
+  &#125;
+&#125;);
+</code></pre>
+<p>Reflect和Proxy的API被设计为互相联系、协同的，因此每个Proxy trap都有一个对应的Reflect去“做默认的事情”。因此当你发现你想在Proxy的handler中“做默认的事情”是，正确的事情永远都是去调用Reflect对象对应的方法：</p>
+<pre><code>var loggedObj = new Proxy(obj, &#123;
+  get: function(target, name) &#123;
+    console.log(&quot;get&quot;, target, name);
+    return Reflect.get(target, name);
+  &#125;
+&#125;);
+</code></pre>
+<p>Reflect方法的返回类型已经被确保了能和Proxy traps的返回类型兼容。</p>
+<p>6）控制访问或者读取时的this</p>
+<pre><code>var name = ... // get property name as a string
+Reflect.get(obj, name, wrapper) // if obj[name] is an accessor, it gets run with `this === wrapper`
+Reflect.set(obj, name, value, wrapper)
+</code></pre>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>Reflect对象一共有14个静态方法（其中Reflect.enumerate被废弃）</p>
+<p>与大多数全局对象不同，Reflect没有构造函数。不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。</p>
+<p>Reflect对象提供以下静态函数，它们与代理处理程序方法（Proxy的handler）有相同的名称。这些方法中的一些与Object上的对应方法基本相同，有些遍历操作稍有不同，见对象扩展遍历那节。</p>
+<h4 id="Reflect-apply"><a href="#Reflect-apply" class="headerlink" title="Reflect.apply()"></a>Reflect.apply()</h4><p>对一个函数进行调用操作，同时可以传入一个数组作为调用参数。和Function.prototype.apply()功能类似。</p>
+<h4 id="Reflect-construct"><a href="#Reflect-construct" class="headerlink" title="Reflect.construct()"></a>Reflect.construct()</h4><p>对构造函数进行new操作，相当于执行new target(…args)。</p>
+<h4 id="Reflect-defineProperty"><a href="#Reflect-defineProperty" class="headerlink" title="Reflect.defineProperty()"></a>Reflect.defineProperty()</h4><p>和Object.defineProperty()类似。</p>
+<h4 id="Reflect-deleteProperty"><a href="#Reflect-deleteProperty" class="headerlink" title="Reflect.deleteProperty()"></a>Reflect.deleteProperty()</h4><p>删除对象的某个属性，相当于执行delete target[name]。</p>
+<h4 id="Reflect-enumerate"><a href="#Reflect-enumerate" class="headerlink" title="Reflect.enumerate()"></a>Reflect.enumerate()</h4><p>该方法会返回一个包含有目标对象身上所有可枚举的自身字符串属性以及继承字符串属性的迭代器，for…in 操作遍历到的正是这些属性。</p>
+<h4 id="Reflect-get"><a href="#Reflect-get" class="headerlink" title="Reflect.get()"></a>Reflect.get()</h4><p>获取对象身上某个属性的值，类似于target[name]。</p>
+<h4 id="Reflect-getOwnPropertyDescriptor"><a href="#Reflect-getOwnPropertyDescriptor" class="headerlink" title="Reflect.getOwnPropertyDescriptor()"></a>Reflect.getOwnPropertyDescriptor()</h4><p>类似于Object.getOwnPropertyDescriptor()。</p>
+<h4 id="Reflect-getPrototypeOf"><a href="#Reflect-getPrototypeOf" class="headerlink" title="Reflect.getPrototypeOf()"></a>Reflect.getPrototypeOf()</h4><p>类似于Object.getPrototypeOf()。</p>
+<h4 id="Reflect-has"><a href="#Reflect-has" class="headerlink" title="Reflect.has()"></a>Reflect.has()</h4><p>判断一个对象是否存在某个属性，和in运算符的功能完全相同。</p>
+<h4 id="Reflect-isExtensible"><a href="#Reflect-isExtensible" class="headerlink" title="Reflect.isExtensible()"></a>Reflect.isExtensible()</h4><p>类似于Object.isExtensible().</p>
+<h4 id="Reflect-ownKeys"><a href="#Reflect-ownKeys" class="headerlink" title="Reflect.ownKeys()"></a>Reflect.ownKeys()</h4><p>返回一个包含所有自身属性（不包含继承属性）的数组。</p>
+<h4 id="Reflect-preventExtensions"><a href="#Reflect-preventExtensions" class="headerlink" title="Reflect.preventExtensions()"></a>Reflect.preventExtensions()</h4><p>类似于Object.preventExtensions()。</p>
+<h4 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set()"></a>Reflect.set()</h4><p>设置对象身上某个属性的值，类似于target[name] = val。</p>
+<h4 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf()"></a>Reflect.setPrototypeOf()</h4><p>类似于Object.setPrototypeOf()。</p>
+<h2 id="Proxy（代理）"><a href="#Proxy（代理）" class="headerlink" title="Proxy（代理）"></a>Proxy（代理）</h2><h3 id="是什么-2"><a href="#是什么-2" class="headerlink" title="是什么"></a>是什么</h3><p>Proxy对象用于定义基本操作的自定义行为 (例如属性查找，赋值，枚举，函数调用等)。</p>
+<p>一些术语：</p>
+<ul>
+<li>handler：包含traps的对象。</li>
+<li>traps：提供访问属性的方法，与操作系统中的traps定义相似。</li>
+<li>target：被代理虚拟化的对象，这个对象常常用作代理的存储后端。</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>ES6原生提供Proxy构造函数，用来生成Proxy实例。</p>
+<pre><code>var proxy = new Proxy(target, handler);
+</code></pre>
+<p>Proxy对象的所有用法，都是上面这种形式，不同的只是handler参数的写法。其中，new Proxy()表示生成一个Proxy实例，target参数表示所要代理的目标对象，handler参数也是一个对象，用来定制代理行为。</p>
+<p>下面代码对一个空对象进行了代理，重定义了属性的读取（get）和设置（set）行为。</p>
+<pre><code>var obj = new Proxy(&#123;&#125;, &#123;
+  get: function (target, key, receiver) &#123;
+    console.log(`getting $&#123;key&#125;!`);
+    return Reflect.get(target, key, receiver);
+  &#125;,
+  set: function (target, key, value, receiver) &#123;
+    console.log(`setting $&#123;key&#125;!`);
+    return Reflect.set(target, key, value, receiver);
+  &#125;
+&#125;);
+
+obj.count = 1
+//  setting count!
+++obj.count
+//  getting count!
+//  setting count!
+//  2
+</code></pre>
+<h4 id="handler对象的方法"><a href="#handler对象的方法" class="headerlink" title="handler对象的方法"></a>handler对象的方法</h4><p>handler是一个包含了Proxy的traps的占位符对象。</p>
+<p>所有的trap都是可选的，如果某个trap没有定义，将会对target进行默认操作。这些trap和Reflect的静态方法是对应的，可以使用Reflect对应的静态方法提供默认行为。上面的例子中，handler定义了get和set两个trap，每个trap都是一个方法，接收一些参数。返回了对应的Reflect方法来执行默认方法。</p>
+<p>handler的每个方法可以理解为对相应的某个方法进行代理拦截。</p>
+<p>handler.getPrototypeOf(target)：Object.getPrototypeOf的一个trap</p>
+<p>handler.setPrototypeOf(target, proto)：Object.setPrototypeOf的一个trap</p>
+<p>handler.isExtensible(target)：Object.isExtensible的一个trap</p>
+<p>handler.preventExtensions(target)：Object.preventExtensions的一个trap</p>
+<p>handler.getOwnPropertyDescriptor(target, propKey)：Object.getOwnPropertyDescriptor的一个trap</p>
+<p>handler.defineProperty(target, propKey, propDesc)：Object.defineProperty的一个trap</p>
+<p>handler.has(target, propKey)：in操作的一个trap</p>
+<p>handler.get(target, propKey, receiver)：获取属性值的一个trap</p>
+<p>handler.set(target, propKey, value, receiver)：设置属性值的一个trap</p>
+<p>handler.deleteProperty(target, propKey)：delete操作的一个trap</p>
+<p>handler.ownKeys(target)：Object.getOwnPropertyNames和Object.getOwnPropertySymbols的一个trap</p>
+<p>handler.apply(target, object, args)：函数调用的一个trap</p>
+<p>handler.construct(target, args)：new操作的一个trap</p>
+<h4 id="Proxy-revocable"><a href="#Proxy-revocable" class="headerlink" title="Proxy.revocable()"></a>Proxy.revocable()</h4><p>Proxy.revocable方法返回一个可取消的Proxy实例。</p>
+<pre><code>let target = &#123;&#125;;
+let handler = &#123;&#125;;
+
+let &#123;proxy, revoke&#125; = Proxy.revocable(target, handler);
+
+proxy.foo = 123;
+proxy.foo // 123
+
+revoke();
+proxy.foo // TypeError: Revoked
+</code></pre>
+<p>Proxy.revocable方法返回一个对象，该对象的proxy属性是Proxy实例，revoke属性是一个函数，可以取消Proxy实例。上面代码中，当执行revoke函数之后，再访问Proxy实例，就会抛出一个错误。</p>
+<p>Proxy.revocable的一个使用场景是，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>上面说的那些可能都比较虚，去看一下w3cplus上翻译的<a target="_blank" rel="noopener" href="https://www.w3cplus.com/javascript/use-cases-for-es6-proxies.html">实例解析ES6 Proxy使用场景</a>，可能就会更清楚地明白该怎么用。</p>
+<p>如实例解析ES6 Proxy使用场景中所说，Proxy其功能非常类似于设计模式中的代理模式，该模式常用于三个方面：</p>
+<ul>
+<li>拦截和监视外部对对象的访问</li>
+<li>降低函数或类的复杂度</li>
+<li>在复杂操作前对操作进行校验或对所需资源进行管理</li>
+</ul>
+<p>有以下5个常见使用场景：</p>
+<ol>
+<li><p>抽离校验模块</p>
+</li>
+<li><p>私有属性</p>
+</li>
+<li><p>访问日志</p>
+</li>
+<li><p>预警和拦截</p>
+</li>
+<li><p>过滤操作</p>
+</li>
+</ol>
+<h2 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h2><h3 id="类："><a href="#类：" class="headerlink" title="类："></a>类：</h3><p>将原先JavaScript中传统的通过构造函数生成新对象的方式变为类的方式，contructor内是构造函数执行的代码，外面的方法为原型上的方法</p>
+<pre><code>// ES5
+function Point(x, y) &#123;
+  this.x = x
+  this.y = y
+&#125;
+
+Point.prototype.toString = function () &#123;
+  return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;
+&#125;
+
+var p = new Point(1, 2)
+
+//定义类
+class Point &#123;
+  constructor(x, y) &#123;
+    this.x = x
+    this.y = y
+  &#125;
+
+  // 静态方法，static关键字，就表示该方法不会被实例继承(但是会被子类继承)，而是直接通过类来调用
+  static classMethod() &#123;
+    return &#39;hello&#39;
+  &#125;
+
+  toString() &#123;
+    return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;
+  &#125;
+&#125;
+</code></pre>
+<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h3><p>通过extends关键字来实现。super关键字则是用来调用父类</p>
+<p>ES5的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。ES6的继承机制完全不同，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。理解了这句话，下面1,2两点也就顺其自然了：</p>
+<p>1）子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
+<p>2）在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。</p>
+<pre><code>class ColorPoint extends Point &#123;
+  constructor(x, y, color) &#123;
+    super(x, y); // 调用父类的constructor(x, y)        
+        this.color = color;
+  &#125;
+
+  toString() &#123;
+    return this.color + &#39; &#39; + super.toString() // 调用父类的toString()
+  &#125;
+&#125;
+
+Object.getPrototypeOf(ColorPoint) === Point // true
+</code></pre>
+<p>3）mixin: 继承多个类</p>
+<pre><code>function mix(...mixins) &#123;
+  class Mix &#123;&#125;
+
+  for (let mixin of mixins) &#123;
+    copyProperties(Mix, mixin);
+    copyProperties(Mix.prototype, mixin.prototype);
+  &#125;
+
+  return Mix
+&#125;
+
+function copyProperties(target, source) &#123;
+  for (let key of Reflect.ownKeys(source)) &#123;
+    if ( key !== &quot;constructor&quot;
+      &amp;&amp; key !== &quot;prototype&quot;
+      &amp;&amp; key !== &quot;name&quot;
+    ) &#123;
+      let desc = Object.getOwnPropertyDescriptor(source, key);
+      Object.defineProperty(target, key, desc)
+    &#125;
+  &#125;
+&#125;
+
+class DistributedEdit extends mix(Loggable, Serializable) &#123;
+  // ...
+&#125;
+</code></pre>
+<p>4）new.target属性：通过检查new.target对象是否是undefined，可以判断函数是否通过new进行调用。</p>
+<pre><code>function Person(name) &#123;
+  if (new.target !== undefined) &#123;
+    this.name = name
+  &#125; else &#123;
+    throw new Error(&#39;必须使用new生成实例&#39;)
+  &#125;
+&#125;
+
+// 另一种写法
+function Person(name) &#123;
+  if (new.target === Person) &#123;
+    this.name = name
+  &#125; else &#123;
+    throw new Error(&#39;必须使用new生成实例&#39;)
+  &#125;
+&#125;
+
+var person = new Person(&#39;张三&#39;) // 正确
+var notAPerson = Person.call(person, &#39;张三&#39;)  // 报错
+</code></pre>
+<h2 id="Decorator-装饰器"><a href="#Decorator-装饰器" class="headerlink" title="Decorator(装饰器)"></a>Decorator(装饰器)</h2><h3 id="是什么-3"><a href="#是什么-3" class="headerlink" title="是什么"></a>是什么</h3><p>Decorator是用来修改类（包括类和类的属性）的一个函数。</p>
+<p>这是ES的一个提案，其实是ES7的特性，目前Babel转码器已经支持。</p>
+<h3 id="怎么用-1"><a href="#怎么用-1" class="headerlink" title="怎么用"></a>怎么用</h3><p>1）修饰类：在类之前使用@加函数名，装饰器函数的第一个参数，就是所要修饰的目标类</p>
+<pre><code>function testable(target) &#123;
+  target.prototype.isTestable = true;
+&#125;
+
+@testable
+class MyTestableClass &#123;&#125;
+
+let obj = new MyTestableClass();
+obj.isTestable // true
+</code></pre>
+<p>装饰器函数也可以是一个工厂方法</p>
+<pre><code>function testable(isTestable) &#123;
+  return function(target) &#123;
+    target.isTestable = isTestable;
+  &#125;
+&#125;
+
+@testable(true)
+class MyTestableClass &#123;&#125;
+MyTestableClass.isTestable // true
+
+@testable(false)
+class MyClass &#123;&#125;
+MyClass.isTestable // false
+</code></pre>
+<p>2）修饰类的属性：修饰器函数一共可以接受三个参数，第一个参数是所要修饰的目标对象，第二个参数是所要修饰的属性名，第三个参数是该属性的描述对象。装饰器在作用于属性的时候，实际上是通过Object.defineProperty来进行扩展和封装的。</p>
+<p>下面是一个例子，修改属性描述对象的enumerable属性，使得该属性不可遍历。</p>
+<pre><code>class Person &#123;
+  @nonenumerable
+  get kidCount() &#123; return this.children.length; &#125;
+&#125;
+
+function nonenumerable(target, name, descriptor) &#123;
+  descriptor.enumerable = false;
+  return descriptor;
+&#125;
+</code></pre>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><a href="https://github.com/jayphelps/core-decorators.js">core-decorators.js</a>这个第三方模块提供了几个常见的修饰器。</p>
+<p>在修饰器的基础上，可以实现Mixin模式等。</p>
+<h2 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module(模块)"></a>Module(模块)</h2><p>在ES6之前，前端和nodejs实践中已经有一些模块加载方案，如CommonJS、AMD、CMD等。ES6在语言标准的层面上，实现了模块功能。</p>
+<p>模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</p>
+<h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。必须使用export关键字输出该变量。有以下两种不同的导出方式：</p>
+<h4 id="命名导出"><a href="#命名导出" class="headerlink" title="命名导出"></a>命名导出</h4><p>命名导出规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
+<pre><code>export &#123; myFunction &#125;; // 导出一个函数声明
+export const foo = Math.sqrt(2); // 导出一个常量
+</code></pre>
+<h4 id="默认导出-每个脚本只能有一个-，使用export-default命令："><a href="#默认导出-每个脚本只能有一个-，使用export-default命令：" class="headerlink" title="默认导出 (每个脚本只能有一个)，使用export default命令："></a>默认导出 (每个脚本只能有一个)，使用export default命令：</h4><pre><code> export default myFunctionOrClass
+</code></pre>
+<p>本质上，export default就是输出一个叫做default的变量或方法，然后系统允许你为它取任意名字</p>
+<p>对于只导出一部分值来说，命名导出的方式很有用。在导入时候，可以使用相同的名称来引用对应导出的值。</p>
+<p>关于默认导出方式，每个模块只有一个默认导出。一个默认导出可以是一个函数，一个类，一个对象等。当最简单导入的时候，这个值是将被认为是”入口”导出值。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>使用export命令定义了模块的对外接口以后，其他JS文件就可以通过import命令加载这个模块。</p>
+<pre><code>import &#123; foo, bar &#125; from &#39;my_module&#39; // 指定加载某个输出值
+
+import &#39;lodash&#39;; // 仅执行
+
+import &#123; lastName as surname &#125; from &#39;./profile&#39;; // 为输入的模块重命名
+
+import * as circle from &#39;./circle&#39;; // 整体加载
+
+/*export和import复合写法*/
+export &#123; foo, bar &#125; from &#39;my_module&#39;;
+
+// 等同于
+import &#123; foo, bar &#125; from &#39;my_module&#39;;
+export &#123; foo, bar &#125;;
+</code></pre>
+<h3 id="ES6模块与CommonJS模块的差异"><a href="#ES6模块与CommonJS模块的差异" class="headerlink" title="ES6模块与CommonJS模块的差异"></a>ES6模块与CommonJS模块的差异</h3><p>它们有两个重大差异。</p>
+<ul>
+<li>CommonJS模块输出的是一个值的拷贝，ES6模块输出的是值的引用。</li>
+<li>CommonJS模块是运行时加载，ES6模块是编译时输出接口。</li>
+</ul>
+<p>CommonJS是运行时加载，ES6是编译时加载，使得静态分析成为可能</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p>ES6的模块自动采用严格模式。因此ES6模块中，顶层的this指向undefined。</p>
+</li>
+<li><p>export一般放在两头即开始或者结尾这样更能清晰地明白暴露了什么变量</p>
+</li>
+<li><p>注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。因为不是运行时加载，不支持条件加载、按需加载等</p>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/SilenceZeng/about" rel="external nofollow noreferrer">Angus</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/SilenceZeng/SilenceZeng/posts/63419.html">https://github.com/SilenceZeng/SilenceZeng/posts/63419.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/SilenceZeng/about" target="_blank">Angus</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">前端</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/ES6/">
+                                    <span class="chip bg-color">ES6</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/SilenceZeng/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/SilenceZeng/posts/26561.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/SilenceZeng/medias/featureimages/9.jpg" class="responsive-img" alt="ES6核心内容精讲--快速实践ES6（一）">
+                        
+                        <span class="card-title">ES6核心内容精讲--快速实践ES6（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/ES6/">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/SilenceZeng/posts/31259.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/SilenceZeng/medias/featureimages/0.jpg" class="responsive-img" alt="SASS学习总结">
+                        
+                        <span class="card-title">SASS学习总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/SASS/">
+                        <span class="chip bg-color">SASS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/SilenceZeng/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/SilenceZeng/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/SilenceZeng/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2021</span>
+            
+            <span id="year">2015</span>
+            <a href="/SilenceZeng/about" target="_blank">Angus</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/SilenceZeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:tsang1205@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/SilenceZeng/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/SilenceZeng/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/SilenceZeng/libs/materialize/materialize.min.js"></script>
+    <script src="/SilenceZeng/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/SilenceZeng/libs/aos/aos.js"></script>
+    <script src="/SilenceZeng/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/SilenceZeng/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/SilenceZeng/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/SilenceZeng/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

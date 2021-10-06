@@ -1,0 +1,1266 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3学习总结, 秋山的技术博客">
+    <meta name="description" content="行之于途而应于心">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CSS3学习总结 | 秋山的博客</title>
+    <link rel="icon" type="image/png" href="/SilenceZeng/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/SilenceZeng/css/my.css">
+
+    <script src="/SilenceZeng/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/SilenceZeng/atom.xml" title="秋山的博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/SilenceZeng/" class="waves-effect waves-light">
+                    
+                    <img src="/SilenceZeng/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">秋山的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/SilenceZeng/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/SilenceZeng/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">秋山的博客</div>
+        <div class="logo-desc">
+            
+            行之于途而应于心
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/SilenceZeng/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/SilenceZeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/SilenceZeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/SilenceZeng/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSS3学习总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/SilenceZeng/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/css/">
+                                <span class="chip bg-color">css</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/css3/">
+                                <span class="chip bg-color">css3</span>
+                            </a>
+                        
+                            <a href="/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/">
+                                <span class="chip bg-color">积累</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2016-06-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/SilenceZeng/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>在CSS3中，并没有采用总体结构，而是采用了分工协作的模块化结构</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="属性选择器："><a href="#属性选择器：" class="headerlink" title="属性选择器："></a>属性选择器：</h3><p>[att*=val]<br>[att^=val]<br>[att$=val]</p>
+<h3 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h3><p>a:link<br>a:visited<br>a:hover<br>a:active</p>
+<p>:first-line<br>:first-letter<br>:after<br>:before</p>
+<p>:root<br>:not()<br>:empty<br>:target</p>
+<p>:first-child  (css2)<br>:last-child   (css3)<br>:nth-child()<br>:nth-last-child()<br>:nth-of-type()<br>:nth-last-of-type()<br>:only-child</p>
+<p>:hover<br>:active<br>:focus</p>
+<p>:enabled<br>:disabled<br>:read-only<br>:read-write<br>:checked</p>
+<p>::selection</p>
+<h2 id="使用选择器在页面中插入内容"><a href="#使用选择器在页面中插入内容" class="headerlink" title="使用选择器在页面中插入内容"></a>使用选择器在页面中插入内容</h2><p>利用before伪元素和after伪元素的content属性插入内容</p>
+<h3 id="插入文字"><a href="#插入文字" class="headerlink" title="插入文字"></a>插入文字</h3><pre><code>h2:before&#123;
+    content: &#39;COLUMN&#39;;
+    color：#fff;
+    background: orange;
+    font-family: &#39;Comic Sans MS&#39;,Helvetica,sans-serif;
+    padding: 1px 5px;
+    margin-right: 10px;
+&#125;
+</code></pre>
+<p>指定个别元素不进行插入：none属性和normal属性</p>
+<h3 id="插入图像文件"><a href="#插入图像文件" class="headerlink" title="插入图像文件"></a>插入图像文件</h3><pre><code>h2:before&#123;
+    content: url(https://www.baidu.com/img/bd_logo1.png);
+&#125;
+</code></pre>
+<p>content: attr(name);</p>
+<pre><code>img:after&#123;
+    content: attr(alt);
+&#125;
+a:after&#123;
+    content: &quot;(&quot;attr(href)&quot;)&quot;;
+&#125;
+</code></pre>
+<h3 id="使用content属性来插入项目编号"><a href="#使用content属性来插入项目编号" class="headerlink" title="使用content属性来插入项目编号"></a>使用content属性来插入项目编号</h3><p>指定编号的种类</p>
+<pre><code>h1&#123;
+    counter-increment: mycounter;
+&#125;
+h1:before&#123;
+    content: counter(mycounter,upper-roman)&#39;.&#39;;
+    color: blue;
+    font-size: 42px;
+&#125;
+</code></pre>
+<p>编号嵌套：</p>
+<pre><code>h1&#123;
+    counter-increment: mycounter;
+    counter-reset: subcounter;
+&#125;
+h1:before&#123;
+    content: counter(mycounter)&#39;.&#39;;
+&#125;
+h2&#123;
+    counter-increment: subcounter;
+&#125;
+h2:before&#123;
+    content: counter(mycounter)&#39;-&#39;counter(subcounter)&#39;.&#39;;
+&#125;
+</code></pre>
+<p>在字符串两边添加嵌套文字符号</p>
+<pre><code>h1&#123;
+    quotes:&#39;(&#39;&#39;)&#39;;
+&#125;
+h1:before&#123;
+    content: open-quote;
+&#125;
+
+h1:after&#123;
+    content: close-quote;
+&#125;
+</code></pre>
+<h2 id="文字与字体"><a href="#文字与字体" class="headerlink" title="文字与字体"></a>文字与字体</h2><h3 id="阴影：text-shadow"><a href="#阴影：text-shadow" class="headerlink" title="阴影：text-shadow"></a>阴影：text-shadow</h3><p>多个阴影：</p>
+<pre><code>div&#123;
+    text-shadow: 5px 5px 5px gray,
+        10px 10px 5px red,
+        15px 15px 5px blue;
+    font-size: 50px;
+&#125;
+</code></pre>
+<h3 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h3><p>当word-break属性为break-all时，对于西文来说，允许在单词内换行，对于标点符号，实测在Firefox中允许标点符号位于行首，其他浏览器不允许。</p>
+<h3 id="word-wrap"><a href="#word-wrap" class="headerlink" title="word-wrap"></a>word-wrap</h3><p>word-wrap:break-word;<br>word-wrap 是用来决定允不允许英文单词内断句的，如果不允许的话长单词就会溢出。最重要的一点是它还是会首先尝试挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句。<br>而word-break:break-all则更变态，因为它断句的方式非常粗暴，它不会尝试把长单词挪到下一行，而是直接进行单词内的断句</p>
+<h3 id="font-face"><a href="#font-face" class="headerlink" title="@font-face"></a>@font-face</h3><h3 id="font-size-adjust"><a href="#font-size-adjust" class="headerlink" title="font-size-adjust"></a>font-size-adjust</h3><p>font-size-adjust属性为某个元素规定一个aspect值，这样就可以保持首选字体的x-height。字体的小写字母 “x” 的高度与”font-size”高度之间的比率被称为一个字体的aspect值。</p>
+<h2 id="盒相关的样式"><a href="#盒相关的样式" class="headerlink" title="盒相关的样式"></a>盒相关的样式</h2><h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><p>none     此元素不会被显示。<br>block     此元素将显示为块级元素，此元素前后会带有换行符。<br>inline     默认。此元素会被显示为内联元素，元素前后没有换行符。<br>inline-block     行内块元素。<br>list-item     此元素会作为列表显示。<br>table     此元素会作为块级表格来显示（类似table），表格前后带有换行符。<br>inline-table     此元素会作为内联表格来显示（类似table），表格前后没有换行符。<br>table-cell     此元素会作为一个表格单元格显示（类似td和th）</p>
+<h3 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h3><h3 id="box-sizing-IE8"><a href="#box-sizing-IE8" class="headerlink" title="box-sizing(IE8+)"></a>box-sizing(IE8+)</h3><h2 id="背景和边框相关的样式"><a href="#背景和边框相关的样式" class="headerlink" title="背景和边框相关的样式"></a>背景和边框相关的样式</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>background    在一个声明中设置所有的背景属性。<br>background-attachment    设置背景图像是否固定或者随着页面的其余部分滚动。<br>background-color    设置元素的背景颜色。<br>background-image    设置元素的背景图像。<br>background-position    设置背景图像的开始位置。<br>background-repeat    设置是否及如何重复背景图像。<br>background-clip    规定背景的绘制区域。css3默认为border-box<br>background-origin    规定背景图片的定位区域。<br>background-size    规定背景图片的尺寸。</p>
+<h3 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h3><h3 id="border-image"><a href="#border-image" class="headerlink" title="border-image"></a>border-image</h3><p>JavaScript 语法：object.style.borderImage=”url(border.png) 30 30 round”<br>border-image-repeat: repeat/round/stretch</p>
+<h2 id="CSS3中的变形处理"><a href="#CSS3中的变形处理" class="headerlink" title="CSS3中的变形处理"></a>CSS3中的变形处理</h2><p>translate()<br>rotate()<br>scale()<br>skew()<br>matrix()<br>transform    向元素应用2D或3D转换<br>transform-origin    允许你改变被转换元素的位置</p>
+<p><em>注意：这些方法只对block水平元素有效</em></p>
+<h2 id="过渡与动画"><a href="#过渡与动画" class="headerlink" title="过渡与动画"></a>过渡与动画</h2><h3 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h3><p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。<br>要实现这一点，必须规定两项内容：<br>规定您希望把效果添加到哪个 CSS 属性上<br>规定效果的时长</p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>当您在 @keyframes 中创建动画时，请把它捆绑到某个选择器，否则不会产生动画效果。<br>通过规定至少以下两项 CSS3 动画属性，即可将动画绑定到选择器：<br>规定动画的名称<br>规定动画的时长</p>
+<h2 id="多列"><a href="#多列" class="headerlink" title="多列"></a>多列</h2><p>column-count<br>column-gap<br>column-rule</p>
+<h2 id="弹性盒子"><a href="#弹性盒子" class="headerlink" title="弹性盒子"></a>弹性盒子</h2><p><a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a><br>Properties for the Parent(flex container):<br>display: flex; /* or inline-flex */<br>flex-direction: row | row-reverse | column | column-reverse;<br>flex-wrap: nowrap | wrap | wrap-reverse;<br>flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;<br>justify-content: flex-start | flex-end | center | space-between | space-around;<br>align-items: flex-start | flex-end | center | baseline | stretch;<br>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</p>
+<p>Properties for the Children(flex items):<br>1)order: integer;<br>2)flex-grow: number; /* default 0 <em>/<br>设置或检索弹性盒的扩展比率,根据弹性盒子元素所设置的扩展因子作为比率来分配剩余空间.3<br>3)flex-shrink: number; /</em> default 1 <em>/<br>flex-shrink的默认值为1，如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。<br>4)flex-basis: length | auto; /</em> default auto */<br>auto：无特定宽度值，取决于其它属性值<br>length：用长度值来定义宽度。不允许负值<br>percentage：用百分比来定义宽度。不允许负值<br>5)flex: none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]<br>This is the shorthand for flex-grow, flex-shrink and flex-basis combined.<br>6)align-self: auto | flex-start | flex-end | center | baseline | stretch;<br>Note that float, clear and vertical-align have no effect on a flex item. </p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>CSS 2<br>实际上在很早之前，CSS就支持媒体查询了<br>页面有些部分需要在打印的时候隐藏或者变大，这时候可以使用media使某些style只在打印的时候生效</p>
+<pre><code>@media print &#123;
+   /* 适用于印刷的样式 */
+&#125;
+</code></pre>
+<p>常用的媒体类型有</p>
+<ol>
+<li>all（所有），适用于所有设备。</li>
+<li>handheld（手持），用于手持设备。</li>
+<li>print（印刷），用于分页材料以及打印预览模式下在屏幕上的文档视图。</li>
+<li>projection（投影），用于投影演示文稿，例如投影仪。</li>
+<li>screen（屏幕） ，主要用于计算机屏幕。</li>
+</ol>
+<p>在使用的时候可以在样式表直接书写 @media指令+空格+媒体类型（多个逗号隔开）</p>
+<pre><code>@media print &#123;
+   body &#123; font-size: 10pt &#125;
+ &#125;
+ @media screen &#123;
+   body &#123; font-size: 13px &#125;parsing-errors
+ &#125;
+ @media screen, print &#123;
+   body &#123; line-height: 1.2 &#125;
+ &#125;
+</code></pre>
+<p>CSS 3<br>但是CSS 2的媒体类型应用场景极为有限，CSS3大大拓展了这一能力</p>
+<pre><code>@media screen and (max-width: 990px)&#123;
+    .container&#123;
+        background: orange;
+    &#125;
+&#125;
+</code></pre>
+<p>当媒体类型匹配且表达式为真的时候，对应style就会其作用，除非使用not或者only操作符，否则媒体类型不是必需的，默认代表所有媒体类型。</p>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><p>1)and<br>and操作符用于将多个media feature组合成一个查询，同时用于组合media type 和media feature，一个基本的media query类似这样，一个meidia feature作用于所有media type</p>
+<pre><code>@media (min-width: 700px) &#123; ... &#125;
+</code></pre>
+<p>但是如果只想在横向显示时应用就可以使用and操作符把media type和media feature结合起来<br>    @media (min-width: 700px) and (orientation: landscape) { … }<br>这样上面的media query只有在可视窗口（viewport）最小是700px并且是横向显示的时候才返回true，如果还想进一步限制设备为tv可以这样<br>    @media tv and (min-width: 700px) and (orientation: landscape) { … }<br>2)逗号分隔的列表<br>在使用逗号分隔的查询列表中每个查询都被视为一个独立的查询，任何本查询中的作用符不影响其他查询，只要有一个查询返回true，style就会被作用。<br>举例来说，如果希望特定style在viewport最小宽度为700px或手持式设备上生效，可以这么写：</p>
+<pre><code>@media (min-width: 700px), handheld and (orientation: landscape) &#123; ... &#125;
+</code></pre>
+<p>3)not<br>not操作符作用域整个查询，所以只有在整个查询返回false的情况下使用not后才会返回true。当使用逗号分隔的列表的时候not作用于邻近的查询，而不会作用于每个查询</p>
+<pre><code>@media not all and (monochrome) &#123; ... &#125;
+</code></pre>
+<p>查询其实会这样起作用</p>
+<pre><code>@media not (all and (monochrome)) &#123; ... &#125;
+</code></pre>
+<p>而不是这样</p>
+<pre><code>@media (not all) and (monochrome) &#123; ... &#125;
+</code></pre>
+<p>对于逗号分隔的列表</p>
+<pre><code>@media not screen and (color), print and (color)
+</code></pre>
+<p>查询是这样子的</p>
+<pre><code>@media (not (screen and (color))), print and (color)
+</code></pre>
+<p>4)only<br>only操作符用于阻止不支持带有media feature的media queries的浏览器应用特定style</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (color)&quot; href=&quot;example.css&quot; /&gt;
+</code></pre>
+<h3 id="media-features"><a href="#media-features" class="headerlink" title="media features"></a>media features</h3><p>有以下常用的media feature<br>    width：浏览器宽度<br>    height：浏览器高度<br>    device-width：设备屏幕分辨率的宽度值<br>    device-height：设备屏幕分辨率的高度值<br>    orientation：浏览器窗口的方向纵向还是横向，当窗口的高度值大于等于宽度时该特性值为portrait，否则为landscape<br>    aspect-ratio：比例值，浏览器的纵横比<br>    device-aspect-ratio：比例值，屏幕的纵横比<br>    color：设备使用多少位的颜色值，如果不是彩色设备，值为0<br>    color-index：色彩表的色彩数<br>    monochrome：单色帧缓冲器每个像素的字节<br>    resolution：分辨率值，设备分辨率值<br>    scan：电视机类型设备扫描方式，progressive或interlace<br>    grid：只能指定两个值0或1，是否基于栅格的设备</p>
+<h3 id="如何引入media"><a href="#如何引入media" class="headerlink" title="如何引入media"></a>如何引入media</h3><p>有两种常用的引入方式<br>link方法引入</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styleB.css&quot;  media=&quot;screen and (min-width: 600px) and (max-width: 800px)&quot;&gt;
+</code></pre>
+<p>@media引入</p>
+<pre><code>@media screen and (min-width: 600px) and (max-width: 800px)&#123;
+    选择器&#123;
+        属性：属性值；
+    &#125;
+&#125;
+</code></pre>
+<h2 id="CSS3其他"><a href="#CSS3其他" class="headerlink" title="CSS3其他"></a>CSS3其他</h2><h3 id="颜色相关的样式"><a href="#颜色相关的样式" class="headerlink" title="颜色相关的样式"></a>颜色相关的样式</h3><p>1)增加rgba、hsl、hsla<br>alpha通道和opacity属性区别：使用alpha通道时，可以单独针对元素的背景色和文字样式等指定透明度，而opacity只能指定整个元素的透明度。<br>2)指定颜色值为transparent<br>CSS2中，可以在background-color、border-color属性中指定transparent值，在CSS3中，可以在一切指定属性值的属性中指定transparent值。</p>
+<h3 id="用户界面相关"><a href="#用户界面相关" class="headerlink" title="用户界面相关"></a>用户界面相关</h3><p>1)outline与outline-offset<br><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/2015/04/css3-radius-outline/">CSS3如何实现圆角的outline效果</a><br>offset支持负值<br>2)resize<br>与overflow：auto或overflow：hidden配合使用。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/SilenceZeng/about" rel="external nofollow noreferrer">Angus</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/SilenceZeng/SilenceZeng/posts/6917.html">https://github.com/SilenceZeng/SilenceZeng/posts/6917.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/SilenceZeng/about" target="_blank">Angus</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">前端</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/css/">
+                                    <span class="chip bg-color">css</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/css3/">
+                                    <span class="chip bg-color">css3</span>
+                                </a>
+                            
+                                <a href="/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/">
+                                    <span class="chip bg-color">积累</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/SilenceZeng/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/SilenceZeng/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/SilenceZeng/posts/30021.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/SilenceZeng/medias/featureimages/3.jpg" class="responsive-img" alt="javaScript篇01--javascript事件">
+                        
+                        <span class="card-title">javaScript篇01--javascript事件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2016-06-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/SilenceZeng/posts/63277.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/SilenceZeng/medias/featureimages/21.jpg" class="responsive-img" alt="【翻译】CSS水平和垂直居中的12种方法">
+                        
+                        <span class="card-title">【翻译】CSS水平和垂直居中的12种方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-05-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/SilenceZeng/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/SilenceZeng/tags/%E7%BF%BB%E8%AF%91/">
+                        <span class="chip bg-color">翻译</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/SilenceZeng/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/SilenceZeng/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/SilenceZeng/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/SilenceZeng/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2021</span>
+            
+            <span id="year">2015</span>
+            <a href="/SilenceZeng/about" target="_blank">Angus</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/SilenceZeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:tsang1205@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/SilenceZeng/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/SilenceZeng/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/SilenceZeng/libs/materialize/materialize.min.js"></script>
+    <script src="/SilenceZeng/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/SilenceZeng/libs/aos/aos.js"></script>
+    <script src="/SilenceZeng/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/SilenceZeng/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/SilenceZeng/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/SilenceZeng/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
