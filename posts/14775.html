@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -411,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -433,7 +429,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    915
+                    889
                 </div>
                 
 
@@ -458,168 +454,161 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>jQuery插件开发包括两种：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>jQuery 插件开发包括两种：</p>
 <ol>
-<li><p>给jQuery添加静态方法</p>
+<li><p>给 jQuery 添加静态方法</p>
 </li>
-<li><p>给jQuery的原型添加方法</p>
-</li>
-</ol>
-<h2 id="给jQuery添加静态方法"><a href="#给jQuery添加静态方法" class="headerlink" title="给jQuery添加静态方法"></a>给jQuery添加静态方法</h2><ol>
-<li><p>直接添加新的全局函数</p>
-<p> jQuery.foo = function() {   </p>
-<pre><code> alert(&#39;This is a test. This is only a test.&#39;);  
-</code></pre>
-<p> };</p>
-</li>
-<li><p>使用jQuery.extend(object)</p>
-<p> jQuery.extend({      </p>
-<pre><code> foo: function() &#123;      
-     alert(&#39;This is a test. This is only a test.&#39;);      
- &#125;,      
- bar: function(param) &#123;      
-     alert(&#39;This function takes a parameter, which is &quot;&#39; + param +&#39;&quot;.&#39;);      
- &#125;     
-</code></pre>
-<p> }); </p>
+<li><p>给 jQuery 的原型添加方法</p>
 </li>
 </ol>
-<p>对于一些全局配置的插件，可以在插件中进行调用，这样直接引用插件javascript即可，不用再调用</p>
-<h2 id="给jQuery的原型添加方法"><a href="#给jQuery的原型添加方法" class="headerlink" title="给jQuery的原型添加方法"></a>给jQuery的原型添加方法</h2><p>这是插件开发中最常用的一种方法</p>
-<h3 id="最简单的形式"><a href="#最简单的形式" class="headerlink" title="最简单的形式"></a>最简单的形式</h3><pre><code>(function($)&#123;       
-    $.fn.pluginName = function() &#123;     
-         // code    
-    &#125;;     
-&#125;)(jQuery);  
-</code></pre>
-<h3 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h3><p>在插件函数的立即作用域中，关键字this指向调用插件的jQuery对象，不需要再用$包裹</p>
-<pre><code>(function($)&#123;
-    $.fn.pluginName = function() &#123;        
-        // 没有必要再写$(this)，因为&quot;this&quot;就是jQuery对象               
-    &#125;;          
-&#125;)(jQuery);
-</code></pre>
-<h3 id="保持链式调用"><a href="#保持链式调用" class="headerlink" title="保持链式调用"></a>保持链式调用</h3><p>为了保持链式调用，插件请return this。</p>
-<h3 id="设置默认参数并将之暴露出来"><a href="#设置默认参数并将之暴露出来" class="headerlink" title="设置默认参数并将之暴露出来"></a>设置默认参数并将之暴露出来</h3><pre><code>(function($)&#123;
-    $.fn.pluginName = function(options) &#123;    
-        var opts = $.extend(&#123;&#125;, $.fn.hilight.defaults, options);      
-    &#125;;  
+<h2 id="给-jQuery-添加静态方法"><a href="#给-jQuery-添加静态方法" class="headerlink" title="给 jQuery 添加静态方法"></a>给 jQuery 添加静态方法</h2><ol>
+<li>直接添加新的全局函数</li>
+</ol>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">jQuery<span class="token punctuation">.</span><span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'This is a test. This is only a test.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-    $.fn.pluginName.defaults = &#123;    
-        foo: &#39;bar&#39;   
-    &#125;;                        
-&#125;)(jQuery);
- 
-</code></pre>
-<p>这样用户既可以用过传参也可以通过修改$.fn.pluginName.defaults来修改默认参数</p>
-<h3 id="暴露一些公有函数"><a href="#暴露一些公有函数" class="headerlink" title="暴露一些公有函数"></a>暴露一些公有函数</h3><pre><code>(function($)&#123;
-    $.fn.pluginName = function(options) &#123;    
-        var opts = $.extend(&#123;&#125;, $.fn.pluginName.defaults, options);      
-    &#125;;  
+<ol start="2">
+<li>使用 jQuery.extend(object)</li>
+</ol>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">jQuery<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'This is a test. This is only a test.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">bar</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'This function takes a parameter, which is "'</span> <span class="token operator">+</span> param <span class="token operator">+</span> <span class="token string">'".'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    $.fn.pluginName.defaults = &#123;    
-        foo: &#39;bar&#39;   
-    &#125;;  
+<p>对于一些全局配置的插件，可以在插件中进行调用，这样直接引用插件 javascript 即可，不用再调用</p>
+<h2 id="给-jQuery-的原型添加方法"><a href="#给-jQuery-的原型添加方法" class="headerlink" title="给 jQuery 的原型添加方法"></a>给 jQuery 的原型添加方法</h2><p>这是插件开发中最常用的一种方法</p>
+<h3 id="最简单的形式"><a href="#最简单的形式" class="headerlink" title="最简单的形式"></a>最简单的形式</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">pluginName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// code</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    $.fn.pluginName.foo = function() &#123;    
-        return &#39;bar&#39;;    
-    &#125;;                       
-&#125;)(jQuery);
-</code></pre>
+<h3 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h3><p>在插件函数的立即作用域中，关键字 this 指向调用插件的 jQuery 对象，不需要再用$包裹</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">pluginName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 没有必要再写$(this)，因为"this"就是jQuery对象</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="保持链式调用"><a href="#保持链式调用" class="headerlink" title="保持链式调用"></a>保持链式调用</h3><p>为了保持链式调用，插件请 return this。</p>
+<h3 id="设置默认参数并将之暴露出来"><a href="#设置默认参数并将之暴露出来" class="headerlink" title="设置默认参数并将之暴露出来"></a>设置默认参数并将之暴露出来</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">pluginName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> opts <span class="token operator">=</span> $<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>hilight<span class="token punctuation">.</span>defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>pluginName<span class="token punctuation">.</span>defaults <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    foo<span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样用户既可以用过传参也可以通过修改$.fn.pluginName.defaults 来修改默认参数</p>
+<h3 id="暴露一些公有函数"><a href="#暴露一些公有函数" class="headerlink" title="暴露一些公有函数"></a>暴露一些公有函数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">pluginName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> opts <span class="token operator">=</span> $<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>pluginName<span class="token punctuation">.</span>defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>pluginName<span class="token punctuation">.</span>defaults <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    foo<span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>pluginName<span class="token punctuation">.</span><span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'bar'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这样用户既可以调用公有函数，也可以去修改它。</p>
-<h3 id="更安全的闭包写法"><a href="#更安全的闭包写法" class="headerlink" title="更安全的闭包写法"></a>更安全的闭包写法</h3><pre><code>;(function($,window,document,undefined)&#123;
-    $.fn.pluginName = function() &#123;     
-         // code    
-    &#125;;
-&#125;)(jQuery,window,document);
-</code></pre>
-<p>加上“;”是为了防止插件之前代码没有“;”引发的错误，加上window和document是这样window等系统变量在插件内部就有了一个局部的引用，可以提高访问速度，同时内部也可以压缩这些变量，undefined是为了防止他人误修改undefined引发插件bug。</p>
+<h3 id="更安全的闭包写法"><a href="#更安全的闭包写法" class="headerlink" title="更安全的闭包写法"></a>更安全的闭包写法</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$<span class="token punctuation">,</span> window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token keyword">undefined</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">pluginName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// code</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">,</span> window<span class="token punctuation">,</span> document<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>加上“;”是为了防止插件之前代码没有“;”引发的错误，加上 window 和 document 是这样 window 等系统变量在插件内部就有了一个局部的引用，可以提高访问速度，同时内部也可以压缩这些变量，undefined 是为了防止他人误修改 undefined 引发插件 bug。</p>
 <h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>以下出自网友的<a target="_blank" rel="noopener" href="http://www.ghugo.com/javascript-writing-better-jquery-plugins/">博客</a></p>
-<pre><code>(function () &#123;   
-    var Plugin,
-        privateMethod;  //插件的私有方法
-     
-    /**
-     * 这里是一个自运行的单例模式。
-     * 
-     */
-    Plugin = (function () &#123;
- 
-        /**
-         * 插件实例化部分，初始化时调用的代码可以放这里
-         */
-        function Plugin(element, options) &#123;
-            //将插件的默认参数及用户定义的参数合并到一个新的obj里
-            this.settings = $.extend(&#123;&#125;, $.fn.plugin.defaults, options);
-            //将dom jquery对象赋值给插件，方便后续调用
-            this.$element = $(element);
-             
-        &#125;
- 
-        /**
-         * 插件的公共方法，相当于接口函数，用于给外部调用
-         */
-        Plugin.prototype.doSomething = function () &#123;
-            /**
-             * 方法内容
-             */
-        &#125;;
-         
-        return Plugin;
- 
-    &#125;)();
- 
-    /**
-     * 插件的私有方法
-     */
-    privateMethod = function () &#123;
-     
-    &#125;;
- 
-    /**
-     * 这里是关键
-     * 定义一个插件 plugin
-     */
-    $.fn.plugin = function (options) &#123;
-        var instance;
-        instance = this.data(&#39;plugin&#39;);
-        /**
-         *判断插件是否已经实例化过，如果已经实例化了则直接返回该实例化对象
-         */
-        if (!instance) &#123;
-            return this.each(function () &#123;
-                //将实例化后的插件缓存在dom结构里（内存里）
-                return $(this).data(&#39;plugin&#39;, new Plugin(this, options));
-            &#125;);
-        &#125;
-        if (options === true) return instance;
-        /**
-         * 优雅处： 如果插件的参数是一个字符串，则 调用 插件的 字符串方法。
-         * 如 $(&#39;#id&#39;).plugin(&#39;doSomething&#39;) 则实际调用的是 $(&#39;#id).plugin.doSomething();
-         * doSomething是刚才定义的接口。
-         * 这种方法 在 juqery ui 的插件里 很常见。
-         */
-        if ($.type(options) === &#39;string&#39;) instance[options]();
-        return this;
-    &#125;;
-     
-    /**
-     * 插件的默认值
-     */
-    $.fn.plugin.defaults = &#123;
-        property1: &#39;value&#39;,
-        property2: &#39;value&#39;
-    &#125;;
- 
-    /**
-     * 优雅处： 通过data-xxx 的方式 实例化插件。
-     * 这样的话 在页面上就不需要显示调用了。
-     */
-    $(function () &#123;
-        return new Plugin($(&#39;[data-plugin]&#39;));
-    &#125;);   
-&#125;).call(this);
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> Plugin<span class="token punctuation">,</span> privateMethod<span class="token punctuation">;</span> <span class="token comment">//插件的私有方法</span>
+
+  <span class="token comment">/**
+   * 这里是一个自运行的单例模式。
+   *
+   */</span>
+  Plugin <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 插件实例化部分，初始化时调用的代码可以放这里
+     */</span>
+    <span class="token keyword">function</span> <span class="token function">Plugin</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//将插件的默认参数及用户定义的参数合并到一个新的obj里</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>settings <span class="token operator">=</span> $<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>plugin<span class="token punctuation">.</span>defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">//将dom jquery对象赋值给插件，方便后续调用</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$element <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/**
+     * 插件的公共方法，相当于接口函数，用于给外部调用
+     */</span>
+    <span class="token class-name">Plugin</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">doSomething</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">/**
+       * 方法内容
+       */</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> Plugin<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * 插件的私有方法
+   */</span>
+  <span class="token function-variable function">privateMethod</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * 这里是关键
+   * 定义一个插件 plugin
+   */</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function-variable function">plugin</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> instance<span class="token punctuation">;</span>
+    instance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
+     *判断插件是否已经实例化过，如果已经实例化了则直接返回该实例化对象
+     */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>instance<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//将实例化后的插件缓存在dom结构里（内存里）</span>
+        <span class="token keyword">return</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'plugin'</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Plugin</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 优雅处： 如果插件的参数是一个字符串，则 调用 插件的 字符串方法。
+     * 如 $('#id').plugin('doSomething') 则实际调用的是 $('#id).plugin.doSomething();
+     * doSomething是刚才定义的接口。
+     * 这种方法 在 juqery ui 的插件里 很常见。
+     */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>$<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> instance<span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * 插件的默认值
+   */</span>
+  $<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>plugin<span class="token punctuation">.</span>defaults <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    property1<span class="token operator">:</span> <span class="token string">'value'</span><span class="token punctuation">,</span>
+    property2<span class="token operator">:</span> <span class="token string">'value'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * 优雅处： 通过data-xxx 的方式 实例化插件。
+   * 这样的话 在页面上就不需要显示调用了。
+   */</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Plugin</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-plugin]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="http://www.learningjquery.com/2007/10/a-plugin-development-pattern">A Plugin Development Pattern</a></p>
 
                 
@@ -684,10 +673,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -771,8 +756,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -781,10 +766,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -828,8 +809,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -838,10 +819,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

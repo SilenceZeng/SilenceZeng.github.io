@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -411,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -433,14 +429,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
 
@@ -459,343 +455,349 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="http://tinyfinch.com/horizontal-and-vertical-centering-in-css/">原文链接</a></p>
-<p>在CSS中有许多不同的方法能够做到水平和垂直居中，但很难去选择合适的那个。我会向你展示我所看到的所有的方法，帮助你在所面对的情境下选择最棒的那一个。 </p>
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>此方法将只能垂直居中单行文本。只需将行高设置为对象的高度，文本就会居中。</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;content&lt;/div&gt;
-</code></pre>
-<p>CSS:</p>
-<pre><code>.container &#123;
-    height: 100px;
-    line-height: 100px;/*与div等高*/
-&#125;
-</code></pre>
-<p>优点：<br>1.兼容所有浏览器<br>2.当没有足够的空间时，文字不会被切断</p>
-<p>缺点：<br>1.只对文本有效（不能块级元素）<br>2.当为多行文字而不只一行时（如文字换行），这种方法破坏十分严重</p>
-<p>此方法对小的元素非常有用，比如将按钮或单行文本字段中的文本垂直居中。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>此方法使用绝对定位的div，它的top为50%，上边距设置为内容高度一半的负值。这意味着对象必须有一个固定的高度，这是被CSS定义了的。因为它有一个固定的高度，你可能需要给容器div设置overflow：hidden，因此如果内部有太多的内容时，滚动条就会出现，而不是内容在在div外继续排列！</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;content&lt;/div&gt;
-</code></pre>
-<p>CSS:</p>
-<pre><code>.container &#123;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    margin-top: -50px;/* 负的高度的一半 */
-&#125;
-</code></pre>
-<p>优点：<br>1.兼容所有浏览器<br>2.不需要嵌套的标签</p>
-<p>缺点：<br>1.当没有足够的空间时，内容会消失（比如当div在body内部并且用户缩小浏览器窗口，滚动条不会出现）</p>
-<p>我们可以修改上面的CSS代码使div垂直和水平居中。<br>CSS:</p>
-<pre><code>#wrap &#123;
-    width: 200px;
-    height:200px;
-    position: absolute;
-    left: 50%;
-    margin-left: -100px;/* 宽度/2 */
-    top:50%;
-    margin-top: -100px;
-&#125;
-</code></pre>
-<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>此方法设置一些div的display和table类似，所以我们可以使用table的veitical-align属性（这个属性对其他元素的效果很不一样）。</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div id=&quot;content&quot;&gt;content&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>CSS:</p>
-<pre><code>#container &#123;
-    height: 300px;
-    display: table;
-&#125;
-#content &#123;
-    display:table-cell;
-    vertical-align: middle;
-&#125;
-</code></pre>
-<p>优点：<br>1.内容可以动态改变高度（这样不用一定得在CSS中定义）<br>2.当容器没有足够的空间时，内容不会被切断。</p>
-<p>缺点：<br>1.IE低版本不支持<br>2.需要很多嵌套的标签（真的不好，这是一个很主观的话题）</p>
-<p>由于这种方法不支持ie6-7，所以如果你想解决这个问题，只需添加一个新的div来使用hack方式。</p>
-<pre><code>&lt;div class=&quot;table&quot;&gt;
-    &lt;div class=&quot;tableCell&quot;&gt;
-        &lt;div class=&quot;content&quot;&gt;content&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>CSS:</p>
-<pre><code>.table &#123;
-    height: 300px;/
-    width: 300px;
-    display: table;
-    position: relative;
-    float:left;
-&#125;        
-.tableCell &#123;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;            
-    padding: 10px;
-    *position: absolute;
-    *top: 50%;
-    *left: 50%;
-&#125;
-.content &#123;
-    *position:relative;
-    *top: -50%;
-    *left: -50%;
-&#125;    
-</code></pre>
-<h3 id="方法4"><a href="#方法4" class="headerlink" title="方法4"></a>方法4</h3><p>在这种方法中，我们将在内容元素前加一个div。这个div将设置为height:50%;并且margin-bottom为内容高度的一半。然后内容清除浮动，内容将会居中。<br>你应该注意到，如果内容元素在body内，我们需要设置height:100%。</p>
-<pre><code>&lt;body&gt;
-    &lt;div id=&quot;floater&quot;&gt;&lt;!--This block have empty content --&gt;&lt;/div&gt;
-        &lt;div id=&quot;content&quot;&gt;Content section&lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
-<p>CSS:</p>
-<pre><code>html,body &#123;height: 100%;&#125;
-    #floater&#123;
-        float:left;
-        height:50%;
-        margin-bottom: -120px;/*240px/2*/
-&#125;
-#content &#123;
-    clear:both;
-    height: 240px;
-    position: relative;
-&#125;
-</code></pre>
-<p>优点：<br>1.兼容所有浏览器<br>2.当没有足够的空间（即窗口缩小）时我们的内容不会被切断，滚动条会出现。</p>
-<p>缺点：<br>1.需要一个额外的空元素</p>
-<p><a target="_blank" rel="noopener" href="http://jsbin.com/faqimif/1/edit?html,css,output">查看demo</a></p>
-<h3 id="方法5"><a href="#方法5" class="headerlink" title="方法5"></a>方法5</h3><p>该方法设置一些div来像table一样显示，所以我们可以像方法3一样使用table的vertical-align属性，但是对于IE，我们需要添加一个inline水平的标签，块级水平的标签是没有任何用的。</p>
-<pre><code>&lt;p class=&quot;table&quot;&gt;
-    &lt;span class=&quot;tableCell&quot;&gt;Centering multiple lines &lt;br&gt;in a block 
+<p>在 CSS 中有许多不同的方法能够做到水平和垂直居中，但很难去选择合适的那个。我会向你展示我所看到的所有的方法，帮助你在所面对的情境下选择最棒的那一个。</p>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h3><p>此方法将只能垂直居中单行文本。只需将行高设置为对象的高度，文本就会居中。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-container.&lt;/span&gt;
-    &lt;!--[if lte IE 7]&gt;&lt;b&gt;&lt;/b&gt;&lt;![endif]--&gt;
-&lt;/p&gt;
-</code></pre>
 <p>CSS:</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;                
-.table &#123;
-    border: 1px solid orange;
-    display: table;
-    height: 200px;
-    width: 200px;
-    text-align: center;
-&#125;
-.tableCell &#123;
-    display: table-cell;
-    vertical-align: middle;
-&#125;
-&lt;/style&gt;
-&lt;!--[if lte ie 7]&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-.tableCell &#123;
-    display: inline-block;
-&#125;
-b &#123;
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    width: 1px;
-&#125;
-&lt;/style&gt;
-&lt;![endif]--&gt;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token comment">/*与div等高*/</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点： 1.兼容所有浏览器 2.当没有足够的空间时，文字不会被切断</p>
+<p>缺点： 1.只对文本有效（不能块级元素） 2.当为多行文字而不只一行时（如文字换行），这种方法破坏十分严重</p>
+<p>此方法对小的元素非常有用，比如将按钮或单行文本字段中的文本垂直居中。</p>
+<h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h3><p>此方法使用绝对定位的 div，它的 top 为 50%，上边距设置为内容高度一半的负值。这意味着对象必须有一个固定的高度，这是被 CSS 定义了的。因为它有一个固定的高度，你可能需要给容器 div 设置 overflow：hidden，因此如果内部有太多的内容时，滚动条就会出现，而不是内容在在 div 外继续排列！</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>CSS:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> -50px<span class="token punctuation">;</span> <span class="token comment">/* 负的高度的一半 */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点： 1.兼容所有浏览器 2.不需要嵌套的标签</p>
+<p>缺点： 1.当没有足够的空间时，内容会消失（比如当 div 在 body 内部并且用户缩小浏览器窗口，滚动条不会出现）</p>
+<p>我们可以修改上面的 CSS 代码使 div 垂直和水平居中。<br>CSS:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#wrap</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -100px<span class="token punctuation">;</span> <span class="token comment">/* 宽度/2 */</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> -100px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="方法-3"><a href="#方法-3" class="headerlink" title="方法 3"></a>方法 3</h3><p>此方法设置一些 div 的 display 和 table 类似，所以我们可以使用 table 的 veitical-align 属性（这个属性对其他元素的效果很不一样）。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>CSS:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#content</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点： 1.内容可以动态改变高度（这样不用一定得在 CSS 中定义） 2.当容器没有足够的空间时，内容不会被切断。</p>
+<p>缺点：<br>1.IE 低版本不支持 2.需要很多嵌套的标签（真的不好，这是一个很主观的话题）</p>
+<p>由于这种方法不支持 ie6-7，所以如果你想解决这个问题，只需添加一个新的 div 来使用 hack 方式。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tableCell<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>CSS:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.table</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.tableCell</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  *<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  *<span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  *<span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.content</span> <span class="token punctuation">&#123;</span>
+  *<span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  *<span class="token property">top</span><span class="token punctuation">:</span> -50%<span class="token punctuation">;</span>
+  *<span class="token property">left</span><span class="token punctuation">:</span> -50%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="方法-4"><a href="#方法-4" class="headerlink" title="方法 4"></a>方法 4</h3><p>在这种方法中，我们将在内容元素前加一个 div。这个 div 将设置为 height:50%;并且 margin-bottom 为内容高度的一半。然后内容清除浮动，内容将会居中。<br>你应该注意到，如果内容元素在 body 内，我们需要设置 height:100%。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>floater<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--This block have empty content --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Content section<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>CSS:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">html,
+body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#floater</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> -120px<span class="token punctuation">;</span> <span class="token comment">/*240px/2*/</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#content</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 240px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点： 1.兼容所有浏览器 2.当没有足够的空间（即窗口缩小）时我们的内容不会被切断，滚动条会出现。</p>
+<p>缺点： 1.需要一个额外的空元素</p>
+<p><a target="_blank" rel="noopener" href="http://jsbin.com/faqimif/1/edit?html,css,output">查看 demo</a></p>
+<h3 id="方法-5"><a href="#方法-5" class="headerlink" title="方法 5"></a>方法 5</h3><p>该方法设置一些 div 来像 table 一样显示，所以我们可以像方法 3 一样使用 table 的 vertical-align 属性，但是对于 IE，我们需要添加一个 inline 水平的标签，块级水平的标签是没有任何用的。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tableCell<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>Centering multiple lines <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>in a block container.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span>
+  <span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!--[if lte IE 7]>&lt;b>&lt;/b>&lt;![endif]--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>CSS:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.table</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid orange<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">.tableCell</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--[if lte ie 7]>
+  &lt;style type="text/css">
+    .tableCell &#123;
+      display: inline-block;
+    &#125;
+    b &#123;
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      width: 1px;
+    &#125;
+  &lt;/style>
+&lt;![endif]--></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>内容可以动态改变高度</p>
 <p>缺点：<br>很多嵌套标签</p>
-<h3 id="方法6"><a href="#方法6" class="headerlink" title="方法6"></a>方法6</h3><p>此方法设置display:inline-block，添加父元素的高度为固定数值或百分比。 </p>
-<pre><code>&lt;div id=&quot;parent&quot;&gt;
-    &lt;div id=&quot;vertically_center&quot;&gt;
-        &lt;p&gt;I am vertically centered!&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;extra&quot;&gt;&lt;!-- ie comment --&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<h3 id="方法-6"><a href="#方法-6" class="headerlink" title="方法 6"></a>方法 6</h3><p>此方法设置 display:inline-block，添加父元素的高度为固定数值或百分比。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>parent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vertically_center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>I am vertically centered!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>extra<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!-- ie comment --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-html,
-body&#123;
-    height: 100%;
-&#125;
-#parent &#123;
-    height: 500px;
-    border: 1px solid red;
-&#125;
-#vertically_center,
-#extra &#123;
-    display: inline-block;
-    vertical-align: middle;
-&#125;
-#extra &#123;
-    height: 100%; 
-&#125;
-&lt;/style&gt;
-&lt;!--[if lt IE 8]&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-/*IE6-7not  support display:inline-block,so we need a hack*/
-#vertically_center,
-#extra &#123;
-    display: inline;
-    zoom: 1;
-&#125;
-#extra &#123;
-    width: 1px;
-&#125;
-&lt;/style&gt;
-&lt;![endif]--&gt;
-</code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">html,
+  body</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">#parent</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">#vertically_center,
+  #extra</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">#extra</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--[if lt IE 8]>
+  &lt;style type="text/css">
+    /*IE6-7not  support display:inline-block,so we need a hack*/
+    #vertically_center,
+    #extra &#123;
+      display: inline;
+      zoom: 1;
+    &#125;
+    #extra &#123;
+      width: 1px;
+    &#125;
+  &lt;/style>
+&lt;![endif]--></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>兼容所有浏览器</p>
-<p>缺点：<br>需要添加父级的高度，并为IE写一个hack，另外，需要很多标签。</p>
-<p><a target="_blank" rel="noopener" href="http://jsbin.com/cenefib/1/edit?html,css,output">查看demo</a></p>
-<h3 id="方法7"><a href="#方法7" class="headerlink" title="方法7"></a>方法7</h3><p>该方法用于多行文本和高度是可变的时候，我们需要设置给顶部和底部同样的padding。 </p>
-<pre><code>&lt;div class=&quot;columns&quot;&gt;
-    &lt;div class=&quot;item&quot;&gt;test&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>缺点：<br>需要添加父级的高度，并为 IE 写一个 hack，另外，需要很多标签。</p>
+<p><a target="_blank" rel="noopener" href="http://jsbin.com/cenefib/1/edit?html,css,output">查看 demo</a></p>
+<h3 id="方法-7"><a href="#方法-7" class="headerlink" title="方法 7"></a>方法 7</h3><p>该方法用于多行文本和高度是可变的时候，我们需要设置给顶部和底部同样的 padding。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>.item &#123;padding-top:30px;padding-bottom:30px;&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+  <span class="token property">padding-bottom</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>简单且兼容所有浏览器</p>
 <p>缺点：<br>如果高度是固定的，此方法无效的。</p>
-<h3 id="方法8"><a href="#方法8" class="headerlink" title="方法8"></a>方法8</h3><p>现在让我们来看看如何使用jQuery来居中。</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-    &lt;p&gt;Centered in the middle of the page with jQuery&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
+<h3 id="方法-8"><a href="#方法-8" class="headerlink" title="方法 8"></a>方法 8</h3><p>现在让我们来看看如何使用 jQuery 来居中。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Centered in the middle of the page with jQuery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>.container&#123;
-    background-color:#338BC7;
-    width:270px;
-    height:150px;
-&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #338bc7<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 270px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>jQuery:</p>
-<pre><code>$(document).ready(function()&#123;
-    $(window).resize(function()&#123;
-        $(&#39;.container&#39;).css(&#123;
-            position:&#39;absolute&#39;,
-            left: ($(window).width() -$(&#39;.container&#39;).outerWidth())/2,
-            top: ($(window).height() - $(&#39;.container&#39;).outerHeight())/2
-        &#125;);
-    &#125;)
-    $(window).resize();
-&#125;);
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.container'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      position<span class="token operator">:</span> <span class="token string">'absolute'</span><span class="token punctuation">,</span>
+      left<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.container'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">outerWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span>
+      top<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.container'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">outerHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>简单且兼容所有浏览器</p>
-<p>缺点：<br>需要jQuery，如果JavaScript被禁用将会失效</p>
-<h3 id="方法9"><a href="#方法9" class="headerlink" title="方法9"></a>方法9</h3><p>在这种方法中，我们使用CSS3的新属性：flexbox。 </p>
-<pre><code>&lt;body&gt;
-    &lt;img src=&quot;//vertical.jpg&quot; alt=&quot;flexbox way&quot; /&gt;
-&lt;/body&gt;
-</code></pre>
+<p>缺点：<br>需要 jQuery，如果 JavaScript 被禁用将会失效</p>
+<h3 id="方法-9"><a href="#方法-9" class="headerlink" title="方法 9"></a>方法 9</h3><p>在这种方法中，我们使用 CSS3 的新属性：flexbox。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>//vertical.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flexbox way<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>*&#123;
-  margin: 0;
-  padding:0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-&#125;
-html,
-body &#123;
-  height: 100%;
-&#125;
-body &#123;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;/*for firefox*/
-&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">html,
+body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span> <span class="token comment">/*for firefox*/</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>简单且在响应式设计中效果十分棒</p>
-<p>缺点：<br>在有些浏览器中不起作用，因为其不支持flexbox</p>
-<h3 id="方法10"><a href="#方法10" class="headerlink" title="方法10"></a>方法10</h3><p>如果网站有弹窗，我们不知道它的大小，但我们总是希望它能在大多数的设备里居中。</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-    &lt;div class=&quot;cotent-header&quot;&gt;Popup title&lt;/div&gt;
-    &lt;div class=&quot;content-body&quot;&gt;pop up in the window&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>缺点：<br>在有些浏览器中不起作用，因为其不支持 flexbox</p>
+<h3 id="方法-10"><a href="#方法-10" class="headerlink" title="方法 10"></a>方法 10</h3><p>如果网站有弹窗，我们不知道它的大小，但我们总是希望它能在大多数的设备里居中。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cotent-header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Popup title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content-body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>pop up in the window<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>*&#123;
-  margin: 0;
-  padding:0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-&#125;
-html,
-body &#123;
-  height: 100%;
-&#125;
-.container &#123;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  box-shadow: 0 0 3px rgba(0,0,0,.5);
-  position:absolute;
-  top:50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-&#125;
-.content-header &#123;
-  padding: 10px 20px;
-  background: rgba(0,0,0,.25);
-  color:#fff;
-&#125;
-.content-body&#123;
-  padding: 20px;
-  background: #fff;
-&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">html,
+body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #bbb<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 0 3px <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.content-header</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px 20px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.content-body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>总是以不同的设备屏幕为中心</p>
 <p>缺点：<br>实现有一点难，在一些浏览器中无效</p>
-<h3 id="方法11"><a href="#方法11" class="headerlink" title="方法11"></a>方法11</h3><p>在这种方法中，我们使用伪元素（:before和:after）来垂直居中网站中的对象。</p>
-<pre><code>&lt;body&gt;
-    &lt;div&gt;Make it centered in the window&lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
+<h3 id="方法-11"><a href="#方法-11" class="headerlink" title="方法 11"></a>方法 11</h3><p>在这种方法中，我们使用伪元素（:before 和:after）来垂直居中网站中的对象。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Make it centered in the window<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>*&#123;
-  margin:0;
-  padding:0;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-&#125;
-html,
-body &#123;
-  height:100%;
-&#125;
-div &#123;
-  display:inline-block;
-  vertical-align: middle;
-  width: 99.5%;
-&#125;
-body:after &#123;
-  content:&quot;&quot;;
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-  width: 0px;
-&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">html,
+body</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 99.5%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">body:after</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>在现代浏览器中工作得很好</p>
-<p>缺点：<br>复杂和更多的CSS代码。</p>
-<h3 id="方法12"><a href="#方法12" class="headerlink" title="方法12"></a>方法12</h3><p>这个方法，我认为是使对象在网站中垂直居中最简单的方法。</p>
-<pre><code>&lt;body&gt;
-    &lt;div&gt;Make it centered in the window&lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
+<p>缺点：<br>复杂和更多的 CSS 代码。</p>
+<h3 id="方法-12"><a href="#方法-12" class="headerlink" title="方法 12"></a>方法 12</h3><p>这个方法，我认为是使对象在网站中垂直居中最简单的方法。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Make it centered in the window<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>CSS:</p>
-<pre><code>#center &#123;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin: auto;
-&#125;
-</code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>优点：<br>容易，在现代浏览器中工作得很好</p>
-<p>缺点：<br>也需要height: 100%;(其实是指用absolute定位需要，用fixed定位不需要)</p>
-<h3 id="兼容性注意事项"><a href="#兼容性注意事项" class="headerlink" title="兼容性注意事项"></a>兼容性注意事项</h3><p>正如你所知，IE是唯一给你带来问题的主要浏览器，你需要测试IE的旧版本去解决兼容性问题。</p>
+<p>缺点：<br>也需要 height: 100%;(其实是指用 absolute 定位需要，用 fixed 定位不需要)</p>
+<h3 id="兼容性注意事项"><a href="#兼容性注意事项" class="headerlink" title="兼容性注意事项"></a>兼容性注意事项</h3><p>正如你所知，IE 是唯一给你带来问题的主要浏览器，你需要测试 IE 的旧版本去解决兼容性问题。</p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>除了上面我收集的，还有其他的一些方法可以做到垂直和水平居中的网站，如果你有其他的方法，请在评论区分享。</p>
 
                 
@@ -860,10 +862,6 @@ body:after &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -947,8 +945,8 @@ body:after &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -957,10 +955,6 @@ body:after &#123;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -989,13 +983,13 @@ body:after &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/34587.html">
+                <a href="/posts/4963.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="常用js">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="CSS篇02--margin和padding">
                         
-                        <span class="card-title">常用js</span>
+                        <span class="card-title">CSS篇02--margin和padding</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1006,14 +1000,14 @@ body:after &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2016-05-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-05-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -1023,20 +1017,12 @@ body:after &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
-                    
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
                     </a>
                     
-                    <a href="/tags/%E7%A7%AF%E7%B4%AF/">
-                        <span class="chip bg-color">积累</span>
-                    </a>
-                    
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>

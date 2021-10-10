@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    431
+                    437
                 </div>
                 
 
@@ -454,34 +450,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文是学习慕课网<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/99">阿当大话西游之WEB组件</a>后的一个总结。</p>
+                <p>本文是学习慕课网<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/99">阿当大话西游之 WEB 组件</a>后的一个总结。</p>
 <h2 id="组件的分类"><a href="#组件的分类" class="headerlink" title="组件的分类"></a>组件的分类</h2><p>1 框架组件：依赖于某种框架的组件</p>
 <p>2 定制组件：根据公司业务定制的组件</p>
 <p>3 独立组件：不依赖框架的组件</p>
-<h2 id="定义和加载组件"><a href="#定义和加载组件" class="headerlink" title="定义和加载组件"></a>定义和加载组件</h2><h3 id="解决css和js命名冲突"><a href="#解决css和js命名冲突" class="headerlink" title="解决css和js命名冲突"></a>解决css和js命名冲突</h3><p>css：通过加前缀来形成命名空间，不要用子孙选择器</p>
-<p>js：通过匿名函数自执行来隐藏变量，通过给window添加属性来暴露全局变量</p>
-<pre><code>(function()&#123;
-    var abc = 5;
-    function TabView(cfg)&#123;
-        this.a = cfg.a;
-        this.b = cfg.b;
-    &#125;
-    TabView.prototype = &#123;
-        c: function()&#123;
-            abc++;
-        &#125;,
-        d: function()&#123;
-            abc--;
-        &#125;
-    &#125;
-    window.TabView = TabView;
-&#125;)();
-</code></pre>
-<h3 id="组件的依赖关系"><a href="#组件的依赖关系" class="headerlink" title="组件的依赖关系"></a>组件的依赖关系</h3><p>传统通过script标签引入组件的问题：</p>
+<h2 id="定义和加载组件"><a href="#定义和加载组件" class="headerlink" title="定义和加载组件"></a>定义和加载组件</h2><h3 id="解决-css-和-js-命名冲突"><a href="#解决-css-和-js-命名冲突" class="headerlink" title="解决 css 和 js 命名冲突"></a>解决 css 和 js 命名冲突</h3><p>css：通过加前缀来形成命名空间，不要用子孙选择器</p>
+<p>js：通过匿名函数自执行来隐藏变量，通过给 window 添加属性来暴露全局变量</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> abc <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">TabView</span><span class="token punctuation">(</span><span class="token parameter">cfg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> cfg<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>b <span class="token operator">=</span> cfg<span class="token punctuation">.</span>b<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token class-name">TabView</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">c</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      abc<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">d</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      abc<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  window<span class="token punctuation">.</span>TabView <span class="token operator">=</span> TabView<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="组件的依赖关系"><a href="#组件的依赖关系" class="headerlink" title="组件的依赖关系"></a>组件的依赖关系</h3><p>传统通过 script 标签引入组件的问题：</p>
 <p>1 需手动处理组件间的依赖关系</p>
 <p>2 加载项太多，破坏页面的整洁度</p>
-<p>如何解决：使用require.js</p>
-<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="如何定制皮肤"><a href="#如何定制皮肤" class="headerlink" title="如何定制皮肤"></a>如何定制皮肤</h3><p>通过cfg设置一个skinClassName参数来给容器添加class来控制皮肤</p>
+<p>如何解决：使用 require.js</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="如何定制皮肤"><a href="#如何定制皮肤" class="headerlink" title="如何定制皮肤"></a>如何定制皮肤</h3><p>通过 cfg 设置一个 skinClassName 参数来给容器添加 class 来控制皮肤</p>
 <h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p>简单回调的问题</p>
 <p>1）只能绑定一个回调</p>
 <p>2）回调的绑定时间和组件的实例化时间耦合在一起</p>
@@ -489,13 +485,13 @@
 <p>自定义事件本质：观察者模式</p>
 <p>优点：跳出原生事件的限制，提高封装的抽象层级</p>
 <h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>return this</p>
-<h2 id="Widget类"><a href="#Widget类" class="headerlink" title="Widget类"></a>Widget类</h2><p>原生function类的问题</p>
-<p>1）所有类继承自object</p>
-<p>2）Object提供的帮助太少了</p>
+<h2 id="Widget-类"><a href="#Widget-类" class="headerlink" title="Widget 类"></a>Widget 类</h2><p>原生 function 类的问题</p>
+<p>1）所有类继承自 object</p>
+<p>2）Object 提供的帮助太少了</p>
 <p>组件分类：</p>
-<p>Utility：与UI无关</p>
-<p>Widget：与UI有关</p>
-<h3 id="为Widget类添加统一的生命周期"><a href="#为Widget类添加统一的生命周期" class="headerlink" title="为Widget类添加统一的生命周期"></a>为Widget类添加统一的生命周期</h3><h2 id="更高级的内容"><a href="#更高级的内容" class="headerlink" title="更高级的内容"></a>更高级的内容</h2><p>组件的MVC</p>
+<p>Utility：与 UI 无关</p>
+<p>Widget：与 UI 有关</p>
+<h3 id="为-Widget-类添加统一的生命周期"><a href="#为-Widget-类添加统一的生命周期" class="headerlink" title="为 Widget 类添加统一的生命周期"></a>为 Widget 类添加统一的生命周期</h3><h2 id="更高级的内容"><a href="#更高级的内容" class="headerlink" title="更高级的内容"></a>更高级的内容</h2><p>组件的 MVC</p>
 
                 
             </div>
@@ -559,10 +555,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -642,8 +634,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -652,10 +644,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -699,8 +687,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -709,10 +697,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

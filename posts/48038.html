@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,14 +425,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    412
+                    388
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -456,105 +452,94 @@
             <div id="articleContent">
                 <p>1.最简单的，使用变量，然后用匿名函数包裹，不封装</p>
 <p>2.对象字面量简单封装（不完整的模块模式，因为无法达到变量、方法私有效果。不过确实有分离和组织代码的能力，也就算一种简略的模块模式的实现方式）</p>
-<pre><code>var Carousel = &#123;
-    init: function()&#123;...&#125;,
-    bind: function()&#123;...&#125;,
-    showPre: function()&#123;...&#125;,
-    showNext: function()&#123;...&#125;
-&#125;;
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> Carousel <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token function-variable function">init</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">bind</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">showPre</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">showNext</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>3.原型构造器模式封装</p>
-<pre><code>function Carousel()&#123;
-    this.init();
-&#125;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Carousel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-Carousel.prototype = &#123;
-    init: function()&#123;...&#125;,
-    bind: function()&#123;...&#125;,
-    showPre: function()&#123;...&#125;,
-    showNext: function()&#123;...&#125;
-&#125;;
-</code></pre>
+<span class="token class-name">Carousel</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token function-variable function">init</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">bind</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">showPre</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">showNext</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>4.模块模式与原型构造器模式绑定多个：使用一个数组保存实例</p>
-<pre><code>var CarouselCenter = (function()&#123;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> CarouselCenter <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> carouselList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    var carouselList = [];
+  <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">$carousel</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    $carousel<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> $cal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>$cal<span class="token punctuation">.</span><span class="token function">hasClass</span><span class="token punctuation">(</span><span class="token string">'init'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      carouselList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Carousel</span><span class="token punctuation">(</span>$cal<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      $cal<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'init'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
+  <span class="token keyword">function</span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> carouselList<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-    function init($carousel)&#123;
-        $carousel.each(function()&#123;
-            var $cal = $(this);
-            if($cal.hasClass(&#39;init&#39;))&#123;
-                return;
-            &#125;
-            carouselList.push( new Carousel($cal) );
-            $cal.addClass(&#39;init&#39;)
-        &#125;);
+  <span class="token keyword">function</span> <span class="token function">Carousel</span><span class="token punctuation">(</span><span class="token parameter">$carousel</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
-    &#125;
+  <span class="token class-name">Carousel</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">bind</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> _this <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$pre<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        _this<span class="token punctuation">.</span><span class="token function">showPre</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$next<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        _this<span class="token punctuation">.</span><span class="token function">showNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 
-    function getList()&#123;
-        return carouselList;
-    &#125;
+    <span class="token function-variable function">showPre</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$ct<span class="token punctuation">.</span><span class="token function">prepend</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$ct<span class="token punctuation">.</span><span class="token function">children</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$ct<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'left'</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imgWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$ct<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> left<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 
-    function Carousel($carousel)&#123;
-    &#125;
+    <span class="token function-variable function">showNext</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> $ct <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$ct<span class="token punctuation">;</span>
+      $ct<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> left<span class="token operator">:</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imgWidth <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        $ct<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>$ct<span class="token punctuation">.</span><span class="token function">children</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        $ct<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'left'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-    Carousel.prototype = &#123;
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    init<span class="token operator">:</span> init<span class="token punctuation">,</span>
+    getList<span class="token operator">:</span> getList<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        bind: function()&#123;
-            var _this = this;
-            this.$pre.on(&#39;click&#39;, function()&#123;
-                _this.showPre();
-            &#125;);
-            this.$next.on(&#39;click&#39;, function()&#123;
-                _this.showNext();
-            &#125;);
-        &#125;,
+<span class="token comment">// 调用</span>
+<span class="token comment">// CarouselCenter.init($('#c1'))</span>
+<span class="token comment">// CarouselCenter.init($('#c2'))</span>
+<span class="token comment">// CarouselCenter.init($('#c2')) //不会重复绑定</span>
 
-        showPre: function()&#123;
-            this.$ct.prepend(this.$ct.children().last());
-            this.$ct.css(&#39;left&#39;, 0-this.imgWidth);
-            this.$ct.animate(&#123;&#39;left&#39;: 0&#125;);
-        &#125;,
+<span class="token comment">// CarouselCenter.init($('.carousel'))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-        showNext: function()&#123;
-            var $ct = this.$ct;
-            $ct.animate(&#123;&#39;left&#39;: 0-this.imgWidth&#125;,function()&#123;
-                $ct.append($ct.children().first());
-                $ct.css(&#39;left&#39;, 0);
-            &#125;);
-        &#125;
-    &#125;;
-
-
-    return &#123;
-        init: init,
-        getList: getList
-    &#125;
-
-&#125;)(); 
-
-// 调用    
-// CarouselCenter.init($(&#39;#c1&#39;))
-// CarouselCenter.init($(&#39;#c2&#39;))
-// CarouselCenter.init($(&#39;#c2&#39;)) //不会重复绑定
-
-// CarouselCenter.init($(&#39;.carousel&#39;)) 
-</code></pre>
 <p>5.通用写法</p>
-<pre><code>(function(window,$)&#123;
-    function Carousel()&#123;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">window<span class="token punctuation">,</span> $</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">Carousel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
-    &#125;;
+  <span class="token class-name">Carousel</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-    Carousel.prototype = &#123;
+  window<span class="token punctuation">.</span>Carousel <span class="token operator">=</span> Carousel<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    &#125;;
-
-    window.Carousel = Carousel;
-&#125;)(window,jQuery)
-</code></pre>
 <p>ps:</p>
 <p>模式目的：编写易于维护的代码，其中一个最重要方面是能够找到代码中重复出现的主题并优化它们。</p>
 
@@ -620,10 +605,6 @@ Carousel.prototype = &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -703,8 +684,8 @@ Carousel.prototype = &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -713,10 +694,6 @@ Carousel.prototype = &#123;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -764,8 +741,8 @@ Carousel.prototype = &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -774,10 +751,6 @@ Carousel.prototype = &#123;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

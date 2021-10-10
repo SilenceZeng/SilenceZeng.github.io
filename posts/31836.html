@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.6k
                 </div>
                 
 
@@ -454,197 +450,215 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安全的类型检测"><a href="#安全的类型检测" class="headerlink" title="安全的类型检测"></a>安全的类型检测</h2><pre><code>function isArray(value)&#123;
-    return Object.prototype.toString.call(value) === &quot;[object Array]&quot;;
-&#125;
+                <h2 id="安全的类型检测"><a href="#安全的类型检测" class="headerlink" title="安全的类型检测"></a>安全的类型检测</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isArray</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object Array]'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-function isFunction(value)&#123;
-    return Object.prototype.toString.call(value) === &quot;[object Function]&quot;;
-&#125;
+<span class="token keyword">function</span> <span class="token function">isFunction</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object Function]'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-//检测原生JSON对象
-function isRegExp(value)&#123;
-    return Object.prototype.toString.call(value) === &quot;[object RegExp]&quot;;
-&#125;
+<span class="token comment">//检测原生JSON对象</span>
+<span class="token keyword">function</span> <span class="token function">isRegExp</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object RegExp]'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-var isNativeJson = window.JSON &amp;&amp; Object.prototype.toString.call(JSON) === &quot;[object JSON]&quot;;
-</code></pre>
-<p>不过要注意Object.prototype.toString本身可能被改写。</p>
-<h2 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h2><p>当使用new调用构造函数时，构造函数内用到的this对象会指向新创建的对象实例，如：</p>
-<pre><code>function Person (name) &#123;
-    this.name = name;
-&#125;
-var person = new Person(&quot;oliver&quot;);
-console.log(person.name);
-</code></pre>
-<p>问题是当没有使用new操作符，直接调用构造函数，this会映射到全局对象window上，导致错误对象属性的意外增加：</p>
-<pre><code>function Person (name) &#123;
-    this.name = name;
-&#125;
-var person = Person(&quot;oliver&quot;);
-console.log(window.name); //oliver
-</code></pre>
+<span class="token keyword">var</span> isNativeJson <span class="token operator">=</span>
+  window<span class="token punctuation">.</span><span class="token constant">JSON</span> <span class="token operator">&amp;&amp;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object JSON]'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不过要注意 Object.prototype.toString 本身可能被改写。</p>
+<h2 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h2><p>当使用 new 调用构造函数时，构造函数内用到的 this 对象会指向新创建的对象实例，如：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'oliver'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>问题是当没有使用 new 操作符，直接调用构造函数，this 会映射到全局对象 window 上，导致错误对象属性的意外增加：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token string">'oliver'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//oliver</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>解决办法是创建一个作用域安全的构造函数：</p>
-<pre><code>function Person(name) &#123;
-    if (this instanceof Person) &#123; //如果this是Person的实例
-        this.name = name;
-    &#125; else &#123;
-        return new Person(name); //否则调用new操作符
-    &#125;
-&#125;
-var person1 = Person(&quot;oliver&quot;);
-console.log(person1.name); //oliver
-var person2 = new Person(&quot;troy&quot;);
-console.log(person2.name); //troy
-console.log(window.name); //&quot;&quot;
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//如果this是Person的实例</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//否则调用new操作符</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token string">'oliver'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//oliver</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'troy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person2<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//troy</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>但是，如果使用构造函数窃取模式的继承且不实用原型链，那么这个继承很可能被破坏如：</p>
-<pre><code>function Person(name) &#123;
-    if (this instanceof Person) &#123; //如果this是Person的实例
-        this.name = name;
-    &#125; else &#123;
-        return new Person(name); //否则调用new操作符
-    &#125;
-&#125;
-function People (name,age) &#123;
-    Person.call(this, name);
-    this.age = age;
-&#125;
-var p = new People(&quot;Oliver&quot;, 18);
-console.log(p.name); //undefined
-console.log(p.age); //18
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//如果this是Person的实例</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//否则调用new操作符</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">Person</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token string">'Oliver'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//undefined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>结合使用原型链或者寄生组合则可以解决这个问题：</p>
-<pre><code>function Person(name) &#123;
-    if (this instanceof Person) &#123; //如果this是Person的实例
-        this.name = name;
-    &#125; else &#123;
-        return new Person(name); //否则调用new操作符
-    &#125;
-&#125;
-function People (name,age) &#123;
-    Person.call(this, name);
-    this.age = age;
-&#125;
-People.prototype = new Person(); //关键点
-var p = new People(&quot;Oliver&quot;, 18);
-console.log(p.name); //Oliver
-console.log(p.age); //18
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//如果this是Person的实例</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//否则调用new操作符</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">Person</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">People</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//关键点</span>
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token string">'Oliver'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Oliver</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="惰性载入函数"><a href="#惰性载入函数" class="headerlink" title="惰性载入函数"></a>惰性载入函数</h2><p>惰性函数表示函数执行的分支仅会发生一次。有两种实现惰性载入函数的方式，第一种就是在函数被调用时在处理函数。在第一次调用的过程中，该函数被覆盖为另一个按合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。</p>
-<pre><code>function createXHR () &#123;
-    if (typeof XMLHttpRequest !== &quot;undefined&quot;) &#123;
-        createXHR = function () &#123; //关键点
-            return new XMLHttpRequest();
-        &#125;
-    &#125; else if (typeof ActiveXObject !== &quot;undefined&quot;) &#123;
-        createXHR = function () &#123; //关键点
-            return new ActiveXObject([&quot;MSXML2.XMLHttp&quot;]);
-        &#125;
-    &#125; else &#123;
-        createXHR = function () &#123; //关键点
-            throw new Error(&quot;No XHR object available.&quot;);
-        &#125;
-    &#125;
-    return createXHR(); //关键点
-&#125;
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">createXHR</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> XMLHttpRequest <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">createXHR</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> ActiveXObject <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">createXHR</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'MSXML2.XMLHttp'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">createXHR</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'No XHR object available.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token function">createXHR</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//关键点</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>第二种实现惰性载入函数的方式就是在声明函数时就指定适当的函数。这样，第一次调用函数时就不会损失性能了，而在代码首次加载时会损失一些性能。</p>
-<pre><code>var createXHR = (function() &#123;
-    if (typeof XMLHttpRequest !== &quot;undefined&quot;) &#123;
-        return function () &#123; //关键点
-            return new XMLHttpRequest();
-        &#125;
-    &#125; else if (typeof ActiveXObject !== &quot;undefined&quot;) &#123;
-        return function () &#123; //关键点
-            return new ActiveXObject([&quot;MSXML2.XMLHttp&quot;]);
-        &#125;
-    &#125; else &#123;
-        return function () &#123; //关键点
-            throw new Error(&quot;No XHR object available.&quot;);
-        &#125;
-    &#125;
-&#125;)();
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> createXHR <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> XMLHttpRequest <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> ActiveXObject <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'MSXML2.XMLHttp'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//关键点</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'No XHR object available.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这个例子中使用的技巧是创建一个匿名、自执行的函数，用以确定应该使用哪一个函数实现。</p>
-<h2 id="函数绑定"><a href="#函数绑定" class="headerlink" title="函数绑定"></a>函数绑定</h2><p>函数绑定要创建一个函数，可以在特定的this环境中以指定参数调用另一个函数。该技巧常常和回调函数与事件处理程序一起使用， 以便在将函数作为变量传递的同时保留代码的执行环境。</p>
-<pre><code>var handler = &#123;
-  message: &quot;Event handled&quot;,
-  handleClick: function(event)&#123;
-    console.log(this.message);
-  &#125;
-&#125;;
+<h2 id="函数绑定"><a href="#函数绑定" class="headerlink" title="函数绑定"></a>函数绑定</h2><p>函数绑定要创建一个函数，可以在特定的 this 环境中以指定参数调用另一个函数。该技巧常常和回调函数与事件处理程序一起使用， 以便在将函数作为变量传递的同时保留代码的执行环境。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  message<span class="token operator">:</span> <span class="token string">'Event handled'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">handleClick</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-handler.handleClick();
+handler<span class="token punctuation">.</span><span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var a = handler.handleClick;
-a();
+<span class="token keyword">var</span> a <span class="token operator">=</span> handler<span class="token punctuation">.</span>handleClick<span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var btn1 = document.getElementById(&#39;my-btn1&#39;);
-btn1.addEventListener(&#39;click&#39;,handler.handleClick,false);
+<span class="token keyword">var</span> btn1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-btn1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn1<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> handler<span class="token punctuation">.</span>handleClick<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var btn2 = document.getElementById(&#39;my-btn2&#39;);
-btn2.addEventListener(&#39;click&#39;,function()&#123;
-  handler.handleClick();
-&#125;,false);
-</code></pre>
-<p>btn1点击后显示undefined，btn2利用闭包来修正这个问题</p>
-<p>由于代码之中存在着this变量，而this在当前环境下指向确定的对象，但是当更改代码的执行环境时，就会出现问题了。为了解决这个问题， javascript函数库中实现了一个bind() 函数来解决这个问题。</p>
-<p>一个简单的bind() 函数接收一个函数和一个环境， 并返回一个在给定环境中调用给定函数的函数， 并且将所有参数原封不动传递过去。 语法如下：</p>
-<pre><code>function bind(fn, context) &#123;
-    return function() &#123;
-        return fn.apply(context, arguments);
-    &#125;
-&#125;
-</code></pre>
-<p>注意这里使用的arguments并不是bind() 的， 是内部函数的。</p>
-<pre><code>var handler = &#123;
-    message: &quot;Event handled&quot;,
-    handleClick: function(event) &#123;
-        alert(this.message);
-    &#125;
-&#125;;
-var btn = document.getElementById(&quot;my-btn&quot;);
-EventUtil.addHandler(btn, &quot;click&quot;, bind(handler.handleClick, handler));
-</code></pre>
-<p>ECMAScript5为所有函数定义了一个原生的bind() 方法， 进一步简化了操作。</p>
-<pre><code>var handler = &#123;
-    message: &quot;Event handled&quot;,
-    handleClick: function(event) &#123;
-        alert(this.message);
-    &#125;
-&#125;;
-var btn = document.getElementById(&quot;my-btn&quot;);
-EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
-</code></pre>
-<p>它们主要用于事件处理程序以及setTimeout() 和setInterval()。 然而被绑定函数与普通函数相比有更多的开销， 它们需要更多内存， 同时也因为多重函数调用稍微慢一些， 所以最好只在必要时使用。</p>
+<span class="token keyword">var</span> btn2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-btn2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn2<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+  <span class="token string">'click'</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    handler<span class="token punctuation">.</span><span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>btn1 点击后显示 undefined，btn2 利用闭包来修正这个问题</p>
+<p>由于代码之中存在着 this 变量，而 this 在当前环境下指向确定的对象，但是当更改代码的执行环境时，就会出现问题了。为了解决这个问题， javascript 函数库中实现了一个 bind() 函数来解决这个问题。</p>
+<p>一个简单的 bind() 函数接收一个函数和一个环境， 并返回一个在给定环境中调用给定函数的函数， 并且将所有参数原封不动传递过去。 语法如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意这里使用的 arguments 并不是 bind() 的， 是内部函数的。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  message<span class="token operator">:</span> <span class="token string">'Event handled'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">handleClick</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token function">bind</span><span class="token punctuation">(</span>handler<span class="token punctuation">.</span>handleClick<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ECMAScript5 为所有函数定义了一个原生的 bind() 方法， 进一步简化了操作。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  message<span class="token operator">:</span> <span class="token string">'Event handled'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">handleClick</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> handler<span class="token punctuation">.</span><span class="token function">handleClick</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>它们主要用于事件处理程序以及 setTimeout() 和 setInterval()。 然而被绑定函数与普通函数相比有更多的开销， 它们需要更多内存， 同时也因为多重函数调用稍微慢一些， 所以最好只在必要时使用。</p>
 <h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><p>它用于创建已经设置好了一个或多个参数的函数。 函数柯里化的基本方法是： 使用一个闭包返回一个函数。 当函数被调用时， 返回的函数还需要设置一些传入的参数。</p>
 <p>柯里化函数通常由以下步骤动态的创建： 调用另一个函数并为它传入要柯里化的函数和必要参数。 下面是创建柯里化函数的通用方式：</p>
-<pre><code>function curry(fn) &#123;
-    var args = Array.prototype.slice.call(arguments, 1);
-    return function() &#123;
-        var innerArgs = Array.prototype.slice.call(arguments);
-        var finalArgs = args.concat(innerArgs);
-        return fn.apply(null, finalArgs);
-    &#125;
-&#125;
-</code></pre>
-<p>函数柯里化还常常作为函数绑定的一部分包含在其中，构造出更为复杂的bind函数</p>
-<pre><code>function bind(fn,contenxt) &#123;
-    var args = Array.prototype.slice.call(arguments,2);
-    return function() &#123;
-        var innerArgs = Array.prototype.slice.call(arguments);
-        var finalArgs = args.cancat(innerArgs);
-        return fn.apply(context,finalArgs);
-    &#125;
-&#125;
-</code></pre>
-<p>当你想除了event对象再额外给事件处理程序传递参数时，这非常有用。</p>
-<pre><code>EventUtil.addHandler(btn, &quot;click&quot;, bind(handler.handleClick,handler,&quot;my-btn&quot;)); 
-</code></pre>
-<p>ES5的bind方法也实现了函数柯里化，只需要在this值后再传另一个参数</p>
-<pre><code>EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler,&quot;my-btn&quot;));
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> args <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> innerArgs <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> finalArgs <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>innerArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> finalArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>函数柯里化还常常作为函数绑定的一部分包含在其中，构造出更为复杂的 bind 函数</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> contenxt</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> args <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> innerArgs <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> finalArgs <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">cancat</span><span class="token punctuation">(</span>innerArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> finalArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当你想除了 event 对象再额外给事件处理程序传递参数时，这非常有用。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>
+  btn<span class="token punctuation">,</span>
+  <span class="token string">'click'</span><span class="token punctuation">,</span>
+  <span class="token function">bind</span><span class="token punctuation">(</span>handler<span class="token punctuation">.</span>handleClick<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token string">'my-btn'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ES5 的 bind 方法也实现了函数柯里化，只需要在 this 值后再传另一个参数</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> handler<span class="token punctuation">.</span><span class="token function">handleClick</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>handler<span class="token punctuation">,</span> <span class="token string">'my-btn'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>函数绑定和柯里化都不应滥用，因为每个函数会带来额外的开销</p>
 
                 
@@ -709,10 +723,6 @@ EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -792,8 +802,8 @@ EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -802,10 +812,6 @@ EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -849,8 +855,8 @@ EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -859,10 +865,6 @@ EventUtil.addHandler(btn, &quot;click&quot;, handler.handleClick.bind(handler));
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

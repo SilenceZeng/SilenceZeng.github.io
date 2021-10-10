@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -454,97 +450,111 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。我们可以给这个事件注册相应的事件处理程序，事件处理程序也就是事件发生后的处理动作。</p>
-<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>事件流描述的是从页面中接收事件的顺序。<br>DOM2级事件规定事件流包含三个阶段<br>1.document往事件触发地点，捕获前进，遇到相同注册事件立即触发执行<br>2.到达事件位置，触发事件，如果该处既注册了冒泡事件，也注册了捕获事件，按照注册顺序执行<br>3.事件触发地点往document方向，冒泡前进，遇到相同注册事件立即触发<br>IE8及IE8以下不支持事件捕获，只支持事件冒泡，早期Netscape只支持事件捕获，现代浏览器采用DOM2级事件流模型。</p>
+                <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>JavaScript 和 HTML 的交互是通过事件实现的。JavaScript 采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。我们可以给这个事件注册相应的事件处理程序，事件处理程序也就是事件发生后的处理动作。</p>
+<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>事件流描述的是从页面中接收事件的顺序。<br>DOM2 级事件规定事件流包含三个阶段<br>1.document 往事件触发地点，捕获前进，遇到相同注册事件立即触发执行 2.到达事件位置，触发事件，如果该处既注册了冒泡事件，也注册了捕获事件，按照注册顺序执行 3.事件触发地点往 document 方向，冒泡前进，遇到相同注册事件立即触发<br>IE8 及 IE8 以下不支持事件捕获，只支持事件冒泡，早期 Netscape 只支持事件捕获，现代浏览器采用 DOM2 级事件流模型。</p>
 <h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p>响应某个事件的函数叫做事件处理程序或事件侦听器（listener），事件处理程序的名字以“on”开头。</p>
-<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>在触发DOM上某个事件时，会产生一个事件对象event，它包含着所有与事件有关的信息。只有在事件处理程序执行期间event对象才会存在，执行完毕后event对象被销毁。</p>
-<h3 id="DOM中的事件对象："><a href="#DOM中的事件对象：" class="headerlink" title="DOM中的事件对象："></a>DOM中的事件对象：</h3><p>无论指定事件处理程序时使用了哪种方法，兼容DOM的浏览器都会将一个event对象传入到事件处理程序中。<br>HTML方法添加时，变量event中保存着event对象。<br>event对象通用的属性和方法中比较常用的有：<br>currentTarget：其事件处理程序当前正处理事件的元素<br>target：事件的目标<br>preventDefault()：阻止事件的默认行为<br>stopPropagation()：阻止事件的进一步捕获或冒泡<br>type：被触发的事件类型</p>
-<h3 id="IE中的事件对象："><a href="#IE中的事件对象：" class="headerlink" title="IE中的事件对象："></a>IE中的事件对象：</h3><p>DOM0级方法添加事件处理程序时，event对象是window的属性；<br>IE方法添加时，event对象会像DOM中一样，作为参数被传递到事件处理程序函数中。<br>HTML方法添加时，和DOM相同，event对象保存在变量event中。<br>常用方法和属性：<br>srcElement：等于target，默认目标<br>returnValue：等于preventDefault()，阻止默认行为<br>cancelBubble：设为true取消事件冒泡，等于stopPropagation()<br>type：被触发的事件类型</p>
-<h3 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h3><p>虽然DOM和IE的event对象不同，但基于它们的相似性，我们还是可以写出跨浏览器的事件对象方案</p>
-<pre><code>function getEvent(e) &#123;
-    return e || window.event;
-&#125;
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>在触发 DOM 上某个事件时，会产生一个事件对象 event，它包含着所有与事件有关的信息。只有在事件处理程序执行期间 event 对象才会存在，执行完毕后 event 对象被销毁。</p>
+<h3 id="DOM-中的事件对象："><a href="#DOM-中的事件对象：" class="headerlink" title="DOM 中的事件对象："></a>DOM 中的事件对象：</h3><p>无论指定事件处理程序时使用了哪种方法，兼容 DOM 的浏览器都会将一个 event 对象传入到事件处理程序中。<br>HTML 方法添加时，变量 event 中保存着 event 对象。<br>event 对象通用的属性和方法中比较常用的有：<br>currentTarget：其事件处理程序当前正处理事件的元素<br>target：事件的目标<br>preventDefault()：阻止事件的默认行为<br>stopPropagation()：阻止事件的进一步捕获或冒泡<br>type：被触发的事件类型</p>
+<h3 id="IE-中的事件对象："><a href="#IE-中的事件对象：" class="headerlink" title="IE 中的事件对象："></a>IE 中的事件对象：</h3><p>DOM0 级方法添加事件处理程序时，event 对象是 window 的属性；<br>IE 方法添加时，event 对象会像 DOM 中一样，作为参数被传递到事件处理程序函数中。<br>HTML 方法添加时，和 DOM 相同，event 对象保存在变量 event 中。<br>常用方法和属性：<br>srcElement：等于 target，默认目标<br>returnValue：等于 preventDefault()，阻止默认行为<br>cancelBubble：设为 true 取消事件冒泡，等于 stopPropagation()<br>type：被触发的事件类型</p>
+<h3 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h3><p>虽然 DOM 和 IE 的 event 对象不同，但基于它们的相似性，我们还是可以写出跨浏览器的事件对象方案</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getEvent</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> e <span class="token operator">||</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-function getTarget(e) &#123;
-    return e.target || e.scrElement;
-&#125;
+<span class="token keyword">function</span> <span class="token function">getTarget</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> e<span class="token punctuation">.</span>target <span class="token operator">||</span> e<span class="token punctuation">.</span>scrElement<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-function preventDefault(e) &#123;
-    if (e.preventDefault)
-        e.preventDefault();
-    else
-        e.returnValue = false;
-&#125;
+<span class="token keyword">function</span> <span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>preventDefault<span class="token punctuation">)</span> e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">else</span> e<span class="token punctuation">.</span>returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-function stopPropagation(e) &#123;
-    if (e.stopPropagation)
-        e.stopPropagation();
-    else
-        e.cancelBubble = true;
-&#125;
-</code></pre>
-<h2 id="事件模拟"><a href="#事件模拟" class="headerlink" title="事件模拟"></a>事件模拟</h2><p>DOM：<br>(1) 创建：用document.createEvent()方法创建event对象，该方法接受一个参数，即要创建的事件类型的字符串。<br>(2) 初始化：不同类型的event有不同名字的初始化方法：<br>鼠标事件：”MouseEvents”，”initMouseEvent()”，接受15个参数<br>键盘事件：”KeyboardEvent”，”initKeyEvent()”，接受10个参数。键盘事件只有支持DOM3的浏览器才能用，要先检测。<br>其他事件：变动事件，HTML事件，方法类似，很少使用。<br>自定义DOM事件：”CustonEvent”，”initCustonEvent()”，接受4个参数（type字符串、bubbles布尔值、cancelable布尔值、detail对象）。<br>(3) 触发：dispatchEvent()方法，接受一个参数，即要触发事件的event对象。<br>IE9+开始支持DOM方式。</p>
-<p>IE：<br>(1) 创建：document.createEventObject()创建event对象。<br>(2) 初始化：用event.propertyName = …的形式手动添加信息，没有特别的方法。<br>(3) 触发：fireEvent()方法，接受两个参数：事件处理程序的名称、event对象。</p>
-<h2 id="绑定事件处理程序的方法"><a href="#绑定事件处理程序的方法" class="headerlink" title="绑定事件处理程序的方法"></a>绑定事件处理程序的方法</h2><p>共有四种方法：HTML、DOM0、DOM2、IE，也可将后三种整合为跨浏览器方法。<br>(1) HTML：<br>对于不同元素，它支持的事件可以用一个与相应事件处理程序同名的HTML attribute来指定。如</p>
-<pre><code>&lt;input type=&quot;button&quot; value=&quot;click here&quot; onclick=&quot;alert(&#39;hi&#39;)&quot;/&gt;
-</code></pre>
-<p>两个缺点：从HTML元素出现到事件处理程序就绪之间存在时差；HTML和JS代码紧密耦合。</p>
+<span class="token keyword">function</span> <span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>stopPropagation<span class="token punctuation">)</span> e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">else</span> e<span class="token punctuation">.</span>cancelBubble <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="事件模拟"><a href="#事件模拟" class="headerlink" title="事件模拟"></a>事件模拟</h2><p>DOM：<br>(1) 创建：用 document.createEvent()方法创建 event 对象，该方法接受一个参数，即要创建的事件类型的字符串。<br>(2) 初始化：不同类型的 event 有不同名字的初始化方法：<br>鼠标事件：”MouseEvents”，”initMouseEvent()”，接受 15 个参数<br>键盘事件：”KeyboardEvent”，”initKeyEvent()”，接受 10 个参数。键盘事件只有支持 DOM3 的浏览器才能用，要先检测。<br>其他事件：变动事件，HTML 事件，方法类似，很少使用。<br>自定义 DOM 事件：”CustonEvent”，”initCustonEvent()”，接受 4 个参数（type 字符串、bubbles 布尔值、cancelable 布尔值、detail 对象）。<br>(3) 触发：dispatchEvent()方法，接受一个参数，即要触发事件的 event 对象。<br>IE9+开始支持 DOM 方式。</p>
+<p>IE：<br>(1) 创建：document.createEventObject()创建 event 对象。<br>(2) 初始化：用 event.propertyName = …的形式手动添加信息，没有特别的方法。<br>(3) 触发：fireEvent()方法，接受两个参数：事件处理程序的名称、event 对象。</p>
+<h2 id="绑定事件处理程序的方法"><a href="#绑定事件处理程序的方法" class="headerlink" title="绑定事件处理程序的方法"></a>绑定事件处理程序的方法</h2><p>共有四种方法：HTML、DOM0、DOM2、IE，也可将后三种整合为跨浏览器方法。<br>(1) HTML：<br>对于不同元素，它支持的事件可以用一个与相应事件处理程序同名的 HTML attribute 来指定。如</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>click here<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'hi'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>两个缺点：从 HTML 元素出现到事件处理程序就绪之间存在时差；HTML 和 JS 代码紧密耦合。</p>
 <p>(2) DOM0：<br>先取得一个对象的引用，再将一个函数赋值给该引用的一个事件处理程序属性。</p>
-<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
-btn.onclick = function()&#123;
-    alert(&quot;Clicked&quot;);
-&#125;
-</code></pre>
-<p>DOM0是元素的方法，事件处理程序是在元素的作用域中运行，在冒泡阶段被处理。在代码运行到它们前不会指定事件处理程序，和HTML方法一样存在时差，可能某段时间内怎么点都没反应。</p>
-<p>(3) DOM2：<br>绑定事件处理程序：addEventListener()<br>删除事件处理程序：removeEventListener()<br>三个参数：要处理的事件名、作为事件处理程序的函数、表示调用事件处理程序阶段的布尔值（true捕获阶段，false冒泡阶段，一般都设为false以保证兼容性）。<br>好处：可以添加多个事件处理程序（按添加他们的顺序触发）。<br>注意事项：通过addEventListener()添加的匿名函数无法移除。<br>备注：IE9起支持DOM2方法。</p>
-<pre><code>//&lt;div id=&quot;div&quot;&gt;click this division&lt;/div&gt;
-var div = document.getElementById(&quot;div&quot;);
-function sayHi()&#123;console.log(&quot;hi&quot;);&#125;
-function sayHi2()&#123;console.log(&quot;hi again&quot;);&#125;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'myBtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-div.addEventListener(&quot;click&quot;,sayHi,false);
-div.addEventListener(&quot;click&quot;,sayHi2,false);
-</code></pre>
-<p>(4) IE：<br>绑定：attachEvent()<br>删除：detachEvent()<br>参数：事件处理名称（以“on”开头，不同于DOM）、事件处理函数<br>注意事项：<br>[1] 匿名函数同样不能移除；<br>[2] 跟使用DOM0方法事件处理程序的作用域不同。DOM0方法中事件处理程序在其所属元素的作用域上运行，IE方法在全局作用域运行，this等于window；<br>[3] 执行顺序跟添加顺序相反；<br>[4] 老版本IE只支持冒泡，所以事件处理程序都会被添加到冒泡阶段；<br>[5] IE9开始不建议使用IE专属方法，IE11彻底取消支持。</p>
-<p>(5) 在添加事件处理程序事addEventListener和attachEvent主要有几个区别</p>
-<p>1.参数个数不相同，这个最直观，addEventListener有三个参数，attachEvent只有两个，attachEvent添加的事件处理程序只能发生在冒泡阶段，addEventListener第三个参数可以决定添加的事件处理程序是在捕获阶段还是冒泡阶段处理（我们一般为了浏览器兼容性都设置为冒泡阶段）</p>
-<p>2.第一个参数意义不同，addEventListener第一个参数是事件类型（比如click，load），而attachEvent第一个参数指明的是事件处理函数名称（onclick，onload）</p>
-<p>3.事件处理程序的作用域不相同，addEventListener的作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id</p>
-<p>4.为一个事件添加多个事件处理程序时，执行顺序不同，addEventListener添加会按照添加顺序执行，而attachEvent添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器</p>
-<p>(6) 跨浏览器：<br>function addEvent(node, type, handler) {<br>    if (!node) return false;<br>    if (node.addEventListener) {<br>        node.addEventListener(type, handler, false);<br>        return true;<br>    }<br>    else if (node.attachEvent) {<br>        node.attachEvent(‘on’ + type, function() { handler.apply(node); });<br>        return true;<br>    }<br>    return false;<br>}<br>这样处理就可以解决handler中有this的问题了，但是新的问题又来了，我们这样等于添加了一个匿名的事件处理程序，无法用detachEvent取消事件处理程序，有很多解决方案，我们可以借鉴大师的处理方式，jQuery创始人John Resig很巧妙地利用了闭包，是这样做的</p>
-<pre><code>function addEvent(node, type, handler) &#123;
-    if (!node) return false;
-    if (node.addEventListener) &#123;
-        node.addEventListener(type, handler, false);
-        return true;
-    &#125;
-    else if (node.attachEvent) &#123;
-        node[&#39;e&#39; + type + handler] = handler;
-        node[type + handler] = function() &#123;
-            node[&#39;e&#39; + type + handler](window.event);
-        &#125;;
-        node.attachEvent(&#39;on&#39; + type, node[type + handler]);
-        return true;
-    &#125;
-    return false;
-&#125;
-</code></pre>
+<p>DOM0 是元素的方法，事件处理程序是在元素的作用域中运行，在冒泡阶段被处理。在代码运行到它们前不会指定事件处理程序，和 HTML 方法一样存在时差，可能某段时间内怎么点都没反应。</p>
+<p>(3) DOM2：<br>绑定事件处理程序：addEventListener()<br>删除事件处理程序：removeEventListener()<br>三个参数：要处理的事件名、作为事件处理程序的函数、表示调用事件处理程序阶段的布尔值（true 捕获阶段，false 冒泡阶段，一般都设为 false 以保证兼容性）。<br>好处：可以添加多个事件处理程序（按添加他们的顺序触发）。<br>注意事项：通过 addEventListener()添加的匿名函数无法移除。<br>备注：IE9 起支持 DOM2 方法。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//&lt;div id="div">click this division&lt;/div></span>
+<span class="token keyword">var</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">sayHi2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi again'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+div<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> sayHi<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+div<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> sayHi2<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>(4) IE：<br>绑定：attachEvent()<br>删除：detachEvent()<br>参数：事件处理名称（以“on”开头，不同于 DOM）、事件处理函数<br>注意事项：<br>[1] 匿名函数同样不能移除；<br>[2] 跟使用 DOM0 方法事件处理程序的作用域不同。DOM0 方法中事件处理程序在其所属元素的作用域上运行，IE 方法在全局作用域运行，this 等于 window；<br>[3] 执行顺序跟添加顺序相反；<br>[4] 老版本 IE 只支持冒泡，所以事件处理程序都会被添加到冒泡阶段；<br>[5] IE9 开始不建议使用 IE 专属方法，IE11 彻底取消支持。</p>
+<p>(5) 在添加事件处理程序事 addEventListener 和 attachEvent 主要有几个区别</p>
+<p>1.参数个数不相同，这个最直观，addEventListener 有三个参数，attachEvent 只有两个，attachEvent 添加的事件处理程序只能发生在冒泡阶段，addEventListener 第三个参数可以决定添加的事件处理程序是在捕获阶段还是冒泡阶段处理（我们一般为了浏览器兼容性都设置为冒泡阶段）</p>
+<p>2.第一个参数意义不同，addEventListener 第一个参数是事件类型（比如 click，load），而 attachEvent 第一个参数指明的是事件处理函数名称（onclick，onload）</p>
+<p>3.事件处理程序的作用域不相同，addEventListener 的作用域是元素本身，this 是指的触发元素，而 attachEvent 事件处理程序会在全局变量内运行，this 是 window，所以刚才例子才会返回 undefined，而不是元素 id</p>
+<p>4.为一个事件添加多个事件处理程序时，执行顺序不同，addEventListener 添加会按照添加顺序执行，而 attachEvent 添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器</p>
+<p>(6) 跨浏览器：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">addEvent</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>addEventListener<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>attachEvent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">.</span><span class="token function">attachEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">handler</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样处理就可以解决 handler 中有 this 的问题了，但是新的问题又来了，我们这样等于添加了一个匿名的事件处理程序，无法用 detachEvent 取消事件处理程序，有很多解决方案，我们可以借鉴大师的处理方式，jQuery 创始人 John Resig 很巧妙地利用了闭包，是这样做的</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">addEvent</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>addEventListener<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>attachEvent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">[</span><span class="token string">'e'</span> <span class="token operator">+</span> type <span class="token operator">+</span> handler<span class="token punctuation">]</span> <span class="token operator">=</span> handler<span class="token punctuation">;</span>
+    node<span class="token punctuation">[</span>type <span class="token operator">+</span> handler<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      node<span class="token punctuation">[</span><span class="token string">'e'</span> <span class="token operator">+</span> type <span class="token operator">+</span> handler<span class="token punctuation">]</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span><span class="token function">attachEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> node<span class="token punctuation">[</span>type <span class="token operator">+</span> handler<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在取消事件处理程序的时候</p>
-<pre><code>function removeEvent(node, type, handler) &#123;
-    if (!node) return false;
-    if (node.removeEventListener) &#123;
-        node.removeEventListener(type, handler, false);
-        return true;
-    &#125;
-    else if (node.detachEvent) &#123;
-        node.detachEvent(&#39;on&#39; + type, node[type + handler]);
-        node[type + handler] = null;
-    &#125;
-    return false;
-&#125;
-</code></pre>
-<h2 id="事件委托（事件代理）是什么？"><a href="#事件委托（事件代理）是什么？" class="headerlink" title="事件委托（事件代理）是什么？"></a>事件委托（事件代理）是什么？</h2><p>事件委托的意义：<br>1.委托事件有一个优势，他们能在后代元素添加到文档后，可以处理这些事件。在确保所选择的元素已经存在的情况下，进行事件绑定时，可以使用委派的事件，以避免频繁的绑定事件及解除绑定事件。<br>2.除了可以给未创建的后代元素绑定事件外，代理事件的另一个好处就是，当需要监视很多元素的时候，代理事件的开销更小。<br>原理：<br>事件委托利用了事件冒泡，只绑定一个事件处理程序，就可以管理某一类型的所有事件。<br>使用事件委托只需要在DOM树中尽量高的层次上添加一个使用了switch-case的事件处理程序。<br>适用情况：<br>所有用到按钮的事件都适合采用事件委托，最适合的有click、mousedown、mouseup、keydown、keyup、keypress。<br>移除事件处理程序：<br>内存中留有过时不用的空事件处理程序会造成性能问题：<br>1.文档中移除带有事件处理程序的元素（removeChild()、replaceChild()、innerHTML）<br>2.卸载页面<br>针对1：如果知道某个元素即将被移除，最好手工移除事件处理程序，如bt.onclick = null;<br>针对2：在页面卸载前通过onunload事件处理程序移除所有事件处理程序。这时使用事件委托会有明显优势，即需要跟踪的事件处理程序越少，移除越容易。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.stopImmediatePropagation的使用<br>这玩意儿是w3c的东西，使用的也不是特别多，我们知道stopPropagation 可以阻止事件的进一步传播，但是他阻止不了该元素上绑定的其他函数的执行，比如我们在obj上绑定了func1和func2，如果我们在func1中使用了stopPropagation，那func2依然还是会执行出来。倘若这里使用stopImmediatePropagation，结果就不一样了，他不仅阻止事件的传播，还阻止func2的执行。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">removeEvent</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>removeEventListener<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>detachEvent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    node<span class="token punctuation">.</span><span class="token function">detachEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> node<span class="token punctuation">[</span>type <span class="token operator">+</span> handler<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">[</span>type <span class="token operator">+</span> handler<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="事件委托（事件代理）是什么？"><a href="#事件委托（事件代理）是什么？" class="headerlink" title="事件委托（事件代理）是什么？"></a>事件委托（事件代理）是什么？</h2><p>事件委托的意义： 1.委托事件有一个优势，他们能在后代元素添加到文档后，可以处理这些事件。在确保所选择的元素已经存在的情况下，进行事件绑定时，可以使用委派的事件，以避免频繁的绑定事件及解除绑定事件。 2.除了可以给未创建的后代元素绑定事件外，代理事件的另一个好处就是，当需要监视很多元素的时候，代理事件的开销更小。<br>原理：<br>事件委托利用了事件冒泡，只绑定一个事件处理程序，就可以管理某一类型的所有事件。<br>使用事件委托只需要在 DOM 树中尽量高的层次上添加一个使用了 switch-case 的事件处理程序。<br>适用情况：<br>所有用到按钮的事件都适合采用事件委托，最适合的有 click、mousedown、mouseup、keydown、keyup、keypress。<br>移除事件处理程序：<br>内存中留有过时不用的空事件处理程序会造成性能问题： 1.文档中移除带有事件处理程序的元素（removeChild()、replaceChild()、innerHTML） 2.卸载页面<br>针对 1：如果知道某个元素即将被移除，最好手工移除事件处理程序，如 bt.onclick = null;<br>针对 2：在页面卸载前通过 onunload 事件处理程序移除所有事件处理程序。这时使用事件委托会有明显优势，即需要跟踪的事件处理程序越少，移除越容易。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.stopImmediatePropagation 的使用</p>
+<p>这是 w3c 的东西，使用的也不是特别多，我们知道 stopPropagation 可以阻止事件的进一步传播，但是他阻止不了该元素上绑定的其他函数的执行，比如我们在 obj 上绑定了 func1 和 func2，如果我们在 func1 中使用了 stopPropagation，那 func2 依然还是会执行出来。倘若这里使用 stopImmediatePropagation，结果就不一样了，他不仅阻止事件的传播，还阻止 func2 的执行。</p>
 
                 
             </div>
@@ -608,10 +618,6 @@ div.addEventListener(&quot;click&quot;,sayHi2,false);
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -691,8 +697,8 @@ div.addEventListener(&quot;click&quot;,sayHi2,false);
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -701,18 +707,6 @@ div.addEventListener(&quot;click&quot;,sayHi2,false);
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%AF%E7%B4%AF/">
-                        <span class="chip bg-color">积累</span>
-                    </a>
                     
                     <a href="/tags/HTML5/">
                         <span class="chip bg-color">HTML5</span>
@@ -752,8 +746,8 @@ div.addEventListener(&quot;click&quot;,sayHi2,false);
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -762,10 +756,6 @@ div.addEventListener(&quot;click&quot;,sayHi2,false);
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

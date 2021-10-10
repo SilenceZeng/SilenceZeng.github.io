@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    873
+                    887
                 </div>
                 
 
@@ -454,20 +450,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发BFC或者利用clear来清除浮动，IE则通过触发haslayout来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
-<h2 id="为什么元素浮动后其容器高度会塌陷？"><a href="#为什么元素浮动后其容器高度会塌陷？" class="headerlink" title="为什么元素浮动后其容器高度会塌陷？"></a>为什么元素浮动后其容器高度会塌陷？</h2><h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p>经常听到文档流的说法，但是在W3C规范中并没有发现document flow这个概念，只有常规流(normal flow)。在常规流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。文档流也可以认为是一层一层嵌套的，因此n多个空div嵌套，最外面那个div高度仍为0（本文float元素容器默认都是指div，其他块级元素其实效果一样，只是可能会有默认的样式，因此高度不一定为0）。</p>
-<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><p>float的引入最初是为了解决图文混排的，元素float后会脱离文档流，而div的高度默认是里面文档流的高度，因此容器内若没有其他文档流，容器高度为0。</p>
-<h2 id="清除浮动的两种方法"><a href="#清除浮动的两种方法" class="headerlink" title="清除浮动的两种方法"></a>清除浮动的两种方法</h2><h3 id="触发BFC来清除浮动"><a href="#触发BFC来清除浮动" class="headerlink" title="触发BFC来清除浮动"></a>触发BFC来清除浮动</h3><p>BFC(block formatting context)俗称块级格式化上下文。下图是MDN的一些总结。<br><img src="../../../../img/bfc.png" alt="BFC"><br>BFC有一下特性：<br>1.内部的Box会在垂直方向，从顶部开始一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加<br>3.每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>4.BFC的区域不会与float box叠加。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。<br>6.计算BFC的高度时，浮动元素也参与计算。</p>
-<p>正因为性质6，可以利用BFC来清除浮动。<br>参考：<br>1.<a target="_blank" rel="noopener" href="http://www.html-js.com/article/1866">CSS之BFC详解</a></p>
-<h3 id="通过clear-both来清除浮动"><a href="#通过clear-both来清除浮动" class="headerlink" title="通过clear:both来清除浮动"></a>通过clear:both来清除浮动</h3><p>1.底部加html block水平元素：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道元素浮动后其容器高度会塌陷，这常常不是我们想要的，因此我们需要清除浮动，更确切的说法是清除因为浮动带来的效果。而我们一般通过触发 BFC 或者利用 clear 来清除浮动，IE 则通过触发 haslayout 来实现。接下来我将谈谈自己对容器高度塌陷和这两种方法的理解。</p>
+<h2 id="为什么元素浮动后其容器高度会塌陷？"><a href="#为什么元素浮动后其容器高度会塌陷？" class="headerlink" title="为什么元素浮动后其容器高度会塌陷？"></a>为什么元素浮动后其容器高度会塌陷？</h2><h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p>经常听到文档流的说法，但是在 W3C 规范中并没有发现 document flow 这个概念，只有常规流(normal flow)。在常规流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。文档流也可以认为是一层一层嵌套的，因此 n 多个空 div 嵌套，最外面那个 div 高度仍为 0（本文 float 元素容器默认都是指 div，其他块级元素其实效果一样，只是可能会有默认的样式，因此高度不一定为 0）。</p>
+<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><p>float 的引入最初是为了解决图文混排的，元素 float 后会脱离文档流，而 div 的高度默认是里面文档流的高度，因此容器内若没有其他文档流，容器高度为 0。</p>
+<h2 id="清除浮动的两种方法"><a href="#清除浮动的两种方法" class="headerlink" title="清除浮动的两种方法"></a>清除浮动的两种方法</h2><h3 id="触发-BFC-来清除浮动"><a href="#触发-BFC-来清除浮动" class="headerlink" title="触发 BFC 来清除浮动"></a>触发 BFC 来清除浮动</h3><p>BFC(block formatting context)俗称块级格式化上下文。下图是 MDN 的一些总结。<br><img src="../../../../img/bfc.png" alt="BFC"><br>BFC 有一下特性： 1.内部的 Box 会在垂直方向，从顶部开始一个接一个地放置。<br>2.Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生叠加 3.每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>4.BFC 的区域不会与 float box 叠加。<br>5.BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。 6.计算 BFC 的高度时，浮动元素也参与计算。</p>
+<p>正因为性质 6，可以利用 BFC 来清除浮动。<br>参考： 1.<a target="_blank" rel="noopener" href="http://www.html-js.com/article/1866">CSS 之 BFC 详解</a></p>
+<h3 id="通过-clear-both-来清除浮动"><a href="#通过-clear-both-来清除浮动" class="headerlink" title="通过 clear:both 来清除浮动"></a>通过 clear:both 来清除浮动</h3><p>1.底部加 html block 水平元素：</p>
 <pre><code>&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
 </code></pre>
-<p>2.css after伪元素底部生成：</p>
+<p>2.css after 伪元素底部生成：</p>
 <pre><code>.clearfix::after&#123;content: &quot;&quot;; display: block; clear: both;&#125;
 .clearfix&#123;*zoom: 1;&#125; // IE hack
 </code></pre>
-<p>PS.我们常见的是clearfix:after这种写法,中间不是两个:，两个是css3的写法，是一种改进，一个是css2的设计失误，不够优雅，一个表示状态,是伪类，两个是伪元素，CSS3对这两种进行了区分。如不用兼容IE8，最好用两个:的写法。</p>
-<p>为什么可以通过clear:both来清除浮动呢？<br>1.如前所诉，容器高度默认是里面文档流的高度<br>2.带有clear:both的元素左右不能有浮动元素，元素加上clear:both能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
+<p>PS.我们常见的是 clearfix:after 这种写法,中间不是两个:，两个是 css3 的写法，是一种改进，一个是 css2 的设计失误，不够优雅，一个表示状态,是伪类，两个是伪元素，CSS3 对这两种进行了区分。如不用兼容 IE8，最好用两个:的写法。</p>
+<p>为什么可以通过 clear:both 来清除浮动呢？ 1.如前所诉，容器高度默认是里面文档流的高度 2.带有 clear:both 的元素左右不能有浮动元素，元素加上 clear:both 能让它在所有浮动元素的下面，从而撑起了容器高度。</p>
 
                 
             </div>
@@ -531,10 +527,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -614,8 +606,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -624,10 +616,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

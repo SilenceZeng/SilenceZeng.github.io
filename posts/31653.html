@@ -429,7 +429,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -462,7 +462,7 @@ mkdir -p    递归创建多个目录    --parents     no error if existing, make
 ls      列出目录内容              list
 ls -a      可以显示.开头的文件      all
 ls -l      列出文件的详细信息        long listing format
-touch    创建文件                
+touch    创建文件
 rm/rmdir  删除文件/目录            remove
 rm -r    删除目录                --recursively 递归地
 mv        文件或目录的移动或更名    move
@@ -471,7 +471,7 @@ echo                             like echo 1 &gt; test.txt
 cat        显示文件内容和合并多个文件    like cat test.txt,also like cat file1 file2 &gt; file
 less    按页显示文件  j - 向前移动一行,k - 向后移动一行,G - 移动到最后一行,g - 移动到第一行
 clear      清屏
-du      统计目录／文件所占磁盘空间的大小    disk usage                                    
+du      统计目录／文件所占磁盘空间的大小    disk usage
 du -sh     以易读的方式显示总共大小    --summarize --human-readable
 ps      报告程序状况            process status
 head     显示开头某个数量的文字区块    like head -n 3 test.txt
@@ -489,21 +489,21 @@ man    xxx
 多个命令之间可以用;或&amp;&amp;分隔，前者命令错误不中断
 </code></pre>
 <h3 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道(pipe)"></a>管道(pipe)</h3><p>前一个命令的输出为后一个命令的输入，like cat test.txt | less</p>
-<h3 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h3><p>告诉命令行去哪找命令，用英文分号分隔加路径，Windows在高级系统设置中</p>
-<h3 id="vi与vim"><a href="#vi与vim" class="headerlink" title="vi与vim"></a>vi与vim</h3><p>vi是一种计算机文本编辑器，是“Visual”的不正规的缩写。vi是一种模式编辑器。不同的按钮和键击可以更改不同的“模式”。Vim（Vi IMproved）是一种升级版。<br>默认为不可编辑模式，i：输入模式  Windows中Esc：退出  输入:切至命令模式  w:write  q:quit  wq:保存并退出<br>深入学习请<a target="_blank" rel="noopener" href="http://coolshell.cn/articles/5426.html">参考</a></p>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git日常使用的6个命令，如图所示<br><img src="../../../../img/git.png" alt="git常用操作"><br>图中的几个专有名词：<br>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
-<h3 id="一、创建新仓库"><a href="#一、创建新仓库" class="headerlink" title="一、创建新仓库"></a>一、创建新仓库</h3><p><font style="color:#ccc;">在当前目录</font><br>    git init</p>
-<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><p><font style="color:#ccc;">显示当前的Git配置</font><br>    git config –list<br><font style="color:#ccc;">编辑Git配置文件</font><br>    git config -e [–global]<br><font style="color:#ccc;">设置提交代码时的用户信息</font><br>    git config [–global] user.name “[name]”<br>    git config [–global] user.email “[email address]”</p>
-<h3 id="三、检出仓库"><a href="#三、检出仓库" class="headerlink" title="三、检出仓库"></a>三、检出仓库</h3><p>创建一个本地仓库的克隆版本：<br>    git clone /path/to/repository<br>如果是远端服务器上的仓库：<br>    git clone username@host:/path/to/repository</p>
-<h3 id="四、添加和提交"><a href="#四、添加和提交" class="headerlink" title="四、添加和提交"></a>四、添加和提交</h3><p><font style="color:#ccc;">添加到暂存区</font><br>    git add [filename]<br>    git add *<br>    git add .<br><font style="color:#ccc;">改动已经提交到了HEAD，但是还没到你的远端仓库</font><br>    git commit -m “代码提交信息”<br><font style="color:#ccc;">提交工作区自上次commit之后的变化，直接到仓库区</font><br>    git commit -a<br><font style="color:#ccc;">提交时显示所有diff信息</font><br>    git commit -v</p>
-<h3 id="五、推送改动"><a href="#五、推送改动" class="headerlink" title="五、推送改动"></a>五、推送改动</h3><p><font style="color:#ccc;">上传本地指定分支到远程仓库</font><br>    git push origin master<br><font style="color:#ccc;">强行推送当前分支到远程仓库，即使有冲突</font><br>    git push origin master –force</p>
-<p>1.git支持本地仓库有多个远程仓库<br>2.git远程仓库需有名字，默认为origin<br>3.每个仓库可以有多个分支，默认分支为master<br>4.本地分支与远程分支可以不同，例如：git push origin master1:master2</p>
-<h3 id="六、分支"><a href="#六、分支" class="headerlink" title="六、分支"></a>六、分支</h3><p><font style="color:#ccc;">列出所有本地分支</font><br>    git branch<br><font style="color:#ccc;">列出所有本地分支和远程分支</font><br>    git branch -a<br><font style="color:#ccc;">切换到指定分支，并更新工作区</font><br>    git checkout [branch-name]<br><font style="color:#ccc;">新建一个分支，并切换到该分支</font><br>    git checkout -b [branch]<br><font style="color:#ccc;">删除分支</font><br>    git branch -d [branch-name]<br><font style="color:#ccc;">删除远程分支</font><br>    git push origin :feature</p>
-<h3 id="七、更新与合并"><a href="#七、更新与合并" class="headerlink" title="七、更新与合并"></a>七、更新与合并</h3><p><font style="color:#ccc;">更新本地仓库至最新改动</font><br>    git pull<br><font style="color:#ccc;">合并其他分支到当前分支</font><br>    git merge <branch><br><font style="color:#ccc;">从远程下载但最新代码但不merge，不更改工作目录</font><br>    git fetch</p>
-<h3 id="八、撤销"><a href="#八、撤销" class="headerlink" title="八、撤销"></a>八、撤销</h3><p><font style="color:#ccc;">恢复暂存区的指定文件到工作区</font><br>    git checkout [file]<br><font style="color:#ccc;">恢复某个commit的指定文件到暂存区和工作区</font><br>    git checkout [commit] [file]<br><font style="color:#ccc;">恢复暂存区的所有文件到工作区</font><br>    git checkout .<br><font style="color:#ccc;">重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</font><br>    git reset 版本号<br><font style="color:#ccc;">重置暂存区与工作区，与上一次commit保持一致</font><br>    git reset –hard 版本号<br><font style="color:#ccc;">重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</font><br>    git reset [commit]<br><font style="color:#ccc;">重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</font><br>    git reset –hard [commit]</p>
-<p>可以使用git reflog找回，只要commit过就不会丢失</p>
-<h3 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h3><p><font style="color:#ccc;">显示有变更的文件</font><br>    git status<br>    git status -s    show status concisely<br>    git status -b    show branch information<br><font style="color:#ccc;">显示当前分支的版本历史</font><br>    git log<br><font style="color:#ccc;">显示当前分支的最近几次提交</font><br>    git reflog<br><font style="color:#ccc;">显示暂存区和工作区的差异</font><br>    git diff<br><font style="color:#ccc;">显示暂存区和上一个commit的差异</font><br>    git diff –cached [file]<br><font style="color:#ccc;">显示工作区与当前分支最新commit之间的差异</font><br>    git diff HEAD</p>
-<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p>1.<a target="_blank" rel="noopener" href="http://rogerdudler.github.io/git-guide/index.zh.html">git简明指南</a>;<br>2.<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用Git命令清单</a></p>
+<h3 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h3><p>告诉命令行去哪找命令，用英文分号分隔加路径，Windows 在高级系统设置中</p>
+<h3 id="vi-与-vim"><a href="#vi-与-vim" class="headerlink" title="vi 与 vim"></a>vi 与 vim</h3><p>vi 是一种计算机文本编辑器，是“Visual”的不正规的缩写。vi 是一种模式编辑器。不同的按钮和键击可以更改不同的“模式”。Vim（Vi IMproved）是一种升级版。<br>默认为不可编辑模式，i：输入模式 Windows 中 Esc：退出 输入:切至命令模式 w:write q:quit wq:保存并退出<br>深入学习请<a target="_blank" rel="noopener" href="http://coolshell.cn/articles/5426.html">参考</a></p>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git 日常使用的 6 个命令，如图所示<br><img src="../../../../img/git.png" alt="git常用操作"><br>图中的几个专有名词：<br>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
+<h3 id="一、创建新仓库"><a href="#一、创建新仓库" class="headerlink" title="一、创建新仓库"></a>一、创建新仓库</h3><p><font style="color:#ccc;">在当前目录</font><br>git init</p>
+<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><p><font style="color:#ccc;">显示当前的 Git 配置</font><br>git config –list<br><font style="color:#ccc;">编辑 Git 配置文件</font><br>git config -e [–global]<br><font style="color:#ccc;">设置提交代码时的用户信息</font><br>git config [–global] user.name “[name]”<br>git config [–global] user.email “[email address]”</p>
+<h3 id="三、检出仓库"><a href="#三、检出仓库" class="headerlink" title="三、检出仓库"></a>三、检出仓库</h3><p>创建一个本地仓库的克隆版本：<br>git clone /path/to/repository<br>如果是远端服务器上的仓库：<br>git clone username@host:/path/to/repository</p>
+<h3 id="四、添加和提交"><a href="#四、添加和提交" class="headerlink" title="四、添加和提交"></a>四、添加和提交</h3><p><font style="color:#ccc;">添加到暂存区</font><br>git add [filename]<br>git add *<br>git add .<br><font style="color:#ccc;">改动已经提交到了 HEAD，但是还没到你的远端仓库</font><br>git commit -m “代码提交信息”<br><font style="color:#ccc;">提交工作区自上次 commit 之后的变化，直接到仓库区</font><br>git commit -a<br><font style="color:#ccc;">提交时显示所有 diff 信息</font><br>git commit -v</p>
+<h3 id="五、推送改动"><a href="#五、推送改动" class="headerlink" title="五、推送改动"></a>五、推送改动</h3><p><font style="color:#ccc;">上传本地指定分支到远程仓库</font><br>git push origin master<br><font style="color:#ccc;">强行推送当前分支到远程仓库，即使有冲突</font><br>git push origin master –force</p>
+<p>1.git 支持本地仓库有多个远程仓库<br>2.git 远程仓库需有名字，默认为 origin 3.每个仓库可以有多个分支，默认分支为 master 4.本地分支与远程分支可以不同，例如：git push origin master1:master2</p>
+<h3 id="六、分支"><a href="#六、分支" class="headerlink" title="六、分支"></a>六、分支</h3><p><font style="color:#ccc;">列出所有本地分支</font><br>git branch<br><font style="color:#ccc;">列出所有本地分支和远程分支</font><br>git branch -a<br><font style="color:#ccc;">切换到指定分支，并更新工作区</font><br>git checkout [branch-name]<br><font style="color:#ccc;">新建一个分支，并切换到该分支</font><br>git checkout -b [branch]<br><font style="color:#ccc;">删除分支</font><br>git branch -d [branch-name]<br><font style="color:#ccc;">删除远程分支</font><br>git push origin :feature</p>
+<h3 id="七、更新与合并"><a href="#七、更新与合并" class="headerlink" title="七、更新与合并"></a>七、更新与合并</h3><p><font style="color:#ccc;">更新本地仓库至最新改动</font><br>git pull<br><font style="color:#ccc;">合并其他分支到当前分支</font><br>git merge <branch><br><font style="color:#ccc;">从远程下载但最新代码但不 merge，不更改工作目录</font><br>git fetch</p>
+<h3 id="八、撤销"><a href="#八、撤销" class="headerlink" title="八、撤销"></a>八、撤销</h3><p><font style="color:#ccc;">恢复暂存区的指定文件到工作区</font><br>git checkout [file]<br><font style="color:#ccc;">恢复某个 commit 的指定文件到暂存区和工作区</font><br>git checkout [commit] [file]<br><font style="color:#ccc;">恢复暂存区的所有文件到工作区</font><br>git checkout .<br><font style="color:#ccc;">重置暂存区的指定文件，与上一次 commit 保持一致，但工作区不变</font><br>git reset 版本号<br><font style="color:#ccc;">重置暂存区与工作区，与上一次 commit 保持一致</font><br>git reset –hard 版本号<br><font style="color:#ccc;">重置当前分支的指针为指定 commit，同时重置暂存区，但工作区不变</font><br>git reset [commit]<br><font style="color:#ccc;">重置当前分支的 HEAD 为指定 commit，同时重置暂存区和工作区，与指定 commit 一致</font><br>git reset –hard [commit]</p>
+<p>可以使用 git reflog 找回，只要 commit 过就不会丢失</p>
+<h3 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h3><p><font style="color:#ccc;">显示有变更的文件</font><br>git status<br>git status -s show status concisely<br>git status -b show branch information<br><font style="color:#ccc;">显示当前分支的版本历史</font><br>git log<br><font style="color:#ccc;">显示当前分支的最近几次提交</font><br>git reflog<br><font style="color:#ccc;">显示暂存区和工作区的差异</font><br>git diff<br><font style="color:#ccc;">显示暂存区和上一个 commit 的差异</font><br>git diff –cached [file]<br><font style="color:#ccc;">显示工作区与当前分支最新 commit 之间的差异</font><br>git diff HEAD</p>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p>1.<a target="_blank" rel="noopener" href="http://rogerdudler.github.io/git-guide/index.zh.html">git 简明指南</a>; 2.<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用 Git 命令清单</a></p>
 
                 
             </div>
@@ -650,8 +650,8 @@ man    xxx
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -660,10 +660,6 @@ man    xxx
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

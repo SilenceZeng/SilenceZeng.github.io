@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -454,115 +450,118 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Promise是一种异步处理模式。<br>Promise这种规范，它能帮助开发者用同步的方式，编写异步的代码。<br>再说的直白点，Promise就是一种对执行结果不确定的一种预先定义，如果成功，就xxxx；如果失败，就xxxx，就像事先给出了一些承诺。</p>
-<p>使用promise机制的优点如下：<br>1.可以对函数进行链式调用，所以你不会陷入代码缩进噩梦中；<br>2.在调用链的过程中，可以保证上一个函数调用完成之后才会调用下一个函数；<br>3.每一个then()调用都带有两个参数（两个都是函数）。第一个是成功之后的回调，第二个是出错之后的处理器；<br>4.如果调用链中出现了错误，错误将会被冒泡传递到其余的错误处理函数中。所以，最终来说，所有错误都可以在任意一个回调函数中进行处理。</p>
-<p>Promise 背后的概念非常简单，有两部分:<br>Deferreds，定义工作单元，<br>Promises，从 Deferreds 返回的数据。<br>基本上，你会用Deferred作为通信对象，用来定义工作单元的开始，处理和结束三部分。<br>Promise是 Deferred 响应数据的输出；它有状态 (等待，执行和拒绝)，以及句柄，或叫做回调函数，反正就是那些在Promise执行，拒绝或者提示进程中会被调用的方法。<br>Promise不同于回调的很重要的一个点是，你可以在Promise状态变成执行(resolved)之后追加处理句柄。这就允许你传输数据，而忽略它是否已经被应用获取，然后缓存它，等等之类的操作，因此你可以对数据执行操作，而不管它是否已经或者即将可用。</p>
-<p>$q服务<br>$q服务是AngularJS中自己封装实现的一种Promise实现，相对与Kris Kwal’s Q要轻量级的多。</p>
-<p>先介绍一下$q常用的几个方法：<br>1)defer() 创建一个deferred对象，这个对象可以执行几个常用的方法，比如resolve,reject,notify等.这个对象有promise属性。<br>2)all()<br>3)when() 传入一个不确定的参数，如果符合Promise标准，就返回一个promise对象。</p>
-<p>defer()方法：<br>defer()用于创建一个deferred对象，defer.promise用于返回一个promise对象，来定义then方法。then中有三个参数，分别是成功回调、失败回调、状态变更回调。<br>在$q中，可以使用resolve方法，变成完成状态；使用reject方法，变成拒绝状态。</p>
-<p>all()方法：<br>$q.all()，允许你等待并行的promise处理，当所有的promise都被处理结束之后，调用共同的回调。在Angular中，这个方法有两种调用方式:以Array方式或Object方式。Array方式接收多个promise，然后在调用.then()的时候使用一个数据结果对象，在结果对象里面包含了所有的promise结果，按照输入数组的顺序排列。</p>
-<pre><code>var funcA = function()&#123;
-        console.log(&quot;funcA&quot;);
-        return &quot;hello,funA&quot;;
-    &#125;
-var funcB = function()&#123;
-    console.log(&quot;funcB&quot;);
-    return &quot;hello,funB&quot;;
-&#125;
-$q.all([funcA(),funcB()])
-    .then(function(results)&#123;
-        console.log(results[0]);
-        console.log(results[1]);
-    &#125;);
-</code></pre>
-<p>第二种方式是接收一个promise集合对象，允许你给每个promise一个别名，在回调函数中可以使用它们(有更好的可读性)。</p>
-<pre><code>$q.all(&#123;first:funcA(),second:funcB()&#125;)
-    .then(function(results)&#123;
-        console.log(results.first);
-        console.log(results.second);
-    &#125;);
-</code></pre>
+                <p>Promise 是一种异步处理模式。<br>Promise 这种规范，它能帮助开发者用同步的方式，编写异步的代码。<br>再说的直白点，Promise 就是一种对执行结果不确定的一种预先定义，如果成功，就 xxxx；如果失败，就 xxxx，就像事先给出了一些承诺。</p>
+<p>使用 promise 机制的优点如下： 1.可以对函数进行链式调用，所以你不会陷入代码缩进噩梦中； 2.在调用链的过程中，可以保证上一个函数调用完成之后才会调用下一个函数； 3.每一个 then()调用都带有两个参数（两个都是函数）。第一个是成功之后的回调，第二个是出错之后的处理器； 4.如果调用链中出现了错误，错误将会被冒泡传递到其余的错误处理函数中。所以，最终来说，所有错误都可以在任意一个回调函数中进行处理。</p>
+<p>Promise 背后的概念非常简单，有两部分:<br>Deferreds，定义工作单元，<br>Promises，从 Deferreds 返回的数据。<br>基本上，你会用 Deferred 作为通信对象，用来定义工作单元的开始，处理和结束三部分。<br>Promise 是 Deferred 响应数据的输出；它有状态 (等待，执行和拒绝)，以及句柄，或叫做回调函数，反正就是那些在 Promise 执行，拒绝或者提示进程中会被调用的方法。<br>Promise 不同于回调的很重要的一个点是，你可以在 Promise 状态变成执行(resolved)之后追加处理句柄。这就允许你传输数据，而忽略它是否已经被应用获取，然后缓存它，等等之类的操作，因此你可以对数据执行操作，而不管它是否已经或者即将可用。</p>
+<p>$q服务<br>$q 服务是 AngularJS 中自己封装实现的一种 Promise 实现，相对与 Kris Kwal’s Q 要轻量级的多。</p>
+<p>先介绍一下$q 常用的几个方法：<br>1)defer() 创建一个 deferred 对象，这个对象可以执行几个常用的方法，比如 resolve,reject,notify 等.这个对象有 promise 属性。<br>2)all()<br>3)when() 传入一个不确定的参数，如果符合 Promise 标准，就返回一个 promise 对象。</p>
+<p>defer()方法：<br>defer()用于创建一个 deferred 对象，defer.promise 用于返回一个 promise 对象，来定义 then 方法。then 中有三个参数，分别是成功回调、失败回调、状态变更回调。<br>在$q 中，可以使用 resolve 方法，变成完成状态；使用 reject 方法，变成拒绝状态。</p>
+<p>all()方法：<br>$q.all()，允许你等待并行的 promise 处理，当所有的 promise 都被处理结束之后，调用共同的回调。在 Angular 中，这个方法有两种调用方式:以 Array 方式或 Object 方式。Array 方式接收多个 promise，然后在调用.then()的时候使用一个数据结果对象，在结果对象里面包含了所有的 promise 结果，按照输入数组的顺序排列。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> <span class="token function-variable function">funcA</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'funcA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token string">'hello,funA'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">funcB</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'funcB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token string">'hello,funB'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+$q<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">funcA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">funcB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">results</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第二种方式是接收一个 promise 集合对象，允许你给每个 promise 一个别名，在回调函数中可以使用它们(有更好的可读性)。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$q<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> first<span class="token operator">:</span> <span class="token function">funcA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> second<span class="token operator">:</span> <span class="token function">funcB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">results</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">.</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>建议使用数组表示法，如果你只是希望可以批处理结果，就是说，如果你把所有的结果都平等处理。而以对象方式来处理，则更适合需要自注释代码的时候。</p>
-<p>when()方法：<br>如果你想通过一个普通变量创建一个promise，或者你不清楚你要处理的对象是不是promise时非常有用。<br>$q.when()在诸如服务中的缓存这种情况也很好用:</p>
-<pre><code>angular.module(&#39;myApp&#39;).service(&#39;MyService&#39;, function($q, MyResource) &#123;
-    var cachedSomething;
-    this.getSomething = function() &#123;
-        if (cachedSomething) &#123;
-            return $q.when(cachedSomething);
-        &#125;
-        // on first call, return the result of MyResource.get()
-        // note that &#39;then()&#39; is chainable / returns a promise,
-        // so we can return that instead of a separate promise object
-        return MyResource.get().$promise
-            .then(function(something) &#123;
-                cachedSomething = something
-            &#125;);
-    &#125;;
-&#125;);
-</code></pre>
+<p>when()方法：<br>如果你想通过一个普通变量创建一个 promise，或者你不清楚你要处理的对象是不是 promise 时非常有用。<br>$q.when()在诸如服务中的缓存这种情况也很好用:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'myApp'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">service</span><span class="token punctuation">(</span><span class="token string">'MyService'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$q<span class="token punctuation">,</span> MyResource</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> cachedSomething<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getSomething</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cachedSomething<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> $q<span class="token punctuation">.</span><span class="token function">when</span><span class="token punctuation">(</span>cachedSomething<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// on first call, return the result of MyResource.get()</span>
+    <span class="token comment">// note that 'then()' is chainable / returns a promise,</span>
+    <span class="token comment">// so we can return that instead of a separate promise object</span>
+    <span class="token keyword">return</span> MyResource<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>$promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">something</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      cachedSomething <span class="token operator">=</span> something<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>与这个类似？</p>
-<pre><code>angular.module(&quot;MyService&quot;, [])
-.factory(&#39;githubService&#39;, [&quot;$q&quot;, &quot;$http&quot;, function ($q, $http) &#123;
-    var getPullRequests = function () &#123;
-        var deferred = $q.defer();
-        var promise = deferred.promise;
-        var progress;
-        $http.get(&quot;https://api.github.com/repos/angular/angular.js/pulls&quot;)
-            .success(function (data) &#123;
-                var result = [];
-                for (var i = 0; i &lt; data.length; i++) &#123;
-                    result.push(data[i].user);
-                    progress = (i + 1) / data.length * 100;
-                    deferred.notify(progress);
-                &#125;
-                deferred.resolve(result);
-            &#125;)
-            .error(function (error) &#123;
-                deferred.reject(error);
-            &#125;);
-        return promise;
-    &#125;;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'MyService'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">factory</span><span class="token punctuation">(</span><span class="token string">'githubService'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  <span class="token string">'$q'</span><span class="token punctuation">,</span>
+  <span class="token string">'$http'</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$q<span class="token punctuation">,</span> $http</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> <span class="token function-variable function">getPullRequests</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> deferred <span class="token operator">=</span> $q<span class="token punctuation">.</span><span class="token function">defer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> promise <span class="token operator">=</span> deferred<span class="token punctuation">.</span>promise<span class="token punctuation">;</span>
+      <span class="token keyword">var</span> progress<span class="token punctuation">;</span>
+      $http
+        <span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'https://api.github.com/repos/angular/angular.js/pulls'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> data<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            progress <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> data<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
+            deferred<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span>progress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+          deferred<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          deferred<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> promise<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-    return &#123;
-        getPullRequests: getPullRequests
-    &#125;;
-&#125;]);
-</code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      getPullRequests<span class="token operator">:</span> getPullRequests<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>然后可以这样调用它:</p>
-<pre><code>MyService.getSomething()
-    .then(function(something) &#123;
-        console.log(something);
-    &#125;);
-</code></pre>
-<p>在Promise中，定义了三种状态：等待状态，完成状态，拒绝状态。<br>关于状态有几个规定：<br>1)状态的变更是不可逆的<br>2)等待状态可以变成完成或者拒绝</p>
-<p>promise对象有另外三个方法:.then()，是唯一Promise规范要求的方法，用三个回调方法作为参数；一个成功回调，一个失败回调，还有一个状态变化回调。</p>
-<p>$q在Promise规范之上还添加了两个方法: catch()，可以用于定义一个通用方法，它会在promise链中有某个promise处理失败时被调用。还有finally()，不管promise执行是成功或者失败都会执行。注意，这些不应该和Javascript的异常处理混淆或者并用: 在promise内部抛出的异常，不会catch()俘获</p>
-<p>链式Promise<br>Promise链会把上一个then的返回结果传递给调用链的下一个then(如果没有就是undefined)<br>如果then回调返回一个promise对象，下一个then只会在这个promise被处理结束的时候调用。<br>在链最后的catch为整个链式处理提供一个异常处理点<br>在链最后的finally总是会被执行，不管promise被处理或者被拒绝，起清理作用</p>
-<p>拦截响应</p>
-<p>Promise机制还可以做一些非常酷的事情：拦截响应。</p>
-<p>我们已经学过的内容有：向服务端发送请求、处理响应、把响应很好地包装成抽象的东西及处理异步调用。但是在真实的应用中，对于每一次服务端调用，最终还必须做一些通用的操作，例如错误处理、鉴权以及其他安全方面的处理（例如剪裁数据）。</p>
-<p>在深入理解了$q接口之后，我们就可以使用拦截响应的方式来处理以上所有任务了。响应拦截的机制允许我们在响应到达应用之前对其进行拦截，并在上面进行一些操作，例如转换数据形式、处理错误等所有你能想到的操作。</p>
-<p>下面来看一个例子，它会拦截响应，然后做一些很小的数据转换操作。</p>
-<pre><code>//把拦截器注册为一个服务
-myModule.factory(&#39;myInterceptor&#39;, function($q, notifyService, errorLog) &#123;
- return function(promise) &#123;
- return promise.then(function(response) &#123;
-//什么都不做
- return response;
- &#125;, function(response) &#123;
-//notify服务将会使用错误信息来刷新UI
-notifyService(response);
-//同时把错误信息打印到控制台，以便调试
-errorLog(response);
- return $q.reject(response);
-&#125;);
-&#125;
-&#125;);
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">MyService<span class="token punctuation">.</span><span class="token function">getSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">something</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>something<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-//确保我们所创建的拦截器是拦截器链的一部分
-$httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
-</code></pre>
-<p>参考：<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/xing901022/p/4928147.html">AngularJS 中的Promise — $q服务详解</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/whitewolf/p/promise-best-practice.html">Promise的前世今生和妙用技巧</a><br><a target="_blank" rel="noopener" href="http://my.oschina.net/ilivebox/blog/293771">AngularJS中的Promise和设计模式</a><br><a href="https://github.com/xieranmaya/blog/issues/3">剖析Promise内部结构</a></p>
+<p>在 Promise 中，定义了三种状态：等待状态，完成状态，拒绝状态。<br>关于状态有几个规定： 1)状态的变更是不可逆的 2)等待状态可以变成完成或者拒绝</p>
+<p>promise 对象有另外三个方法:.then()，是唯一 Promise 规范要求的方法，用三个回调方法作为参数；一个成功回调，一个失败回调，还有一个状态变化回调。</p>
+<p>$q 在 Promise 规范之上还添加了两个方法: catch()，可以用于定义一个通用方法，它会在 promise 链中有某个 promise 处理失败时被调用。还有 finally()，不管 promise 执行是成功或者失败都会执行。注意，这些不应该和 Javascript 的异常处理混淆或者并用: 在 promise 内部抛出的异常，不会 catch()俘获</p>
+<p>链式 Promise<br>Promise 链会把上一个 then 的返回结果传递给调用链的下一个 then(如果没有就是 undefined)<br>如果 then 回调返回一个 promise 对象，下一个 then 只会在这个 promise 被处理结束的时候调用。<br>在链最后的 catch 为整个链式处理提供一个异常处理点<br>在链最后的 finally 总是会被执行，不管 promise 被处理或者被拒绝，起清理作用</p>
+<p>拦截响应</p>
+<p>Promise 机制还可以做一些非常酷的事情：拦截响应。</p>
+<p>我们已经学过的内容有：向服务端发送请求、处理响应、把响应很好地包装成抽象的东西及处理异步调用。但是在真实的应用中，对于每一次服务端调用，最终还必须做一些通用的操作，例如错误处理、鉴权以及其他安全方面的处理（例如剪裁数据）。</p>
+<p>在深入理解了$q 接口之后，我们就可以使用拦截响应的方式来处理以上所有任务了。响应拦截的机制允许我们在响应到达应用之前对其进行拦截，并在上面进行一些操作，例如转换数据形式、处理错误等所有你能想到的操作。</p>
+<p>下面来看一个例子，它会拦截响应，然后做一些很小的数据转换操作。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//把拦截器注册为一个服务</span>
+myModule<span class="token punctuation">.</span><span class="token function">factory</span><span class="token punctuation">(</span><span class="token string">'myInterceptor'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$q<span class="token punctuation">,</span> notifyService<span class="token punctuation">,</span> errorLog</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">promise</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//什么都不做</span>
+        <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//notify服务将会使用错误信息来刷新UI</span>
+        <span class="token function">notifyService</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//同时把错误信息打印到控制台，以便调试</span>
+        <span class="token function">errorLog</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> $q<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//确保我们所创建的拦截器是拦截器链的一部分</span>
+$httpProvider<span class="token punctuation">.</span>responseInterceptors<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'myInterceptor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/xing901022/p/4928147.html">AngularJS 中的 Promise — $q 服务详解</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/whitewolf/p/promise-best-practice.html">Promise 的前世今生和妙用技巧</a><br><a target="_blank" rel="noopener" href="http://my.oschina.net/ilivebox/blog/293771">AngularJS 中的 Promise 和设计模式</a><br><a href="https://github.com/xieranmaya/blog/issues/3">剖析 Promise 内部结构</a></p>
 
                 
             </div>
@@ -626,10 +625,6 @@ $httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -709,8 +704,8 @@ $httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -719,10 +714,6 @@ $httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -770,8 +761,8 @@ $httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -780,10 +771,6 @@ $httpProvider.responseInterceptors.push(&#39;myInterceptor&#39;);
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

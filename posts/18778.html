@@ -387,14 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                <span class="chip bg-color">前端</span>
-                            </a>
-                        
                             <a href="/tags/fiddler/">
                                 <span class="chip bg-color">fiddler</span>
                             </a>
@@ -411,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -458,7 +450,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="fiddler"><a href="#fiddler" class="headerlink" title="fiddler"></a>fiddler</h3><p>1.基本功能<br>监控HTTP/HTTPs流量<br>查看截获的内容<br>伪造请求（伪造服务器返回来的请求，还可以发送给服务器）<br>测试网站性能<br>解密HTTPs的web会话<br>2.原理：Fiddler的工作原理类似于一个代理。因此，在使用中可能会出现网络问题，可以直接关闭或者点击关掉左下角的capture，也要关闭翻墙软件。fiddler的代理模式有两种：<br>流模式：（streaming）实时传送给客户端（更接近于浏览器本身真实的行为）<br>缓冲模式：（buffering）等http请求所有东西都准备好后才返回给应用程序（可控制最后的服务器响应）<br>在Fiddler的工具栏的Stream可以进行两种模式的切换，默认是缓冲模式<br>3.fiddler使用场景：<br>（1）开发环境host配置：<br>通常情况下，配置host需要改变系统文件很不方便，在多个开发环境下切换很低效。fiddler提供了相对高效的host配置方法<br>（2）前后端接口调试：<br>通常情况下，调试前后端的接口需要真是的环境，一大推假数据，写javascript代码。fiddler只需要一个ui界面进行配置即可<br>（3）线上bugfix<br>fiddler可以将发布文件代理到本地，快速定位线上bug<br>（4）性能分析和优化<br>fiddler会提供请求的实际图，清晰明了，网站需要优化的部分<br>4.工具栏常用功能介绍<br>Replay：回放会话，选中会话并按R键即可回放会话（可多条），清空监控面板，快捷键ctrl+x<br>go：断点调试<br>stream：切换代理模式<br>Decode：解压请求<br>keep all session选项可选保存会话的数量，默认的保存所有，保存的会话越多，fiddler占用的内存越大，可以设置下，而且调试也不希望看到太多会话，可以根据需要清空监控面板或过滤请求<br>All Process：可以用来控制如只捕获chrome浏览器的请求<br>Find：可以查找会话并选择颜色高亮标明<br>TextWizard：解码/编码功能，可选选项很多，避免去网上找解码工具<br>5.状态栏<br>Capture用来控制Fiddler是否工作，点击即可切换状态<br>All Process控制请求来源<br>旁边的数字代表当前会话数量<br>6.命令行<br>help<br>cls    清屏  (Ctrl+x 也可以清屏)<br>select  选择会话的命令<br>?.png  用来选择png后缀的图片<br>bpu  截获request<br>7.右侧窗口功能<br>（1）Statistics： 一个会话的统计信息，可以为优化提供依据，rtt表示一次往返时间<br>（2）Inspectors： 对请求进行解包，可以查看相应的请求，响应信息<br>（3）AutoResponder： 文件代理，可以把请求的资源用本地文件代理掉，方便调试线上bug文件<br>Fiddler的AutoResponder tab允许你从本地返回文件，而不用将http request 发送到服务器上。<br>打开Fiddler把这个文件所在的会话拖到AutoResponer Tab下<br>选择Enable automatic reaponses和Unmatched requests passthrough<br>在下面的Rule Editor下面选择 Find a file… 选择本地保存的图片，最后点击Save保存下。<br>刷新页面，你可以看到请求的文件是本地的。<br>（4）Composer： 前后端端口连调，可以用来伪造请求<br>（5）Log： 记录日志<br>（6）Timeline：网站性能分析<br>8.fiddler插件<br>Fiddler Add-ons 插件：javaScript formatter -&gt; 对关于js文件右击 -&gt; 选择 -&gt; make javascript pretty -&gt; textview / syntaxview 代码全部高亮<br>traffic differ（对比两个不同的会话）： 直接拖进两个不同的请求，会显示完整的对比数据 -&gt; 可以用来对比优化前后的不同<br>willow -&gt; 快速管理host列表 完全可视化 http代理插件 可视化限速<br>9.高级应用<br>网速限速<br>10.tips<br>（1）chrome和firefox浏览器无法被监听<br>fiddler安装之后，默认会在IE浏览器中安装一个fiddler的插件，所以它对IE及国内基于IE内核的各类浏览器都能实现监听，但其他内核的浏览器无法被监听。<br>解决办法：禁用chrome和firefox中具有代理功能的插件，比如chrome如果安装了switchSharp，禁用它或选择“使用系统代理设置”，或在switchSharp中新配置一个代理项（比如名为fiddler，用于指向代理127.0.0.1，端口8888），即可实现监听。<br>（2）抓取HTTPS包<br>这里默认的只会抓取HTTP请求包，如果也要抓取HTTPS包，则在HTTPS标签栏里设置，把Capture HTTPS CONNECTs选项勾上。<br>（3）真机调试<br>首先我们打开Fiddler -&gt; Tools-&gt;Fiddler Options在Connection面板里将Allow remote computers to connect勾选起来，确定后，关闭Fiddler并重新打开Fiddler。<br>然后把手机端的代理设置为Fiddler的代理，代理设置需要一个ip和一个端口，ip就是Fiddler所运行的电脑的局域网ip地址，端口默认是Fiddler代理的端口，请确保手机所在的网段可以访问到电脑所在的网段，同一个局域网里一般没什么问题。<br>（4）设置断点了<br>设置好断点后，你可以修改httpRequest 的任何信息包括host, cookie或者表单中的数据。设置断点有两种方法<br>第一种：打开Fiddler 点击Rules -&gt; Automatic Breakpoint -&gt; Before Requests(这种方法会中断所有的会话)<br>如何消除命令呢？点击Rules -&gt; Automatic Breakpoint -&gt;Disabled<br>第二种:  在命令行中输入命令: bpu <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> (这种方法只会中断<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>)<br>如何消除命令呢？在命令行中输入命令 bpu</p>
+                <h3 id="fiddler"><a href="#fiddler" class="headerlink" title="fiddler"></a>fiddler</h3><p>1.基本功能<br>监控 HTTP/HTTPs 流量<br>查看截获的内容<br>伪造请求（伪造服务器返回来的请求，还可以发送给服务器）<br>测试网站性能<br>解密 HTTPs 的 web 会话 2.原理：Fiddler 的工作原理类似于一个代理。因此，在使用中可能会出现网络问题，可以直接关闭或者点击关掉左下角的 capture，也要关闭翻墙软件。fiddler 的代理模式有两种：<br>流模式：（streaming）实时传送给客户端（更接近于浏览器本身真实的行为）<br>缓冲模式：（buffering）等 http 请求所有东西都准备好后才返回给应用程序（可控制最后的服务器响应）<br>在 Fiddler 的工具栏的 Stream 可以进行两种模式的切换，默认是缓冲模式<br>3.fiddler 使用场景：<br>（1）开发环境 host 配置：<br>通常情况下，配置 host 需要改变系统文件很不方便，在多个开发环境下切换很低效。fiddler 提供了相对高效的 host 配置方法<br>（2）前后端接口调试：<br>通常情况下，调试前后端的接口需要真是的环境，一大推假数据，写 javascript 代码。fiddler 只需要一个 ui 界面进行配置即可<br>（3）线上 bugfix<br>fiddler 可以将发布文件代理到本地，快速定位线上 bug<br>（4）性能分析和优化<br>fiddler 会提供请求的实际图，清晰明了，网站需要优化的部分 4.工具栏常用功能介绍<br>Replay：回放会话，选中会话并按 R 键即可回放会话（可多条），清空监控面板，快捷键 ctrl+x<br>go：断点调试<br>stream：切换代理模式<br>Decode：解压请求<br>keep all session 选项可选保存会话的数量，默认的保存所有，保存的会话越多，fiddler 占用的内存越大，可以设置下，而且调试也不希望看到太多会话，可以根据需要清空监控面板或过滤请求<br>All Process：可以用来控制如只捕获 chrome 浏览器的请求<br>Find：可以查找会话并选择颜色高亮标明<br>TextWizard：解码/编码功能，可选选项很多，避免去网上找解码工具 5.状态栏<br>Capture 用来控制 Fiddler 是否工作，点击即可切换状态<br>All Process 控制请求来源<br>旁边的数字代表当前会话数量 6.命令行<br>help<br>cls 清屏 (Ctrl+x 也可以清屏)<br>select 选择会话的命令<br>?.png 用来选择 png 后缀的图片<br>bpu 截获 request 7.右侧窗口功能<br>（1）Statistics： 一个会话的统计信息，可以为优化提供依据，rtt 表示一次往返时间<br>（2）Inspectors： 对请求进行解包，可以查看相应的请求，响应信息<br>（3）AutoResponder： 文件代理，可以把请求的资源用本地文件代理掉，方便调试线上 bug 文件<br>Fiddler 的 AutoResponder tab 允许你从本地返回文件，而不用将 http request 发送到服务器上。<br>打开 Fiddler 把这个文件所在的会话拖到 AutoResponer Tab 下<br>选择 Enable automatic reaponses 和 Unmatched requests passthrough<br>在下面的 Rule Editor 下面选择 Find a file… 选择本地保存的图片，最后点击 Save 保存下。<br>刷新页面，你可以看到请求的文件是本地的。<br>（4）Composer： 前后端端口连调，可以用来伪造请求<br>（5）Log： 记录日志<br>（6）Timeline：网站性能分析<br>8.fiddler 插件<br>Fiddler Add-ons 插件：javaScript formatter -&gt; 对关于 js 文件右击 -&gt; 选择 -&gt; make javascript pretty -&gt; textview / syntaxview 代码全部高亮<br>traffic differ（对比两个不同的会话）： 直接拖进两个不同的请求，会显示完整的对比数据 -&gt; 可以用来对比优化前后的不同<br>willow -&gt; 快速管理 host 列表 完全可视化 http 代理插件 可视化限速 9.高级应用<br>网速限速<br>10.tips<br>（1）chrome 和 firefox 浏览器无法被监听<br>fiddler 安装之后，默认会在 IE 浏览器中安装一个 fiddler 的插件，所以它对 IE 及国内基于 IE 内核的各类浏览器都能实现监听，但其他内核的浏览器无法被监听。<br>解决办法：禁用 chrome 和 firefox 中具有代理功能的插件，比如 chrome 如果安装了 switchSharp，禁用它或选择“使用系统代理设置”，或在 switchSharp 中新配置一个代理项（比如名为 fiddler，用于指向代理 127.0.0.1，端口 8888），即可实现监听。<br>（2）抓取 HTTPS 包<br>这里默认的只会抓取 HTTP 请求包，如果也要抓取 HTTPS 包，则在 HTTPS 标签栏里设置，把 Capture HTTPS CONNECTs 选项勾上。<br>（3）真机调试<br>首先我们打开 Fiddler -&gt; Tools-&gt;Fiddler Options 在 Connection 面板里将 Allow remote computers to connect 勾选起来，确定后，关闭 Fiddler 并重新打开 Fiddler。<br>然后把手机端的代理设置为 Fiddler 的代理，代理设置需要一个 ip 和一个端口，ip 就是 Fiddler 所运行的电脑的局域网 ip 地址，端口默认是 Fiddler 代理的端口，请确保手机所在的网段可以访问到电脑所在的网段，同一个局域网里一般没什么问题。<br>（4）设置断点了<br>设置好断点后，你可以修改 httpRequest 的任何信息包括 host, cookie 或者表单中的数据。设置断点有两种方法<br>第一种：打开 Fiddler 点击 Rules -&gt; Automatic Breakpoint -&gt; Before Requests(这种方法会中断所有的会话)<br>如何消除命令呢？点击 Rules -&gt; Automatic Breakpoint -&gt;Disabled<br>第二种: 在命令行中输入命令: bpu <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> (这种方法只会中断<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>)<br>如何消除命令呢？在命令行中输入命令 bpu</p>
 
                 
             </div>
@@ -522,14 +514,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                    <span class="chip bg-color">前端</span>
-                                </a>
                             
                                 <a href="/tags/fiddler/">
                                     <span class="chip bg-color">fiddler</span>
@@ -609,8 +593,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -619,10 +603,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -674,8 +654,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -684,10 +664,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

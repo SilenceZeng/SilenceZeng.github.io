@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    521
+                    523
                 </div>
                 
 
@@ -454,16 +450,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、margin"><a href="#一、margin" class="headerlink" title="一、margin"></a>一、margin</h2><p>1.负margin位移自己：<a target="_blank" rel="noopener" href="http://jsbin.com/zemava/3/edit?html,css,output">demo</a>；</p>
-<p>2.负margin-right/margin-bottom位移别人：<a target="_blank" rel="noopener" href="http://jsbin.com/zemava/5/edit?html,css,output">demo</a>；</p>
-<p>3.负margin扩大面积：经常用来解决inline-block li的margin超出父容器的问题；</p>
+                <h2 id="一、margin"><a href="#一、margin" class="headerlink" title="一、margin"></a>一、margin</h2><p>1.负 margin 位移自己：<a target="_blank" rel="noopener" href="http://jsbin.com/zemava/3/edit?html,css,output">demo</a>；</p>
+<p>2.负 margin-right/margin-bottom 位移别人：<a target="_blank" rel="noopener" href="http://jsbin.com/zemava/5/edit?html,css,output">demo</a>；</p>
+<p>3.负 margin 扩大面积：经常用来解决 inline-block li 的 margin 超出父容器的问题；</p>
 <p>4.margin collapse（margin 合并）<br>本节参考自知乎作者貘吃馍香<br>链接：<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/24563593/answer/28254084">http://www.zhihu.com/question/24563593/answer/28254084</a></p>
 <p>w3c <a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/box.html#collapsing-margins">collapsing margins</a><br>基本上这节意思是说，比邻元素的边距总是折叠。<br>但是得除了以下几种情况：</p>
 <p>Margins of the root element’s box do not collapse.（根元素不折叠）<br>If the top and bottom margins of an element with clearance are adjoining, its margins collapse with the adjoining margins of following siblings but that resulting margin does not collapse with the bottom margin of the parent block.（有间隙不折叠）</p>
-<p>Margins between a floated box and any other box do not collapse (not even between a float and its in-flow children). （浮动不折叠）<br>Margins of elements that establish new block formatting contexts (such as floats and elements with ‘overflow’ other than ‘visible’) do not collapse with their in-flow children.（创建BFC与子不折叠）<br>Margins of absolutely positioned boxes do not collapse (not even with their in-flow children).（positioned 不折叠）<br>Margins of inline-block boxes do not collapse (not even with their in-flow children).（inline-box 不折叠）<br>The bottom margin of an in-flow block-level element always collapses with the top margin of its next in-flow block-level sibling, unless that sibling has clearance.（兄弟有间隙不折叠）<br>The top margin of an in-flow block element collapses with its first in-flow block-level child’s top margin if the element has no top border, no top padding, and the child has no clearance.（父子间有padding 和 border 不折叠）</p>
-<p>5.margin居中：margin-left: auto; margin-right: auto；</p>
-<p>6.注意margin-top 值为百分比时也以width为基准。</p>
-<h2 id="二、padding"><a href="#二、padding" class="headerlink" title="二、padding"></a>二、padding</h2><p>1.negative value are not allowed；<br>2.利用padding来保持高宽比：<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/1/edit?html,css,output">图片保持比例超出隐藏</a>和<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/2/edit?html,css,output">图片保持比例缩放</a>；<br>3.padding与绝对定位：如果parent设定了margin，border，padding等属性，那么这个定位点将忽略padding，将会从padding开始的地方(即只从padding的左上角开始)进行定位。<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/3/edit?html,css,output">demo</a>;<br>4.padding补偿法：利用超大内边距和相同的负外边距实现<a target="_blank" rel="noopener" href="http://jsbin.com/xoguhi/edit?html,css,console,output">三列等高</a>。优点是比较简单，纯css实现，缺点是无法看到下边，需再套一层div。</p>
+<p>Margins between a floated box and any other box do not collapse (not even between a float and its in-flow children). （浮动不折叠）<br>Margins of elements that establish new block formatting contexts (such as floats and elements with ‘overflow’ other than ‘visible’) do not collapse with their in-flow children.（创建 BFC 与子不折叠）<br>Margins of absolutely positioned boxes do not collapse (not even with their in-flow children).（positioned 不折叠）<br>Margins of inline-block boxes do not collapse (not even with their in-flow children).（inline-box 不折叠）<br>The bottom margin of an in-flow block-level element always collapses with the top margin of its next in-flow block-level sibling, unless that sibling has clearance.（兄弟有间隙不折叠）<br>The top margin of an in-flow block element collapses with its first in-flow block-level child’s top margin if the element has no top border, no top padding, and the child has no clearance.（父子间有 padding 和 border 不折叠）</p>
+<p>5.margin 居中：margin-left: auto; margin-right: auto；</p>
+<p>6.注意 margin-top 值为百分比时也以 width 为基准。</p>
+<h2 id="二、padding"><a href="#二、padding" class="headerlink" title="二、padding"></a>二、padding</h2><p>1.negative value are not allowed； 2.利用 padding 来保持高宽比：<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/1/edit?html,css,output">图片保持比例超出隐藏</a>和<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/2/edit?html,css,output">图片保持比例缩放</a>；<br>3.padding 与绝对定位：如果 parent 设定了 margin，border，padding 等属性，那么这个定位点将忽略 padding，将会从 padding 开始的地方(即只从 padding 的左上角开始)进行定位。<a target="_blank" rel="noopener" href="http://jsbin.com/zevejuj/3/edit?html,css,output">demo</a>;<br>4.padding 补偿法：利用超大内边距和相同的负外边距实现<a target="_blank" rel="noopener" href="http://jsbin.com/xoguhi/edit?html,css,console,output">三列等高</a>。优点是比较简单，纯 css 实现，缺点是无法看到下边，需再套一层 div。</p>
 
                 
             </div>
@@ -528,10 +524,6 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
                                 </a>
@@ -587,13 +579,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/34587.html">
+                <a href="/posts/63277.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="常用js">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【翻译】CSS水平和垂直居中的12种方法">
                         
-                        <span class="card-title">常用js</span>
+                        <span class="card-title">【翻译】CSS水平和垂直居中的12种方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -604,14 +596,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2016-05-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2016-05-20
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -621,20 +613,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
-                    
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
                     </a>
                     
-                    <a href="/tags/%E7%A7%AF%E7%B4%AF/">
-                        <span class="chip bg-color">积累</span>
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
                     </a>
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/%E7%BF%BB%E8%AF%91/">
+                        <span class="chip bg-color">翻译</span>
                     </a>
                     
                 </div>
@@ -671,8 +659,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -681,10 +669,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

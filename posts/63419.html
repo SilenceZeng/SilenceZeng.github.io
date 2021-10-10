@@ -454,204 +454,206 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Iterator和for…of"><a href="#Iterator和for…of" class="headerlink" title="Iterator和for…of"></a>Iterator和for…of</h2><h3 id="是什么："><a href="#是什么：" class="headerlink" title="是什么："></a>是什么：</h3><p>Iterator(迭代器)是专门用来控制如何遍历的对象，具有特殊的接口。</p>
-<p>Iterator接口是一种数据遍历的协议，只要调用迭代器对象对象的next方法，就会得到一个对象，表示当前遍历指针所在的那个位置的信息，这个包含done和value两个属性。</p>
+                <h2 id="Iterator-和-for…of"><a href="#Iterator-和-for…of" class="headerlink" title="Iterator 和 for…of"></a>Iterator 和 for…of</h2><h3 id="是什么："><a href="#是什么：" class="headerlink" title="是什么："></a>是什么：</h3><p>Iterator(迭代器)是专门用来控制如何遍历的对象，具有特殊的接口。</p>
+<p>Iterator 接口是一种数据遍历的协议，只要调用迭代器对象对象的 next 方法，就会得到一个对象，表示当前遍历指针所在的那个位置的信息，这个包含 done 和 value 两个属性。</p>
 <p>迭代器对象创建后，可以反复调用 next()使用。</p>
-<h3 id="怎么用："><a href="#怎么用：" class="headerlink" title="怎么用："></a>怎么用：</h3><p>Iterator对象带有next方法，每一次调用next方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含value和done两个属性的对象。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
-<p>ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。Symbol.iterator属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。执行这个函数，就会返回一个遍历器。</p>
-<pre><code>let obj = &#123;
-  data: [ &#39;hello&#39;, &#39;world&#39; ],
-  [Symbol.iterator]() &#123;
-    const self = this
-    let index = 0
-    return &#123;
-      next() &#123;
-        if (index &lt; self.data.length) &#123;
-          return &#123;
-            value: self.data[index++],
-            done: false
-          &#125;
-        &#125; else &#123;
-          return &#123; value: undefined, done: true &#125;
-        &#125;
-      &#125;
-    &#125;
-  &#125;
-&#125;
+<h3 id="怎么用："><a href="#怎么用：" class="headerlink" title="怎么用："></a>怎么用：</h3><p>Iterator 对象带有 next 方法，每一次调用 next 方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含 value 和 done 两个属性的对象。其中，value 属性是当前成员的值，done 属性是一个布尔值，表示遍历是否结束。<br>ES6 规定，默认的 Iterator 接口部署在数据结构的 Symbol.iterator 属性，或者说，一个数据结构只要具有 Symbol.iterator 属性，就可以认为是“可遍历的”（iterable）。Symbol.iterator 属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。执行这个函数，就会返回一个遍历器。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  data<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+            value<span class="token operator">:</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            done<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> value<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> done<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-for(let item of obj)&#123;
-    console.log(item)
-&#125;
-// hello
-// world
-</code></pre>
-<p>如上，for-of循环首先调用obj对象的Symbol.iterator方法，紧接着返回一个新的迭代器对象。迭代器对象可以是任意具有.next()方法的对象,for-of循环将重复调用这个方法，每次循环调用一次。return的对象中value表示当前的值，done表示是否完成迭代。</p>
-<p>Iterator的作用有三个：</p>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// hello</span>
+<span class="token comment">// world</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如上，for-of 循环首先调用 obj 对象的 Symbol.iterator 方法，紧接着返回一个新的迭代器对象。迭代器对象可以是任意具有.next()方法的对象,for-of 循环将重复调用这个方法，每次循环调用一次。return 的对象中 value 表示当前的值，done 表示是否完成迭代。</p>
+<p>Iterator 的作用有三个：</p>
 <ol>
 <li><p>为各种数据结构，提供一个统一的、简便的访问接口；</p>
 </li>
 <li><p>使得数据结构的成员能够按某种次序排列；</p>
 </li>
-<li><p>ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</p>
+<li><p>ES6 创造了一种新的遍历命令 for…of 循环，Iterator 接口主要供 for…of 消费。</p>
 </li>
 </ol>
-<p>一个数据结构只要部署了Symbol.iterator属性，就被视为具有iterator接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。</p>
-<p>for…of循环可以使用的范围包括数组、Set和Map结构、某些类似数组的对象（比如arguments对象、DOM NodeList对象）、后文的Generator对象，以及字符串。</p>
-<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>ES6引入了一种第六种基本类型的数据：Symbol。Symbol是一种特殊的、不可变的数据类型，可以作为对象属性的标识符使用。</p>
-<h3 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h3><p>调用Symbol()创建一个新的symbol，它的值与其它任何值皆不相等。</p>
-<pre><code>var sym = new Symbol() // TypeError，阻止创建一个显式的Symbol包装器对象而不是一个Symbol值
-var s1 = Symbol(&#39;foo&#39;)
-var s2 = Symbol(&#39;foo&#39;)
-s1 === s2 // false
-</code></pre>
-<h3 id="常用使用场景："><a href="#常用使用场景：" class="headerlink" title="常用使用场景："></a>常用使用场景：</h3><p>由于每一个Symbol值都是不相等的，因此常作为对象的属性名来防止某一个键被不小心改写或覆盖，这个以symbol为键的属性可以保证不与任何其它属性产生冲突。</p>
-<p>作为对象属性名时的遍历：参见对象的遍历那节</p>
-<h3 id="内置的Symbol值："><a href="#内置的Symbol值：" class="headerlink" title="内置的Symbol值："></a>内置的Symbol值：</h3><p>除了定义自己使用的Symbol值以外，ES6还提供了11个内置的Symbol值，指向语言内部使用的方法。其中一个很重要的就是Iterator中提到的Symbol.iterator</p>
-<h2 id="Reflect（反射）"><a href="#Reflect（反射）" class="headerlink" title="Reflect（反射）"></a>Reflect（反射）</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>Reflect是一个内置的对象，它提供可拦截JavaScript操作的方法。</p>
-<h3 id="为什么要增加Reflect对象"><a href="#为什么要增加Reflect对象" class="headerlink" title="为什么要增加Reflect对象"></a>为什么要增加Reflect对象</h3><p><a href="https://github.com/tvcutsem/harmony-reflect/wiki#reflect">参考链接</a></p>
-<p>1）更有用的返回值</p>
-<p>比如，Object.defineProperty(obj, name, desc)在无法定义属性时，会抛出一个错误，而Reflect.defineProperty(obj, name, desc)则会返回false。</p>
-<pre><code>// 老写法
-try &#123;
-  Object.defineProperty(target, property, attributes);
-  // success
-&#125; catch (e) &#123;
-  // failure
-&#125;
+<p>一个数据结构只要部署了 Symbol.iterator 属性，就被视为具有 iterator 接口，就可以用 for…of 循环遍历它的成员。也就是说，for…of 循环内部调用的是数据结构的 Symbol.iterator 方法。</p>
+<p>for…of 循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如 arguments 对象、DOM NodeList 对象）、后文的 Generator 对象，以及字符串。</p>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>ES6 引入了一种第六种基本类型的数据：Symbol。Symbol 是一种特殊的、不可变的数据类型，可以作为对象属性的标识符使用。</p>
+<h3 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h3><p>调用 Symbol()创建一个新的 symbol，它的值与其它任何值皆不相等。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> sym <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// TypeError，阻止创建一个显式的Symbol包装器对象而不是一个Symbol值</span>
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+s1 <span class="token operator">===</span> s2<span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-// 新写法
-if (Reflect.defineProperty(target, property, attributes)) &#123;
-  // success
-&#125; else &#123;
-  // failure
-&#125;
-</code></pre>
-<p>2）函数操作。某些Object操作是命令式，比如name in obj和delete obj[name]，而Reflect.has(obj, name)和Reflect.deleteProperty(obj, name)让它们变成了函数行为</p>
+<h3 id="常用使用场景："><a href="#常用使用场景：" class="headerlink" title="常用使用场景："></a>常用使用场景：</h3><p>由于每一个 Symbol 值都是不相等的，因此常作为对象的属性名来防止某一个键被不小心改写或覆盖，这个以 symbol 为键的属性可以保证不与任何其它属性产生冲突。</p>
+<p>作为对象属性名时的遍历：参见对象的遍历那节</p>
+<h3 id="内置的-Symbol-值："><a href="#内置的-Symbol-值：" class="headerlink" title="内置的 Symbol 值："></a>内置的 Symbol 值：</h3><p>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。其中一个很重要的就是 Iterator 中提到的 Symbol.iterator</p>
+<h2 id="Reflect（反射）"><a href="#Reflect（反射）" class="headerlink" title="Reflect（反射）"></a>Reflect（反射）</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>Reflect 是一个内置的对象，它提供可拦截 JavaScript 操作的方法。</p>
+<h3 id="为什么要增加-Reflect-对象"><a href="#为什么要增加-Reflect-对象" class="headerlink" title="为什么要增加 Reflect 对象"></a>为什么要增加 Reflect 对象</h3><p><a href="https://github.com/tvcutsem/harmony-reflect/wiki#reflect">参考链接</a></p>
+<p>1）更有用的返回值</p>
+<p>比如，Object.defineProperty(obj, name, desc)在无法定义属性时，会抛出一个错误，而 Reflect.defineProperty(obj, name, desc)则会返回 false。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 老写法</span>
+<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+  Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> attributes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// success</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// failure</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 新写法</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Reflect<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> property<span class="token punctuation">,</span> attributes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// success</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// failure</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2）函数操作。某些 Object 操作是命令式，比如 name in obj 和 delete obj[name]，而 Reflect.has(obj, name)和 Reflect.deleteProperty(obj, name)让它们变成了函数行为</p>
 <p>3）更加可靠的函数调用方式</p>
-<p>在ES5中，当我们想传一个参数数组args来调用函数f，并且将this绑定为this，可以这样写：</p>
-<pre><code>f.apply(obj, args)
-</code></pre>
-<p>但是，f可能是一个故意或者不小心定义了它自己的apply方法的对象。当你想确保你调用的是内置的apply方法时，一种典型的方法是这样写的：</p>
-<pre><code>Function.prototype.apply.call(f, obj, args)
-</code></pre>
-<p>但是这种方法不仅冗长而且难以理解。通过使用Reflect，你可以以一种更简单、容易的方式来可靠地进行函数调用</p>
-<pre><code>Reflect.apply(f, obj, args)
-</code></pre>
+<p>在 ES5 中，当我们想传一个参数数组 args 来调用函数 f，并且将 this 绑定为 this，可以这样写：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是，f 可能是一个故意或者不小心定义了它自己的 apply 方法的对象。当你想确保你调用的是内置的 apply 方法时，一种典型的方法是这样写的：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是这种方法不仅冗长而且难以理解。通过使用 Reflect，你可以以一种更简单、容易的方式来可靠地进行函数调用</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">Reflect</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>4）可变参数的构造函数</p>
-<p>假设你想调用一个参数是可变的构造函数。在ES6中，由于新的扩展运算符，你可能可以这样写：</p>
-<pre><code>var obj = new F(...args)
-</code></pre>
-<p>在ES5中，这更加难写，因为只有通过F.apply或者F.call传递可变参数来调用函数，但是没有F.contruct来传递可变参数实例化一个构造函数。通过Reflect，在ES5中可以这样写（内容翻译自参考链接，链接的项目是ES6 Reflect和Proxy的一个ES5 shim，所以会这么说）：</p>
-<pre><code>var obj = Reflect.construct(F, args)
-</code></pre>
-<p>5）为Proxy(代理，见下一章)的traps提供默认行为</p>
-<p>当使用Proxy对象去包裹存在的对象时，拦截一个操作是很常见的。执行一些行为，然后去“做默认的事情”，这是对包裹的对象进行拦截操作的典型形式。例如，我只是想在获取对象obj的属性时log出所有的属性：</p>
-<pre><code>var loggedObj = new Proxy(obj, &#123;
-  get: function(target, name) &#123;
-    console.log(&quot;get&quot;, target, name);
-    // now do the default thing
-  &#125;
-&#125;);
-</code></pre>
-<p>Reflect和Proxy的API被设计为互相联系、协同的，因此每个Proxy trap都有一个对应的Reflect去“做默认的事情”。因此当你发现你想在Proxy的handler中“做默认的事情”是，正确的事情永远都是去调用Reflect对象对应的方法：</p>
-<pre><code>var loggedObj = new Proxy(obj, &#123;
-  get: function(target, name) &#123;
-    console.log(&quot;get&quot;, target, name);
-    return Reflect.get(target, name);
-  &#125;
-&#125;);
-</code></pre>
-<p>Reflect方法的返回类型已经被确保了能和Proxy traps的返回类型兼容。</p>
-<p>6）控制访问或者读取时的this</p>
-<pre><code>var name = ... // get property name as a string
-Reflect.get(obj, name, wrapper) // if obj[name] is an accessor, it gets run with `this === wrapper`
-Reflect.set(obj, name, value, wrapper)
-</code></pre>
-<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>Reflect对象一共有14个静态方法（其中Reflect.enumerate被废弃）</p>
-<p>与大多数全局对象不同，Reflect没有构造函数。不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。</p>
-<p>Reflect对象提供以下静态函数，它们与代理处理程序方法（Proxy的handler）有相同的名称。这些方法中的一些与Object上的对应方法基本相同，有些遍历操作稍有不同，见对象扩展遍历那节。</p>
-<h4 id="Reflect-apply"><a href="#Reflect-apply" class="headerlink" title="Reflect.apply()"></a>Reflect.apply()</h4><p>对一个函数进行调用操作，同时可以传入一个数组作为调用参数。和Function.prototype.apply()功能类似。</p>
-<h4 id="Reflect-construct"><a href="#Reflect-construct" class="headerlink" title="Reflect.construct()"></a>Reflect.construct()</h4><p>对构造函数进行new操作，相当于执行new target(…args)。</p>
-<h4 id="Reflect-defineProperty"><a href="#Reflect-defineProperty" class="headerlink" title="Reflect.defineProperty()"></a>Reflect.defineProperty()</h4><p>和Object.defineProperty()类似。</p>
-<h4 id="Reflect-deleteProperty"><a href="#Reflect-deleteProperty" class="headerlink" title="Reflect.deleteProperty()"></a>Reflect.deleteProperty()</h4><p>删除对象的某个属性，相当于执行delete target[name]。</p>
+<p>假设你想调用一个参数是可变的构造函数。在 ES6 中，由于新的扩展运算符，你可能可以这样写：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在 ES5 中，这更加难写，因为只有通过 F.apply 或者 F.call 传递可变参数来调用函数，但是没有 F.contruct 来传递可变参数实例化一个构造函数。通过 Reflect，在 ES5 中可以这样写（内容翻译自参考链接，链接的项目是 ES6 Reflect 和 Proxy 的一个 ES5 shim，所以会这么说）：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span><span class="token constant">F</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>5）为 Proxy(代理，见下一章)的 traps 提供默认行为</p>
+<p>当使用 Proxy 对象去包裹存在的对象时，拦截一个操作是很常见的。执行一些行为，然后去“做默认的事情”，这是对包裹的对象进行拦截操作的典型形式。例如，我只是想在获取对象 obj 的属性时 log 出所有的属性：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> loggedObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// now do the default thing</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Reflect 和 Proxy 的 API 被设计为互相联系、协同的，因此每个 Proxy trap 都有一个对应的 Reflect 去“做默认的事情”。因此当你发现你想在 Proxy 的 handler 中“做默认的事情”是，正确的事情永远都是去调用 Reflect 对象对应的方法：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> loggedObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Reflect 方法的返回类型已经被确保了能和 Proxy traps 的返回类型兼容。</p>
+<p>6）控制访问或者读取时的 this</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token operator">...</span> <span class="token comment">// get property name as a string</span>
+Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> name<span class="token punctuation">,</span> wrapper<span class="token punctuation">)</span> <span class="token comment">// if obj[name] is an accessor, it gets run with `this === wrapper`</span>
+Reflect<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> wrapper<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>Reflect 对象一共有 14 个静态方法（其中 Reflect.enumerate 被废弃）</p>
+<p>与大多数全局对象不同，Reflect 没有构造函数。不能将其与一个 new 运算符一起使用，或者将 Reflect 对象作为一个函数来调用。</p>
+<p>Reflect 对象提供以下静态函数，它们与代理处理程序方法（Proxy 的 handler）有相同的名称。这些方法中的一些与 Object 上的对应方法基本相同，有些遍历操作稍有不同，见对象扩展遍历那节。</p>
+<h4 id="Reflect-apply"><a href="#Reflect-apply" class="headerlink" title="Reflect.apply()"></a>Reflect.apply()</h4><p>对一个函数进行调用操作，同时可以传入一个数组作为调用参数。和 Function.prototype.apply()功能类似。</p>
+<h4 id="Reflect-construct"><a href="#Reflect-construct" class="headerlink" title="Reflect.construct()"></a>Reflect.construct()</h4><p>对构造函数进行 new 操作，相当于执行 new target(…args)。</p>
+<h4 id="Reflect-defineProperty"><a href="#Reflect-defineProperty" class="headerlink" title="Reflect.defineProperty()"></a>Reflect.defineProperty()</h4><p>和 Object.defineProperty()类似。</p>
+<h4 id="Reflect-deleteProperty"><a href="#Reflect-deleteProperty" class="headerlink" title="Reflect.deleteProperty()"></a>Reflect.deleteProperty()</h4><p>删除对象的某个属性，相当于执行 delete target[name]。</p>
 <h4 id="Reflect-enumerate"><a href="#Reflect-enumerate" class="headerlink" title="Reflect.enumerate()"></a>Reflect.enumerate()</h4><p>该方法会返回一个包含有目标对象身上所有可枚举的自身字符串属性以及继承字符串属性的迭代器，for…in 操作遍历到的正是这些属性。</p>
-<h4 id="Reflect-get"><a href="#Reflect-get" class="headerlink" title="Reflect.get()"></a>Reflect.get()</h4><p>获取对象身上某个属性的值，类似于target[name]。</p>
-<h4 id="Reflect-getOwnPropertyDescriptor"><a href="#Reflect-getOwnPropertyDescriptor" class="headerlink" title="Reflect.getOwnPropertyDescriptor()"></a>Reflect.getOwnPropertyDescriptor()</h4><p>类似于Object.getOwnPropertyDescriptor()。</p>
-<h4 id="Reflect-getPrototypeOf"><a href="#Reflect-getPrototypeOf" class="headerlink" title="Reflect.getPrototypeOf()"></a>Reflect.getPrototypeOf()</h4><p>类似于Object.getPrototypeOf()。</p>
-<h4 id="Reflect-has"><a href="#Reflect-has" class="headerlink" title="Reflect.has()"></a>Reflect.has()</h4><p>判断一个对象是否存在某个属性，和in运算符的功能完全相同。</p>
-<h4 id="Reflect-isExtensible"><a href="#Reflect-isExtensible" class="headerlink" title="Reflect.isExtensible()"></a>Reflect.isExtensible()</h4><p>类似于Object.isExtensible().</p>
+<h4 id="Reflect-get"><a href="#Reflect-get" class="headerlink" title="Reflect.get()"></a>Reflect.get()</h4><p>获取对象身上某个属性的值，类似于 target[name]。</p>
+<h4 id="Reflect-getOwnPropertyDescriptor"><a href="#Reflect-getOwnPropertyDescriptor" class="headerlink" title="Reflect.getOwnPropertyDescriptor()"></a>Reflect.getOwnPropertyDescriptor()</h4><p>类似于 Object.getOwnPropertyDescriptor()。</p>
+<h4 id="Reflect-getPrototypeOf"><a href="#Reflect-getPrototypeOf" class="headerlink" title="Reflect.getPrototypeOf()"></a>Reflect.getPrototypeOf()</h4><p>类似于 Object.getPrototypeOf()。</p>
+<h4 id="Reflect-has"><a href="#Reflect-has" class="headerlink" title="Reflect.has()"></a>Reflect.has()</h4><p>判断一个对象是否存在某个属性，和 in 运算符的功能完全相同。</p>
+<h4 id="Reflect-isExtensible"><a href="#Reflect-isExtensible" class="headerlink" title="Reflect.isExtensible()"></a>Reflect.isExtensible()</h4><p>类似于 Object.isExtensible().</p>
 <h4 id="Reflect-ownKeys"><a href="#Reflect-ownKeys" class="headerlink" title="Reflect.ownKeys()"></a>Reflect.ownKeys()</h4><p>返回一个包含所有自身属性（不包含继承属性）的数组。</p>
-<h4 id="Reflect-preventExtensions"><a href="#Reflect-preventExtensions" class="headerlink" title="Reflect.preventExtensions()"></a>Reflect.preventExtensions()</h4><p>类似于Object.preventExtensions()。</p>
-<h4 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set()"></a>Reflect.set()</h4><p>设置对象身上某个属性的值，类似于target[name] = val。</p>
-<h4 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf()"></a>Reflect.setPrototypeOf()</h4><p>类似于Object.setPrototypeOf()。</p>
-<h2 id="Proxy（代理）"><a href="#Proxy（代理）" class="headerlink" title="Proxy（代理）"></a>Proxy（代理）</h2><h3 id="是什么-2"><a href="#是什么-2" class="headerlink" title="是什么"></a>是什么</h3><p>Proxy对象用于定义基本操作的自定义行为 (例如属性查找，赋值，枚举，函数调用等)。</p>
+<h4 id="Reflect-preventExtensions"><a href="#Reflect-preventExtensions" class="headerlink" title="Reflect.preventExtensions()"></a>Reflect.preventExtensions()</h4><p>类似于 Object.preventExtensions()。</p>
+<h4 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set()"></a>Reflect.set()</h4><p>设置对象身上某个属性的值，类似于 target[name] = val。</p>
+<h4 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf()"></a>Reflect.setPrototypeOf()</h4><p>类似于 Object.setPrototypeOf()。</p>
+<h2 id="Proxy（代理）"><a href="#Proxy（代理）" class="headerlink" title="Proxy（代理）"></a>Proxy（代理）</h2><h3 id="是什么-2"><a href="#是什么-2" class="headerlink" title="是什么"></a>是什么</h3><p>Proxy 对象用于定义基本操作的自定义行为 (例如属性查找，赋值，枚举，函数调用等)。</p>
 <p>一些术语：</p>
 <ul>
-<li>handler：包含traps的对象。</li>
-<li>traps：提供访问属性的方法，与操作系统中的traps定义相似。</li>
+<li>handler：包含 traps 的对象。</li>
+<li>traps：提供访问属性的方法，与操作系统中的 traps 定义相似。</li>
 <li>target：被代理虚拟化的对象，这个对象常常用作代理的存储后端。</li>
 </ul>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>ES6原生提供Proxy构造函数，用来生成Proxy实例。</p>
-<pre><code>var proxy = new Proxy(target, handler);
-</code></pre>
-<p>Proxy对象的所有用法，都是上面这种形式，不同的只是handler参数的写法。其中，new Proxy()表示生成一个Proxy实例，target参数表示所要代理的目标对象，handler参数也是一个对象，用来定制代理行为。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>ES6 原生提供 Proxy 构造函数，用来生成 Proxy 实例。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> proxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Proxy 对象的所有用法，都是上面这种形式，不同的只是 handler 参数的写法。其中，new Proxy()表示生成一个 Proxy 实例，target 参数表示所要代理的目标对象，handler 参数也是一个对象，用来定制代理行为。</p>
 <p>下面代码对一个空对象进行了代理，重定义了属性的读取（get）和设置（set）行为。</p>
-<pre><code>var obj = new Proxy(&#123;&#125;, &#123;
-  get: function (target, key, receiver) &#123;
-    console.log(`getting $&#123;key&#125;!`);
-    return Reflect.get(target, key, receiver);
-  &#125;,
-  set: function (target, key, value, receiver) &#123;
-    console.log(`setting $&#123;key&#125;!`);
-    return Reflect.set(target, key, value, receiver);
-  &#125;
-&#125;);
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>
+  <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">getting </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">setting </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-obj.count = 1
-//  setting count!
-++obj.count
-//  getting count!
-//  setting count!
-//  2
-</code></pre>
-<h4 id="handler对象的方法"><a href="#handler对象的方法" class="headerlink" title="handler对象的方法"></a>handler对象的方法</h4><p>handler是一个包含了Proxy的traps的占位符对象。</p>
-<p>所有的trap都是可选的，如果某个trap没有定义，将会对target进行默认操作。这些trap和Reflect的静态方法是对应的，可以使用Reflect对应的静态方法提供默认行为。上面的例子中，handler定义了get和set两个trap，每个trap都是一个方法，接收一些参数。返回了对应的Reflect方法来执行默认方法。</p>
-<p>handler的每个方法可以理解为对相应的某个方法进行代理拦截。</p>
-<p>handler.getPrototypeOf(target)：Object.getPrototypeOf的一个trap</p>
-<p>handler.setPrototypeOf(target, proto)：Object.setPrototypeOf的一个trap</p>
-<p>handler.isExtensible(target)：Object.isExtensible的一个trap</p>
-<p>handler.preventExtensions(target)：Object.preventExtensions的一个trap</p>
-<p>handler.getOwnPropertyDescriptor(target, propKey)：Object.getOwnPropertyDescriptor的一个trap</p>
-<p>handler.defineProperty(target, propKey, propDesc)：Object.defineProperty的一个trap</p>
-<p>handler.has(target, propKey)：in操作的一个trap</p>
-<p>handler.get(target, propKey, receiver)：获取属性值的一个trap</p>
-<p>handler.set(target, propKey, value, receiver)：设置属性值的一个trap</p>
-<p>handler.deleteProperty(target, propKey)：delete操作的一个trap</p>
-<p>handler.ownKeys(target)：Object.getOwnPropertyNames和Object.getOwnPropertySymbols的一个trap</p>
-<p>handler.apply(target, object, args)：函数调用的一个trap</p>
-<p>handler.construct(target, args)：new操作的一个trap</p>
-<h4 id="Proxy-revocable"><a href="#Proxy-revocable" class="headerlink" title="Proxy.revocable()"></a>Proxy.revocable()</h4><p>Proxy.revocable方法返回一个可取消的Proxy实例。</p>
-<pre><code>let target = &#123;&#125;;
-let handler = &#123;&#125;;
+obj<span class="token punctuation">.</span>count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">//  setting count!</span>
+<span class="token operator">++</span>obj<span class="token punctuation">.</span>count<span class="token punctuation">;</span>
+<span class="token comment">//  getting count!</span>
+<span class="token comment">//  setting count!</span>
+<span class="token comment">//  2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-let &#123;proxy, revoke&#125; = Proxy.revocable(target, handler);
+<h4 id="handler-对象的方法"><a href="#handler-对象的方法" class="headerlink" title="handler 对象的方法"></a>handler 对象的方法</h4><p>handler 是一个包含了 Proxy 的 traps 的占位符对象。</p>
+<p>所有的 trap 都是可选的，如果某个 trap 没有定义，将会对 target 进行默认操作。这些 trap 和 Reflect 的静态方法是对应的，可以使用 Reflect 对应的静态方法提供默认行为。上面的例子中，handler 定义了 get 和 set 两个 trap，每个 trap 都是一个方法，接收一些参数。返回了对应的 Reflect 方法来执行默认方法。</p>
+<p>handler 的每个方法可以理解为对相应的某个方法进行代理拦截。</p>
+<p>handler.getPrototypeOf(target)：Object.getPrototypeOf 的一个 trap</p>
+<p>handler.setPrototypeOf(target, proto)：Object.setPrototypeOf 的一个 trap</p>
+<p>handler.isExtensible(target)：Object.isExtensible 的一个 trap</p>
+<p>handler.preventExtensions(target)：Object.preventExtensions 的一个 trap</p>
+<p>handler.getOwnPropertyDescriptor(target, propKey)：Object.getOwnPropertyDescriptor 的一个 trap</p>
+<p>handler.defineProperty(target, propKey, propDesc)：Object.defineProperty 的一个 trap</p>
+<p>handler.has(target, propKey)：in 操作的一个 trap</p>
+<p>handler.get(target, propKey, receiver)：获取属性值的一个 trap</p>
+<p>handler.set(target, propKey, value, receiver)：设置属性值的一个 trap</p>
+<p>handler.deleteProperty(target, propKey)：delete 操作的一个 trap</p>
+<p>handler.ownKeys(target)：Object.getOwnPropertyNames 和 Object.getOwnPropertySymbols 的一个 trap</p>
+<p>handler.apply(target, object, args)：函数调用的一个 trap</p>
+<p>handler.construct(target, args)：new 操作的一个 trap</p>
+<h4 id="Proxy-revocable"><a href="#Proxy-revocable" class="headerlink" title="Proxy.revocable()"></a>Proxy.revocable()</h4><p>Proxy.revocable 方法返回一个可取消的 Proxy 实例。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> target <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-proxy.foo = 123;
-proxy.foo // 123
+<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> proxy<span class="token punctuation">,</span> revoke <span class="token punctuation">&#125;</span> <span class="token operator">=</span> Proxy<span class="token punctuation">.</span><span class="token function">revocable</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-revoke();
-proxy.foo // TypeError: Revoked
-</code></pre>
-<p>Proxy.revocable方法返回一个对象，该对象的proxy属性是Proxy实例，revoke属性是一个函数，可以取消Proxy实例。上面代码中，当执行revoke函数之后，再访问Proxy实例，就会抛出一个错误。</p>
-<p>Proxy.revocable的一个使用场景是，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>上面说的那些可能都比较虚，去看一下w3cplus上翻译的<a target="_blank" rel="noopener" href="https://www.w3cplus.com/javascript/use-cases-for-es6-proxies.html">实例解析ES6 Proxy使用场景</a>，可能就会更清楚地明白该怎么用。</p>
-<p>如实例解析ES6 Proxy使用场景中所说，Proxy其功能非常类似于设计模式中的代理模式，该模式常用于三个方面：</p>
+proxy<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+proxy<span class="token punctuation">.</span>foo<span class="token punctuation">;</span> <span class="token comment">// 123</span>
+
+<span class="token function">revoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+proxy<span class="token punctuation">.</span>foo<span class="token punctuation">;</span> <span class="token comment">// TypeError: Revoked</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Proxy.revocable 方法返回一个对象，该对象的 proxy 属性是 Proxy 实例，revoke 属性是一个函数，可以取消 Proxy 实例。上面代码中，当执行 revoke 函数之后，再访问 Proxy 实例，就会抛出一个错误。</p>
+<p>Proxy.revocable 的一个使用场景是，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>上面说的那些可能都比较虚，去看一下 w3cplus 上翻译的<a target="_blank" rel="noopener" href="https://www.w3cplus.com/javascript/use-cases-for-es6-proxies.html">实例解析 ES6 Proxy 使用场景</a>，可能就会更清楚地明白该怎么用。</p>
+<p>如实例解析 ES6 Proxy 使用场景中所说，Proxy 其功能非常类似于设计模式中的代理模式，该模式常用于三个方面：</p>
 <ul>
 <li>拦截和监视外部对对象的访问</li>
 <li>降低函数或类的复杂度</li>
 <li>在复杂操作前对操作进行校验或对所需资源进行管理</li>
 </ul>
-<p>有以下5个常见使用场景：</p>
+<p>有以下 5 个常见使用场景：</p>
 <ol>
 <li><p>抽离校验模块</p>
 </li>
@@ -664,184 +666,183 @@ proxy.foo // TypeError: Revoked
 <li><p>过滤操作</p>
 </li>
 </ol>
-<h2 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h2><h3 id="类："><a href="#类：" class="headerlink" title="类："></a>类：</h3><p>将原先JavaScript中传统的通过构造函数生成新对象的方式变为类的方式，contructor内是构造函数执行的代码，外面的方法为原型上的方法</p>
-<pre><code>// ES5
-function Point(x, y) &#123;
-  this.x = x
-  this.y = y
-&#125;
+<h2 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h2><h3 id="类："><a href="#类：" class="headerlink" title="类："></a>类：</h3><p>将原先 JavaScript 中传统的通过构造函数生成新对象的方式变为类的方式，contructor 内是构造函数执行的代码，外面的方法为原型上的方法</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ES5</span>
+<span class="token keyword">function</span> <span class="token function">Point</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-Point.prototype.toString = function () &#123;
-  return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;
-&#125;
+<span class="token class-name">Point</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">toString</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token string">'('</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token string">', '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-var p = new Point(1, 2)
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-//定义类
-class Point &#123;
-  constructor(x, y) &#123;
-    this.x = x
-    this.y = y
-  &#125;
+<span class="token comment">//定义类</span>
+<span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-  // 静态方法，static关键字，就表示该方法不会被实例继承(但是会被子类继承)，而是直接通过类来调用
-  static classMethod() &#123;
-    return &#39;hello&#39;
-  &#125;
+  <span class="token comment">// 静态方法，static关键字，就表示该方法不会被实例继承(但是会被子类继承)，而是直接通过类来调用</span>
+  <span class="token keyword">static</span> <span class="token function">classMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-  toString() &#123;
-    return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;
-  &#125;
-&#125;
-</code></pre>
-<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h3><p>通过extends关键字来实现。super关键字则是用来调用父类</p>
-<p>ES5的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。ES6的继承机制完全不同，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。理解了这句话，下面1,2两点也就顺其自然了：</p>
-<p>1）子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
-<p>2）在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。</p>
-<pre><code>class ColorPoint extends Point &#123;
-  constructor(x, y, color) &#123;
-    super(x, y); // 调用父类的constructor(x, y)        
-        this.color = color;
-  &#125;
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'('</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token string">', '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-  toString() &#123;
-    return this.color + &#39; &#39; + super.toString() // 调用父类的toString()
-  &#125;
-&#125;
+<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h3><p>通过 extends 关键字来实现。super 关键字则是用来调用父类</p>
+<p>ES5 的继承，实质是先创造子类的实例对象 this，然后再将父类的方法添加到 this 上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先创造父类的实例对象 this（所以必须先调用 super 方法），然后再用子类的构造函数修改 this。理解了这句话，下面 1,2 两点也就顺其自然了：</p>
+<p>1）子类必须在 constructor 方法中调用 super 方法，否则新建实例时会报错。这是因为子类没有自己的 this 对象，而是继承父类的 this 对象，然后对其进行加工。如果不调用 super 方法，子类就得不到 this 对象。</p>
+<p>2）在子类的构造函数中，只有调用 super 之后，才可以使用 this 关键字，否则会报错。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> color</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用父类的constructor(x, y)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-Object.getPrototypeOf(ColorPoint) === Point // true
-</code></pre>
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用父类的toString()</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>ColorPoint<span class="token punctuation">)</span> <span class="token operator">===</span> Point<span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>3）mixin: 继承多个类</p>
-<pre><code>function mix(...mixins) &#123;
-  class Mix &#123;&#125;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">mix</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>mixins</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">class</span> <span class="token class-name">Mix</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
-  for (let mixin of mixins) &#123;
-    copyProperties(Mix, mixin);
-    copyProperties(Mix.prototype, mixin.prototype);
-  &#125;
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> mixin <span class="token keyword">of</span> mixins<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">copyProperties</span><span class="token punctuation">(</span>Mix<span class="token punctuation">,</span> mixin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">copyProperties</span><span class="token punctuation">(</span><span class="token class-name">Mix</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> mixin<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-  return Mix
-&#125;
+  <span class="token keyword">return</span> Mix<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-function copyProperties(target, source) &#123;
-  for (let key of Reflect.ownKeys(source)) &#123;
-    if ( key !== &quot;constructor&quot;
-      &amp;&amp; key !== &quot;prototype&quot;
-      &amp;&amp; key !== &quot;name&quot;
-    ) &#123;
-      let desc = Object.getOwnPropertyDescriptor(source, key);
-      Object.defineProperty(target, key, desc)
-    &#125;
-  &#125;
-&#125;
+<span class="token keyword">function</span> <span class="token function">copyProperties</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> source</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">of</span> Reflect<span class="token punctuation">.</span><span class="token function">ownKeys</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">!==</span> <span class="token string">'constructor'</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">!==</span> <span class="token string">'prototype'</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">!==</span> <span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> desc <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> desc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class DistributedEdit extends mix(Loggable, Serializable) &#123;
-  // ...
-&#125;
-</code></pre>
-<p>4）new.target属性：通过检查new.target对象是否是undefined，可以判断函数是否通过new进行调用。</p>
-<pre><code>function Person(name) &#123;
-  if (new.target !== undefined) &#123;
-    this.name = name
-  &#125; else &#123;
-    throw new Error(&#39;必须使用new生成实例&#39;)
-  &#125;
-&#125;
+<span class="token keyword">class</span> <span class="token class-name">DistributedEdit</span> <span class="token keyword">extends</span> <span class="token class-name">mix</span><span class="token punctuation">(</span>Loggable<span class="token punctuation">,</span> Serializable<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-// 另一种写法
-function Person(name) &#123;
-  if (new.target === Person) &#123;
-    this.name = name
-  &#125; else &#123;
-    throw new Error(&#39;必须使用new生成实例&#39;)
-  &#125;
-&#125;
+<p>4）new.target 属性：通过检查 new.target 对象是否是 undefined，可以判断函数是否通过 new 进行调用。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">.</span>target <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'必须使用new生成实例'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-var person = new Person(&#39;张三&#39;) // 正确
-var notAPerson = Person.call(person, &#39;张三&#39;)  // 报错
-</code></pre>
-<h2 id="Decorator-装饰器"><a href="#Decorator-装饰器" class="headerlink" title="Decorator(装饰器)"></a>Decorator(装饰器)</h2><h3 id="是什么-3"><a href="#是什么-3" class="headerlink" title="是什么"></a>是什么</h3><p>Decorator是用来修改类（包括类和类的属性）的一个函数。</p>
-<p>这是ES的一个提案，其实是ES7的特性，目前Babel转码器已经支持。</p>
+<span class="token comment">// 另一种写法</span>
+<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">.</span>target <span class="token operator">===</span> Person<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'必须使用new生成实例'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+<span class="token keyword">var</span> notAPerson <span class="token operator">=</span> <span class="token function">Person</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Decorator-装饰器"><a href="#Decorator-装饰器" class="headerlink" title="Decorator(装饰器)"></a>Decorator(装饰器)</h2><h3 id="是什么-3"><a href="#是什么-3" class="headerlink" title="是什么"></a>是什么</h3><p>Decorator 是用来修改类（包括类和类的属性）的一个函数。</p>
+<p>这是 ES 的一个提案，其实是 ES7 的特性，目前 Babel 转码器已经支持。</p>
 <h3 id="怎么用-1"><a href="#怎么用-1" class="headerlink" title="怎么用"></a>怎么用</h3><p>1）修饰类：在类之前使用@加函数名，装饰器函数的第一个参数，就是所要修饰的目标类</p>
-<pre><code>function testable(target) &#123;
-  target.prototype.isTestable = true;
-&#125;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">testable</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  target<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>isTestable <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
 @testable
-class MyTestableClass &#123;&#125;
+<span class="token keyword">class</span> <span class="token class-name">MyTestableClass</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
-let obj = new MyTestableClass();
-obj.isTestable // true
-</code></pre>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyTestableClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>isTestable<span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>装饰器函数也可以是一个工厂方法</p>
-<pre><code>function testable(isTestable) &#123;
-  return function(target) &#123;
-    target.isTestable = isTestable;
-  &#125;
-&#125;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">testable</span><span class="token punctuation">(</span><span class="token parameter">isTestable</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    target<span class="token punctuation">.</span>isTestable <span class="token operator">=</span> isTestable<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-@testable(true)
-class MyTestableClass &#123;&#125;
-MyTestableClass.isTestable // true
+@<span class="token function">testable</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyTestableClass</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+MyTestableClass<span class="token punctuation">.</span>isTestable<span class="token punctuation">;</span> <span class="token comment">// true</span>
 
-@testable(false)
-class MyClass &#123;&#125;
-MyClass.isTestable // false
-</code></pre>
-<p>2）修饰类的属性：修饰器函数一共可以接受三个参数，第一个参数是所要修饰的目标对象，第二个参数是所要修饰的属性名，第三个参数是该属性的描述对象。装饰器在作用于属性的时候，实际上是通过Object.defineProperty来进行扩展和封装的。</p>
-<p>下面是一个例子，修改属性描述对象的enumerable属性，使得该属性不可遍历。</p>
-<pre><code>class Person &#123;
+@<span class="token function">testable</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+MyClass<span class="token punctuation">.</span>isTestable<span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2）修饰类的属性：修饰器函数一共可以接受三个参数，第一个参数是所要修饰的目标对象，第二个参数是所要修饰的属性名，第三个参数是该属性的描述对象。装饰器在作用于属性的时候，实际上是通过 Object.defineProperty 来进行扩展和封装的。</p>
+<p>下面是一个例子，修改属性描述对象的 enumerable 属性，使得该属性不可遍历。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
   @nonenumerable
-  get kidCount() &#123; return this.children.length; &#125;
-&#125;
+  <span class="token keyword">get</span> <span class="token function">kidCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>children<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-function nonenumerable(target, name, descriptor) &#123;
-  descriptor.enumerable = false;
-  return descriptor;
-&#125;
-</code></pre>
+<span class="token keyword">function</span> <span class="token function">nonenumerable</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> descriptor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  descriptor<span class="token punctuation">.</span>enumerable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> descriptor<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><a href="https://github.com/jayphelps/core-decorators.js">core-decorators.js</a>这个第三方模块提供了几个常见的修饰器。</p>
-<p>在修饰器的基础上，可以实现Mixin模式等。</p>
-<h2 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module(模块)"></a>Module(模块)</h2><p>在ES6之前，前端和nodejs实践中已经有一些模块加载方案，如CommonJS、AMD、CMD等。ES6在语言标准的层面上，实现了模块功能。</p>
-<p>模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</p>
-<h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。必须使用export关键字输出该变量。有以下两种不同的导出方式：</p>
+<p>在修饰器的基础上，可以实现 Mixin 模式等。</p>
+<h2 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module(模块)"></a>Module(模块)</h2><p>在 ES6 之前，前端和 nodejs 实践中已经有一些模块加载方案，如 CommonJS、AMD、CMD 等。ES6 在语言标准的层面上，实现了模块功能。</p>
+<p>模块功能主要由两个命令构成：export 和 import。export 命令用于规定模块的对外接口，import 命令用于输入其他模块提供的功能。</p>
+<h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。必须使用 export 关键字输出该变量。有以下两种不同的导出方式：</p>
 <h4 id="命名导出"><a href="#命名导出" class="headerlink" title="命名导出"></a>命名导出</h4><p>命名导出规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
-<pre><code>export &#123; myFunction &#125;; // 导出一个函数声明
-export const foo = Math.sqrt(2); // 导出一个常量
-</code></pre>
-<h4 id="默认导出-每个脚本只能有一个-，使用export-default命令："><a href="#默认导出-每个脚本只能有一个-，使用export-default命令：" class="headerlink" title="默认导出 (每个脚本只能有一个)，使用export default命令："></a>默认导出 (每个脚本只能有一个)，使用export default命令：</h4><pre><code> export default myFunctionOrClass
-</code></pre>
-<p>本质上，export default就是输出一个叫做default的变量或方法，然后系统允许你为它取任意名字</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token punctuation">&#123;</span> myFunction <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 导出一个函数声明</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> foo <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 导出一个常量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="默认导出-每个脚本只能有一个-，使用-export-default-命令："><a href="#默认导出-每个脚本只能有一个-，使用-export-default-命令：" class="headerlink" title="默认导出 (每个脚本只能有一个)，使用 export default 命令："></a>默认导出 (每个脚本只能有一个)，使用 export default 命令：</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> myFunctionOrClass<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>本质上，export default 就是输出一个叫做 default 的变量或方法，然后系统允许你为它取任意名字</p>
 <p>对于只导出一部分值来说，命名导出的方式很有用。在导入时候，可以使用相同的名称来引用对应导出的值。</p>
 <p>关于默认导出方式，每个模块只有一个默认导出。一个默认导出可以是一个函数，一个类，一个对象等。当最简单导入的时候，这个值是将被认为是”入口”导出值。</p>
-<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>使用export命令定义了模块的对外接口以后，其他JS文件就可以通过import命令加载这个模块。</p>
-<pre><code>import &#123; foo, bar &#125; from &#39;my_module&#39; // 指定加载某个输出值
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>使用 export 命令定义了模块的对外接口以后，其他 JS 文件就可以通过 import 命令加载这个模块。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span> <span class="token comment">// 指定加载某个输出值</span>
 
-import &#39;lodash&#39;; // 仅执行
+<span class="token keyword">import</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span> <span class="token comment">// 仅执行</span>
 
-import &#123; lastName as surname &#125; from &#39;./profile&#39;; // 为输入的模块重命名
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> lastName <span class="token keyword">as</span> surname <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./profile'</span><span class="token punctuation">;</span> <span class="token comment">// 为输入的模块重命名</span>
 
-import * as circle from &#39;./circle&#39;; // 整体加载
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> circle <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span> <span class="token comment">// 整体加载</span>
 
-/*export和import复合写法*/
-export &#123; foo, bar &#125; from &#39;my_module&#39;;
+<span class="token comment">/*export和import复合写法*/</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
 
-// 等同于
-import &#123; foo, bar &#125; from &#39;my_module&#39;;
-export &#123; foo, bar &#125;;
-</code></pre>
-<h3 id="ES6模块与CommonJS模块的差异"><a href="#ES6模块与CommonJS模块的差异" class="headerlink" title="ES6模块与CommonJS模块的差异"></a>ES6模块与CommonJS模块的差异</h3><p>它们有两个重大差异。</p>
+<span class="token comment">// 等同于</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h3><p>它们有两个重大差异。</p>
 <ul>
-<li>CommonJS模块输出的是一个值的拷贝，ES6模块输出的是值的引用。</li>
-<li>CommonJS模块是运行时加载，ES6模块是编译时输出接口。</li>
+<li>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</li>
+<li>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</li>
 </ul>
-<p>CommonJS是运行时加载，ES6是编译时加载，使得静态分析成为可能</p>
+<p>CommonJS 是运行时加载，ES6 是编译时加载，使得静态分析成为可能</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
-<li><p>ES6的模块自动采用严格模式。因此ES6模块中，顶层的this指向undefined。</p>
+<li><p>ES6 的模块自动采用严格模式。因此 ES6 模块中，顶层的 this 指向 undefined。</p>
 </li>
-<li><p>export一般放在两头即开始或者结尾这样更能清晰地明白暴露了什么变量</p>
+<li><p>export 一般放在两头即开始或者结尾这样更能清晰地明白暴露了什么变量</p>
 </li>
-<li><p>注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。因为不是运行时加载，不支持条件加载、按需加载等</p>
+<li><p>注意，import 命令具有提升效果，会提升到整个模块的头部，首先执行。因为不是运行时加载，不支持条件加载、按需加载等</p>
 </li>
 </ol>
 
@@ -1047,8 +1048,8 @@ export &#123; foo, bar &#125;;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -1057,10 +1058,6 @@ export &#123; foo, bar &#125;;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>

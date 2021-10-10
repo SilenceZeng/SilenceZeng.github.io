@@ -387,10 +387,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                 <span class="chip bg-color">前端</span>
                             </a>
@@ -407,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -429,14 +425,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    8 分
                 </div>
                 
 
@@ -454,8 +450,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="webpack简述"><a href="#webpack简述" class="headerlink" title="webpack简述"></a>webpack简述</h2><p>按照<a target="_blank" rel="noopener" href="http://webpack.github.io/docs/what-is-webpack.html">webapck官网</a>所说，webpack是一个模块打包工具(webpack is a module bundler)。它接收依赖的模块，将其转化为静态资源。</p>
-<p>webpack与众不同的三大核心概念</p>
+                <h2 id="webpack-简述"><a href="#webpack-简述" class="headerlink" title="webpack 简述"></a>webpack 简述</h2><p>按照<a target="_blank" rel="noopener" href="http://webpack.github.io/docs/what-is-webpack.html">webapck 官网</a>所说，webpack 是一个模块打包工具(webpack is a module bundler)。它接收依赖的模块，将其转化为静态资源。</p>
+<p>webpack 与众不同的三大核心概念</p>
 <ol>
 <li><p>Code Spliting</p>
 </li>
@@ -464,19 +460,19 @@
 <li><p>Plugin System</p>
 </li>
 </ol>
-<h2 id="配置-configuration"><a href="#配置-configuration" class="headerlink" title="配置(configuration)"></a><a target="_blank" rel="noopener" href="https://webpack.github.io/docs/configuration.html">配置(configuration)</a></h2><h3 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h3><p>如果使用CLI，webpack将会读取webpack.config.js文件（或者通过–config选项传递的文件），这个文件需要暴露这样的配置对象：</p>
-<pre><code>module.exports = &#123;
-    // configuration
-&#125;;
-</code></pre>
-<p>常见CLI option</p>
+<h2 id="配置-configuration"><a href="#配置-configuration" class="headerlink" title="配置(configuration)"></a><a target="_blank" rel="noopener" href="https://webpack.github.io/docs/configuration.html">配置(configuration)</a></h2><h3 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h3><p>如果使用 CLI，webpack 将会读取 webpack.config.js 文件（或者通过–config 选项传递的文件），这个文件需要暴露这样的配置对象：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// configuration</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>常见 CLI option</p>
 <p>1)开发环境简写 -d</p>
 <p>等价于：–debug –devtool source-map –output-pathinfo</p>
 <p>2)生产环境简写 -p</p>
 <p>等价于：–optimize-minimize –optimize-occurrence-order</p>
 <p>3)监视模式 –watch</p>
 <p>4)配置文件 –config example.config.js</p>
-<p>指定新的配置文件，而不是默认的webpack.config.js</p>
+<p>指定新的配置文件，而不是默认的 webpack.config.js</p>
 <p>5)常见的显示选项</p>
 <ul>
 <li><p>–progress</p>
@@ -492,25 +488,25 @@
 <li><p>–display-exclude</p>
 </li>
 </ul>
-<p>可以通过script来定义脚本，然后npm run 命令名。</p>
-<p>** 一个简单的配置对象，注意不是json，只是简单的object **</p>
-<pre><code>&#123;
-    context: __dirname + &quot;/app&quot;,
-    entry: &quot;./entry&quot;,
-    output: &#123;
-        path: __dirname + &quot;/dist&quot;,
-        filename: &quot;bundle.js&quot;
-    &#125;
-&#125;
-</code></pre>
-<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>context：根目录（绝对路径!）。可以认为是文件查找的上下文。默认process.cwd()</p>
+<p>可以通过 script 来定义脚本，然后 npm run 命令名。</p>
+<p>** 一个简单的配置对象，注意不是 json，只是简单的 object **</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+		context<span class="token operator">:</span> __dirname <span class="token operator">+</span> <span class="token string">"/app"</span><span class="token punctuation">,</span>
+		entry<span class="token operator">:</span> <span class="token string">"./entry"</span><span class="token punctuation">,</span>
+		output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+				path<span class="token operator">:</span> __dirname <span class="token operator">+</span> <span class="token string">"/dist"</span><span class="token punctuation">,</span>
+				filename<span class="token operator">:</span> <span class="token string">"bundle.js"</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>context：根目录（绝对路径!）。可以认为是文件查找的上下文。默认 process.cwd()</p>
 <h3 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h3><p>entry：包的入口点，有三种形式</p>
 <ol>
-<li><p>一个string</p>
+<li><p>一个 string</p>
 </li>
-<li><p>一个由多个string构成的array</p>
+<li><p>一个由多个 string 构成的 array</p>
 </li>
-<li><p>一个object（多页面场景下），key是chunk的name，value可以是string或者array</p>
+<li><p>一个 object（多页面场景下），key 是 chunk 的 name，value 可以是 string 或者 array</p>
 </li>
 </ol>
 <h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><h4 id="output-filename"><a href="#output-filename" class="headerlink" title="output.filename"></a>output.filename</h4><p>不要在这里指定绝对路径</p>
@@ -518,13 +514,13 @@
 <ul>
 <li><p>[name] 模块名称</p>
 </li>
-<li><p>[hash] 模块编译后的（整体）Hash值</p>
+<li><p>[hash] 模块编译后的（整体）Hash 值</p>
 </li>
-<li><p>[chunkhash] 分片的Hash值,可以认为是文件的版本号，也可以认为是文件的MD5值，在静态资源的版本管理中非常有用</p>
+<li><p>[chunkhash] 分片的 Hash 值,可以认为是文件的版本号，也可以认为是文件的 MD5 值，在静态资源的版本管理中非常有用</p>
 </li>
 </ul>
-<h4 id="output-path"><a href="#output-path" class="headerlink" title="output.path"></a>output.path</h4><h4 id="output-publicPath"><a href="#output-publicPath" class="headerlink" title="output.publicPath"></a>output.publicPath</h4><p>指定 public URL地址，当我们要将output的文件放在不同的域名或者CDN上时十分有用</p>
-<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><p>module.loaders 一个自动应用的loaders的数组，每项（item）可以有这些属性：</p>
+<h4 id="output-path"><a href="#output-path" class="headerlink" title="output.path"></a>output.path</h4><h4 id="output-publicPath"><a href="#output-publicPath" class="headerlink" title="output.publicPath"></a>output.publicPath</h4><p>指定 public URL 地址，当我们要将 output 的文件放在不同的域名或者 CDN 上时十分有用</p>
+<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><p>module.loaders 一个自动应用的 loaders 的数组，每项（item）可以有这些属性：</p>
 <ul>
 <li><p>test: A condition that must be met</p>
 </li>
@@ -538,193 +534,195 @@
 </li>
 </ul>
 <h3 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h3><h4 id="resolve-alias"><a href="#resolve-alias" class="headerlink" title="resolve.alias"></a>resolve.alias</h4><p>模块别名定义，方便后续直接引用别名</p>
-<pre><code>resolve: &#123;
-    alias: &#123; AppStore : &#39;js/stores/AppStores.js&#39;,//之后直接 require(&#39;AppStore&#39;)
-    &#125; 
-&#125;
-</code></pre>
-<h4 id="resolve-root"><a href="#resolve-root" class="headerlink" title="resolve.root"></a>resolve.root</h4><p>包含你模块的目录（绝对路径），也可以是一个目录数组，这个设置应该被用于添加个人目录到webpack查找路径里</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">resolve<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+	alias<span class="token operator">:</span> <span class="token punctuation">&#123;</span> AppStore <span class="token operator">:</span> <span class="token string">'js/stores/AppStores.js'</span><span class="token punctuation">,</span><span class="token comment">//之后直接 require('AppStore')</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="resolve-root"><a href="#resolve-root" class="headerlink" title="resolve.root"></a>resolve.root</h4><p>包含你模块的目录（绝对路径），也可以是一个目录数组，这个设置应该被用于添加个人目录到 webpack 查找路径里</p>
 <p>必须是个绝对路径，不要这样写./app/modules</p>
-<h4 id="resolve-modulesDirectories"><a href="#resolve-modulesDirectories" class="headerlink" title="resolve.modulesDirectories"></a>resolve.modulesDirectories</h4><p>这是一个目录数组，用来解析到当前目录以及祖先目录和查找模块。这个函数的工作原理和node如何查找node_modules目录很像。比如如果值为[“mydir”]，webpack会查找“./mydir”, “../mydir”, “../../mydir”等等</p>
+<h4 id="resolve-modulesDirectories"><a href="#resolve-modulesDirectories" class="headerlink" title="resolve.modulesDirectories"></a>resolve.modulesDirectories</h4><p>这是一个目录数组，用来解析到当前目录以及祖先目录和查找模块。这个函数的工作原理和 node 如何查找 node_modules 目录很像。比如如果值为[“mydir”]，webpack 会查找“./mydir”, “../mydir”, “../../mydir”等等</p>
 <p>默认: [“web_modules”, “node_modules”]</p>
-<h4 id="resolve-extensions"><a href="#resolve-extensions" class="headerlink" title="resolve.extensions"></a>resolve.extensions</h4><p>一个用来解析模块的拓展名数组。比如，为了发现一个CoffeeScript文件，你的数组里应该包含字符串”.coffee”</p>
+<h4 id="resolve-extensions"><a href="#resolve-extensions" class="headerlink" title="resolve.extensions"></a>resolve.extensions</h4><p>一个用来解析模块的拓展名数组。比如，为了发现一个 CoffeeScript 文件，你的数组里应该包含字符串”.coffee”</p>
 <p>默认: [“”, “.webpack.js”, “.web.js”, “.js”]</p>
 <p><strong>注意：设置这个选项将会重写默认值</strong></p>
-<h3 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h3><p>指定不该被webpack打包的模块，但是在打包后的包中仍然保留了请求。</p>
-<p>我们可以通过它来暴露全局变量，而在需要的文件中直接require或import就可以了</p>
-<pre><code>externals: &#123;
-  jquery: &#39;jQuery&#39;
-&#125;
-</code></pre>
+<h3 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h3><p>指定不该被 webpack 打包的模块，但是在打包后的包中仍然保留了请求。</p>
+<p>我们可以通过它来暴露全局变量，而在需要的文件中直接 require 或 import 就可以了</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">externals<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  jquery<span class="token operator">:</span> <span class="token string">'jQuery'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h3><p>给编译器添加额外的插件</p>
-<h2 id="各种loaders"><a href="#各种loaders" class="headerlink" title="各种loaders"></a>各种loaders</h2><p>webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。</p>
-<p>loader的使用有三种方法，分别是：</p>
+<h2 id="各种-loaders"><a href="#各种-loaders" class="headerlink" title="各种 loaders"></a>各种 loaders</h2><p>webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。</p>
+<p>loader 的使用有三种方法，分别是：</p>
 <ul>
-<li><p>在require中显式指定，即上面看到的用法</p>
+<li><p>在 require 中显式指定，即上面看到的用法</p>
 </li>
 <li><p>在配置项（webpack.config.js）中指定</p>
 </li>
 <li><p>在命令行中指定</p>
-</li>
-</ul>
 <p>1)<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-loader">babel-loader</a></p>
-<p>转换ES6语法或React语法</p>
-<p>通过presets选择ES6特性，也可以在package.json中指定</p>
-<p>解决babel-loader处理React的preset问题：npm i –save-dev babel-preset-react</p>
-<p>2)css相关</p>
-<ul>
-<li><p>style-loader 将模块的导出作为样式添加到DOM中</p>
-</li>
-<li><p>css-loader 解析CSS文件后，使用import加载，并且返回CSS代码,可以在loader后面?modules以支持<a href="https://github.com/css-modules/css-modules">CSS Module</a></p>
-</li>
-<li><p>less-loader 加载和转译LESS文件</p>
-</li>
-<li><p>sass-loader 加载和转译SASS/SCSS文件，须先安装node-sass，windows可能安装出错，使用cnpm i node-sass –save-dev或者如下：</p>
-<p>  npm install –save-dev node-sass –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> –disturl=<a target="_blank" rel="noopener" href="https://npm.taobao.org/dist">https://npm.taobao.org/dist</a> –sass-binary-site=<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/node-sass">http://npm.taobao.org/mirrors/node-sass</a></p>
-</li>
-<li><p>postcss-loader 使用PostCSS加载和转译CSS/SSS文件，可以进行autoprefixer</p>
 </li>
 </ul>
-<p>CSS中@import另一个CSS怎么处理？（非SASS、LESS）</p>
-<p>给css-loader添加参数</p>
+<p>转换 ES6 语法或 React 语法</p>
+<p>通过 presets 选择 ES6 特性，也可以在 package.json 中指定</p>
+<p>解决 babel-loader 处理 React 的 preset 问题：npm i –save-dev babel-preset-react</p>
+<p>2)css 相关</p>
+<ul>
+<li><p>style-loader 将模块的导出作为样式添加到 DOM 中</p>
+</li>
+<li><p>css-loader 解析 CSS 文件后，使用 import 加载，并且返回 CSS 代码,可以在 loader 后面?modules 以支持<a href="https://github.com/css-modules/css-modules">CSS Module</a></p>
+</li>
+<li><p>less-loader 加载和转译 LESS 文件</p>
+</li>
+<li><p>sass-loader 加载和转译 SASS/SCSS 文件，须先安装 node-sass，windows 可能安装出错，使用 cnpm i node-sass –save-dev 或者如下：</p>
+<p>npm install –save-dev node-sass –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> –disturl=<a target="_blank" rel="noopener" href="https://npm.taobao.org/dist">https://npm.taobao.org/dist</a> –sass-binary-site=<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/node-sass">http://npm.taobao.org/mirrors/node-sass</a></p>
+</li>
+<li><p>postcss-loader 使用 PostCSS 加载和转译 CSS/SSS 文件，可以进行 autoprefixer</p>
+</li>
+</ul>
+<p>CSS 中@import 另一个 CSS 怎么处理？（非 SASS、LESS）</p>
+<p>给 css-loader 添加参数</p>
 <pre><code>loader: &#39;style-loader!css-loader?importLoaders=1!postcss-loader&#39;
 </code></pre>
 <p>3)模板相关</p>
 <ul>
-<li><p>html-loader 导出HTML为字符串，需要引用静态资源</p>
+<li><p>html-loader 导出 HTML 为字符串，需要引用静态资源</p>
 </li>
-<li><p>jade-loader 加载Jade模板并返回一个函数</p>
+<li><p>jade-loader 加载 Jade 模板并返回一个函数</p>
 </li>
-<li><p>markdown-loader 将Markdown转译为HTML</p>
+<li><p>markdown-loader 将 Markdown 转译为 HTML</p>
 </li>
-<li><p>handlebars-loader 将Handlebars转换为HTML</p>
+<li><p>handlebars-loader 将 Handlebars 转换为 HTML</p>
 </li>
-<li><p>ejs-loader 将underscore模板转换为HTML</p>
-</li>
-</ul>
+<li><p>ejs-loader 将 underscore 模板转换为 HTML</p>
 <p>4)图片相关</p>
-<ul>
+</li>
 <li><p>file-loader</p>
 </li>
-<li><p>url-loader 与file-loader，但如果文件小于限制，可以返回 data URL</p>
+<li><p>url-loader 与 file-loader，但如果文件小于限制，可以返回 data URL</p>
 </li>
 <li><p>image-loader 压缩图片</p>
 </li>
 </ul>
-<p>components模板引用相对路径图片不会替换？</p>
-<p>可以使用绝对路径或者这样写src=”${require(‘../../assets/bg.png’)}”</p>
+<p>components 模板引用相对路径图片不会替换？</p>
+<p>可以使用绝对路径或者这样写 src=”${require(‘../../assets/bg.png’)}”</p>
 <p>5)bundle-loader</p>
-<p>bundle-loader是一个用来在运行时异步加载模块的loader。可以用来做代码分割</p>
+<p>bundle-loader 是一个用来在运行时异步加载模块的 loader。可以用来做代码分割</p>
 <p>6)exports-loader</p>
 <p>可以从模块中导出变量。</p>
-<p>在实际使用中，用exports-loader最多的场景是将某些不支持模块化规范的模块所声明的全局变量作为模块内容导出。<br>如下可以导出全局变量Hello，exports-loader还可以支持同时导出多个变量，例如exports?HELLO,WORLD</p>
-<pre><code>module.exports = &#123;
-    module:&#123;
-        loaders:[
-            &#123; test: require.resolve(&#39;./hello&#39;), loader: &quot;exports?Hello&quot; &#125;
-        ]
-    &#125;
-&#125;;
-</code></pre>
+<p>在实际使用中，用 exports-loader 最多的场景是将某些不支持模块化规范的模块所声明的全局变量作为模块内容导出。<br>如下可以导出全局变量 Hello，exports-loader 还可以支持同时导出多个变量，例如 exports?HELLO,WORLD</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  module<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    loaders<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span> test<span class="token operator">:</span> require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'./hello'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'exports?Hello'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>7)imports-loaders</p>
 <p>用于向一个模块的作用域内注入变量（Can be used to inject variables into the scope of a module）</p>
 <p>8)expose-loader</p>
 <p>把一个模块导出并付给一个全局变量</p>
-<pre><code>require(&quot;expose?libraryName!./file.js&quot;);
-// Exposes the exports for file.js to the global context on property &quot;libraryName&quot;.
-// In web browsers, window.libraryName is then available.
-</code></pre>
-<h2 id="各种plugins"><a href="#各种plugins" class="headerlink" title="各种plugins"></a>各种plugins</h2><p>1)<a href="https://github.com/jantimon/html-webpack-plugin#configuration">HtmlWebpackPlugin</a></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'expose?libraryName!./file.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Exposes the exports for file.js to the global context on property "libraryName".</span>
+<span class="token comment">// In web browsers, window.libraryName is then available.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="各种-plugins"><a href="#各种-plugins" class="headerlink" title="各种 plugins"></a>各种 plugins</h2><p>1)<a href="https://github.com/jantimon/html-webpack-plugin#configuration">HtmlWebpackPlugin</a></p>
 <p>参数：</p>
 <ul>
-<li><p>template html模板地址，默认为webpack.config.js所在的目录</p>
+<li><p>template html 模板地址，默认为 webpack.config.js 所在的目录</p>
 </li>
 <li><p>inject 插入位置</p>
 </li>
 <li><p>title</p>
 </li>
-<li><p>date等</p>
+<li><p>date 等</p>
+<p>2)CommonsChunkPlugin</p>
 </li>
 </ul>
-<p>2)CommonsChunkPlugin    </p>
 <p>将多个入口起点之间共享的公共模块，生成为一些 chunk，并且分离到单独的 bundle 中，例如，1vendor.bundle.js 和 app.bundle.js</p>
-<p>3)ExtractTextWebpackPlugin    </p>
+<p>3)ExtractTextWebpackPlugin</p>
 <p>从 bundle 中提取文本（CSS）到分离的文件（app.bundle.css）</p>
 <p>4)ProvidePlugin</p>
-<p>ProvidePlugin可以将模块作为一个变量，被webpack在其他每个模块中引用。只有你需要使用此变量的时候，这个模块才会被 require进来。多数之前遗留的模块，会依赖于已存在的某些特定全局变量，比如jQuery插件中的$或者jQuery。在这种场景，你可以在每次遇到全局标识符$的时候，在webpack中预先设置var $ = require(“jquery”)。</p>
-<pre><code>module.exports = &#123;
-  plugins: [
-    new webpack.ProvidePlugin(&#123;
-      $: &#39;jquery&#39;,
-      jQuery: &#39;jquery&#39;
-    &#125;)
-  ]
-&#125;;
-</code></pre>
-<h2 id="Environment-flags"><a href="#Environment-flags" class="headerlink" title="Environment flags"></a>Environment flags</h2><p>windows下使用cross-env的npm包兼容处理，可以在package.json设置如下：</p>
-<pre><code>&quot;scripts&quot;: &#123;
-    &quot;clear&quot;: &quot;rm -rf build&amp;&amp; mkdir build&quot;,
-    &quot;start&quot;: &quot;npm run clear&amp;&amp; cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --devtool eval --progress --color --profile&quot;,
-    &quot;deploy&quot;: &quot;npm run clear&amp;&amp; cross-env NODE_ENV=production webpack -p --progress&quot;
-&#125;
-</code></pre>
+<p>ProvidePlugin 可以将模块作为一个变量，被 webpack 在其他每个模块中引用。只有你需要使用此变量的时候，这个模块才会被 require 进来。多数之前遗留的模块，会依赖于已存在的某些特定全局变量，比如 jQuery 插件中的$或者jQuery。在这种场景，你可以在每次遇到全局标识符$的时候，在 webpack 中预先设置 var $ = require(“jquery”)。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ProvidePlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      $<span class="token operator">:</span> <span class="token string">'jquery'</span><span class="token punctuation">,</span>
+      jQuery<span class="token operator">:</span> <span class="token string">'jquery'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Environment-flags"><a href="#Environment-flags" class="headerlink" title="Environment flags"></a>Environment flags</h2><p>windows 下使用 cross-env 的 npm 包兼容处理，可以在 package.json 设置如下：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+		<span class="token property">"clear"</span><span class="token operator">:</span> <span class="token string">"rm -rf build&amp;&amp; mkdir build"</span><span class="token punctuation">,</span>
+		<span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"npm run clear&amp;&amp; cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --devtool eval --progress --color --profile"</span><span class="token punctuation">,</span>
+		<span class="token property">"deploy"</span><span class="token operator">:</span> <span class="token string">"npm run clear&amp;&amp; cross-env NODE_ENV=production webpack -p --progress"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>webpack.config.js</p>
-<pre><code>var isProduction = process.env.NODE_ENV === &#39;production&#39;;
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> isProduction <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span><span class="token punctuation">;</span>
 
-plugins: [new webpack.DefinePlugin(&#123;
-    &#39;process.env&#39;: &#123;
-        &#39;NODE_ENV&#39;: JSON.stringify(process.env.NODE_ENV || &#39;development&#39;)
-    &#125;
-&#125;)]
-</code></pre>
-<h2 id="Code-splitting（代码分割）"><a href="#Code-splitting（代码分割）" class="headerlink" title="Code splitting（代码分割）"></a>Code splitting（代码分割）</h2><p>使用require.ensure</p>
-<pre><code>// main.js
-require.ensure([&#39;./a&#39;], function(require) &#123;
-  var content = require(&#39;./a&#39;);
-  document.open();
-  document.write(&#39;&lt;h1&gt;&#39; + content + &#39;&lt;/h1&gt;&#39;);
-  document.close();
-&#125;);
+plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DefinePlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token string">'process.env'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token constant">NODE_ENV</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">||</span> <span class="token string">'development'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-// a.js
-module.exports = &#39;Hello World&#39;;
-</code></pre>
-<p>require.ensure告诉Webpack，./a.js应该从bundle.js分离并且打包成一个单独的文件</p>
-<p><strong>注意require.ensure只会加载模块而不会去解析</strong></p>
-<p>也可以用bundle-loader进行代码分割</p>
-<pre><code>// main.js
+<h2 id="Code-splitting（代码分割）"><a href="#Code-splitting（代码分割）" class="headerlink" title="Code splitting（代码分割）"></a>Code splitting（代码分割）</h2><p>使用 require.ensure</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// main.js</span>
+require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'./a'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">require</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> content <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;h1>'</span> <span class="token operator">+</span> content <span class="token operator">+</span> <span class="token string">'&lt;/h1>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// Now a.js is requested, it will be bundled into another file
-var load = require(&#39;bundle-loader!./a.js&#39;);
+<span class="token comment">// a.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-// To wait until a.js is available (and get the exports)
-//  you need to async wait for it.
-load(function(file) &#123;
-  document.open();
-  document.write(&#39;&lt;h1&gt;&#39; + file + &#39;&lt;/h1&gt;&#39;);
-  document.close();
-&#125;);
-</code></pre>
-<h2 id="vendor-chunk"><a href="#vendor-chunk" class="headerlink" title="vendor chunk"></a>vendor chunk</h2><p>可以用CommonsChunkPlugin插件将公共库(vendor)打包成一个单独的文件</p>
-<pre><code>var webpack = require(&#39;webpack&#39;);
+<p>require.ensure 告诉 Webpack，./a.js 应该从 bundle.js 分离并且打包成一个单独的文件</p>
+<p><strong>注意 require.ensure 只会加载模块而不会去解析</strong></p>
+<p>也可以用 bundle-loader 进行代码分割</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// main.js</span>
 
-module.exports = &#123;
-  entry: &#123;
-    app: &#39;./main.js&#39;,
-    vendor: [&#39;jquery&#39;],
-  &#125;,
-  output: &#123;
-    filename: &#39;bundle.js&#39;
-  &#125;,
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */&#39;vendor&#39;, /* filename= */&#39;vendor.js&#39;)
-  ]
-&#125;;
-</code></pre>
-<h2 id="模块热替换-Hot-Module-Replacement"><a href="#模块热替换-Hot-Module-Replacement" class="headerlink" title="模块热替换(Hot Module Replacement)"></a>模块热替换(Hot Module Replacement)</h2><p>npm i webpack-dev-server –save-dev</p>
+<span class="token comment">// Now a.js is requested, it will be bundled into another file</span>
+<span class="token keyword">var</span> load <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'bundle-loader!./a.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// To wait until a.js is available (and get the exports)</span>
+<span class="token comment">//  you need to async wait for it.</span>
+<span class="token function">load</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;h1>'</span> <span class="token operator">+</span> file <span class="token operator">+</span> <span class="token string">'&lt;/h1>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="vendor-chunk"><a href="#vendor-chunk" class="headerlink" title="vendor chunk"></a>vendor chunk</h2><p>可以用 CommonsChunkPlugin 插件将公共库(vendor)打包成一个单独的文件</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  entry<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    app<span class="token operator">:</span> <span class="token string">'./main.js'</span><span class="token punctuation">,</span>
+    vendor<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'jquery'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span>
+      <span class="token comment">/* chunkName= */</span> <span class="token string">'vendor'</span><span class="token punctuation">,</span>
+      <span class="token comment">/* filename= */</span> <span class="token string">'vendor.js'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="模块热替换-Hot-Module-Replacement"><a href="#模块热替换-Hot-Module-Replacement" class="headerlink" title="模块热替换(Hot Module Replacement)"></a>模块热替换(Hot Module Replacement)</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i webpack-dev-server --save-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003872635">配置</a></p>
-<h2 id="主要参考资料"><a href="#主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料</h2><p><a target="_blank" rel="noopener" href="https://webpack.github.io/docs/">webpack官方文档</a></p>
-<p><a href="https://github.com/ruanyf/webpack-demos">阮一峰webpack教程</a></p>
+<h2 id="主要参考资料"><a href="#主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料</h2><p><a target="_blank" rel="noopener" href="https://webpack.github.io/docs/">webpack 官方文档</a></p>
+<p><a href="https://github.com/ruanyf/webpack-demos">阮一峰 webpack 教程</a></p>
 
                 
             </div>
@@ -788,10 +786,6 @@ module.exports = &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/%E5%89%8D%E7%AB%AF/">
                                     <span class="chip bg-color">前端</span>
@@ -871,8 +865,8 @@ module.exports = &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -881,10 +875,6 @@ module.exports = &#123;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
@@ -928,8 +918,8 @@ module.exports = &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -938,10 +928,6 @@ module.exports = &#123;
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
