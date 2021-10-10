@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2021-10-10T12:10:20.049Z</updated>
+  <updated>2021-10-10T12:14:12.443Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>vue 开发2017年变化回顾及2018年展望</title>
+    <link href="https://github.com/SilenceZeng/posts/50730.html"/>
+    <id>https://github.com/SilenceZeng/posts/50730.html</id>
+    <published>2021-10-10T12:12:06.432Z</published>
+    <updated>2021-10-10T12:14:12.443Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;vue-js-变化&quot;&gt;&lt;a href=&quot;#vue-js-变化&quot; class=&quot;headerlink&quot; title=&quot;vue.js 变化&quot;&gt;&lt;/a&gt;vue.js 变化&lt;/h2&gt;&lt;p&gt;从 github 的发布记录我们可以看到 2017 年 vue.js</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="vue" scheme="https://github.com/SilenceZeng/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Promise小书（长文）</title>
     <link href="https://github.com/SilenceZeng/posts/19117.html"/>
     <id>https://github.com/SilenceZeng/posts/19117.html</id>
     <published>2021-10-10T12:08:55.578Z</published>
-    <updated>2021-10-10T12:10:20.049Z</updated>
+    <updated>2021-10-10T12:11:40.972Z</updated>
     
     
       
@@ -548,31 +573,6 @@
     <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
     
     <category term="CSS" scheme="https://github.com/SilenceZeng/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5学习总结</title>
-    <link href="https://github.com/SilenceZeng/posts/57973.html"/>
-    <id>https://github.com/SilenceZeng/posts/57973.html</id>
-    <published>2016-06-21T15:19:00.000Z</published>
-    <updated>2021-10-10T09:05:55.348Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;html5-与-html4-区别&quot;&gt;&lt;a href=&quot;#html5-与-html4-区别&quot; class=&quot;headerlink&quot; title=&quot;html5 与 html4 区别&quot;&gt;&lt;/a&gt;html5 与 html4 区别&lt;/h2&gt;&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="HTML5" scheme="https://github.com/SilenceZeng/tags/HTML5/"/>
     
   </entry>
   
