@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2021-10-10T11:49:41.139Z</updated>
+  <updated>2021-10-10T11:55:47.167Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vuejs技术栈知识点小结</title>
+    <link href="https://github.com/SilenceZeng/posts/1181.html"/>
+    <id>https://github.com/SilenceZeng/posts/1181.html</id>
+    <published>2021-10-10T11:50:41.129Z</published>
+    <updated>2021-10-10T11:55:47.167Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上家公司的项目主要是使用 jQuery 和 Angular1，然后自己学了 React，没想到来到这家公司突然开始做 vue，不过 vue</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="vue" scheme="https://github.com/SilenceZeng/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vuejs技术栈从CLI到打包上线实战全解析</title>
     <link href="https://github.com/SilenceZeng/posts/23421.html"/>
     <id>https://github.com/SilenceZeng/posts/23421.html</id>
     <published>2021-10-10T11:41:58.116Z</published>
-    <updated>2021-10-10T11:49:41.139Z</updated>
+    <updated>2021-10-10T11:50:04.035Z</updated>
     
     
       
@@ -554,36 +581,6 @@
     <category term="css3" scheme="https://github.com/SilenceZeng/tags/css3/"/>
     
     <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【翻译】CSS水平和垂直居中的12种方法</title>
-    <link href="https://github.com/SilenceZeng/posts/63277.html"/>
-    <id>https://github.com/SilenceZeng/posts/63277.html</id>
-    <published>2016-05-20T14:30:34.000Z</published>
-    <updated>2021-10-10T08:56:12.495Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://tinyfinch.com/horizontal-and-vertical-centering-in-css/&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在 CSS</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
-    
-    <category term="翻译" scheme="https://github.com/SilenceZeng/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
