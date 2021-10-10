@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2021-10-10T08:17:56.207Z</updated>
+  <updated>2021-10-10T11:49:41.139Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vuejs技术栈从CLI到打包上线实战全解析</title>
+    <link href="https://github.com/SilenceZeng/posts/23421.html"/>
+    <id>https://github.com/SilenceZeng/posts/23421.html</id>
+    <published>2021-10-10T11:41:58.116Z</published>
+    <updated>2021-10-10T11:49:41.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文是自己 vue 项目实践中的一些总结，针对 Vue2 及相关技术栈，实践中版本为 2.3.3。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="vue" scheme="https://github.com/SilenceZeng/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6核心内容精讲--快速实践ES6（三）</title>
@@ -556,33 +584,6 @@
     <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
     
     <category term="翻译" scheme="https://github.com/SilenceZeng/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS篇02--margin和padding</title>
-    <link href="https://github.com/SilenceZeng/posts/4963.html"/>
-    <id>https://github.com/SilenceZeng/posts/4963.html</id>
-    <published>2016-05-06T16:23:18.000Z</published>
-    <updated>2021-10-10T09:02:15.404Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一、margin&quot;&gt;&lt;a href=&quot;#一、margin&quot; class=&quot;headerlink&quot; title=&quot;一、margin&quot;&gt;&lt;/a&gt;一、margin&lt;/h2&gt;&lt;p&gt;1.负 margin 位移自己：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="css" scheme="https://github.com/SilenceZeng/tags/css/"/>
     
   </entry>
   
