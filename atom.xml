@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2021-10-12T13:58:57.394Z</updated>
+  <updated>2021-12-19T13:10:55.322Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021 年的 React 状态管理小结</title>
+    <link href="https://github.com/SilenceZeng/posts/53923.html"/>
+    <id>https://github.com/SilenceZeng/posts/53923.html</id>
+    <published>2021-12-19T13:08:54.000Z</published>
+    <updated>2021-12-19T13:10:55.322Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;redux&quot;&gt;&lt;a href=&quot;#redux&quot; class=&quot;headerlink&quot; title=&quot;redux&quot;&gt;&lt;/a&gt;redux&lt;/h2&gt;&lt;p&gt;redux 是 React 社区目前最流行的状态管理方案。&lt;/p&gt;
+&lt;h3 id=&quot;redux-的数据流&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
+    
+    <category term="React" scheme="https://github.com/SilenceZeng/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>RxJS v6 学习指南</title>
@@ -543,33 +573,6 @@
     <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
     
     <category term="jQuery" scheme="https://github.com/SilenceZeng/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fiddler学习总结</title>
-    <link href="https://github.com/SilenceZeng/posts/18778.html"/>
-    <id>https://github.com/SilenceZeng/posts/18778.html</id>
-    <published>2016-09-06T14:49:22.000Z</published>
-    <updated>2021-10-10T09:02:52.898Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;fiddler&quot;&gt;&lt;a href=&quot;#fiddler&quot; class=&quot;headerlink&quot; title=&quot;fiddler&quot;&gt;&lt;/a&gt;fiddler&lt;/h3&gt;&lt;p&gt;1.基本功能&lt;br&gt;监控 HTTP/HTTPs</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="fiddler" scheme="https://github.com/SilenceZeng/tags/fiddler/"/>
-    
-    <category term="调试" scheme="https://github.com/SilenceZeng/tags/%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   
