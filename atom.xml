@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2021-12-19T13:10:55.322Z</updated>
+  <updated>2022-02-26T09:44:04.516Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>docker 基础回顾</title>
+    <link href="https://github.com/SilenceZeng/posts/47080.html"/>
+    <id>https://github.com/SilenceZeng/posts/47080.html</id>
+    <published>2022-02-26T09:42:01.000Z</published>
+    <updated>2022-02-26T09:44:04.516Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;docker-简介&quot;&gt;&lt;a href=&quot;#docker-简介&quot; class=&quot;headerlink&quot; title=&quot;docker 简介&quot;&gt;&lt;/a&gt;docker 简介&lt;/h2&gt;&lt;p&gt;docker 在英文中有码头工人的意思，码头工人将货物装载到集装箱，而</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://github.com/SilenceZeng/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="docker" scheme="https://github.com/SilenceZeng/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021 年的 React 状态管理小结</title>
     <link href="https://github.com/SilenceZeng/posts/53923.html"/>
     <id>https://github.com/SilenceZeng/posts/53923.html</id>
     <published>2021-12-19T13:08:54.000Z</published>
-    <updated>2021-12-19T13:10:55.322Z</updated>
+    <updated>2021-12-19T13:11:16.128Z</updated>
     
     
       
@@ -542,37 +567,6 @@
     <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery API学习总结</title>
-    <link href="https://github.com/SilenceZeng/posts/25542.html"/>
-    <id>https://github.com/SilenceZeng/posts/25542.html</id>
-    <published>2016-12-11T15:17:40.000Z</published>
-    <updated>2021-10-10T09:15:09.607Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;jQuery，在工作中很常用，但是很多 API 或者使用这些 API 的注意事项也经常会忘记，因此写个博客总结一下，这样也能复习一下 jQuery API。主要参考了&lt;a href=&quot;http://www.css88.com/jqapi-1.9/&quot;&gt;jQuery</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="积累" scheme="https://github.com/SilenceZeng/tags/%E7%A7%AF%E7%B4%AF/"/>
-    
-    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
-    
-    <category term="jQuery" scheme="https://github.com/SilenceZeng/tags/jQuery/"/>
     
   </entry>
   

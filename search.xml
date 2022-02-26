@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>docker 基础回顾</title>
+      <link href="/posts/47080.html"/>
+      <url>/posts/47080.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="docker-简介"><a href="#docker-简介" class="headerlink" title="docker 简介"></a>docker 简介</h2><p>docker 在英文中有码头工人的意思，码头工人将货物装载到集装箱，而 docker 则将开发者的应用打包成一个可供容器使用的镜像，并且可以分享给其他开发者使用。</p><p>Docker 是一个开源的应用容器引擎。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p><p>容器是完全使用沙箱机制，相互之间不会有任何接口，更重要的是容器性能开销极低。</p><p>Docker 的应用场景</p><ul><li>Web 应用的自动化打包和发布。</li><li>自动化测试和持续集成、发布。</li><li>在服务型环境中部署和调整数据库或其他的后台应用。</li><li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li></ul><p>Docker 的优点</p><ol><li>快速一致地交付您的应用程序</li><li>响应式部署和扩展</li><li>在同一硬件上运行更多工作负载</li></ol><h2 id="docker-基本概念"><a href="#docker-基本概念" class="headerlink" title="docker 基本概念"></a>docker 基本概念</h2><p>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。操作系统分为 内核 和 用户空间。对于 Linux 而言，内核启动后，会挂载 root 文件系统为其提供用户空间支持。而 Docker 镜像（Image），就相当于是一个 root 文件系统。</p><p>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的 命名空间。</p><p>容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。</p><p>仓库（Repository）：仓库可看成一个代码控制中心，类似 github，用来保存镜像。</p><h2 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h2><p>当运行容器时，使用的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载，默认是从 Docker Hub 公共镜像源下载。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载镜像</span>docker pull ubuntu<span class="token comment"># 删除镜像</span>docker rmi ubuntu<span class="token comment"># 上传镜像</span>docker tag ubuntu:latest docker.io/library/ubuntudocker push docker.io/library/ubuntu<span class="token comment"># 查看镜像</span>docker images<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="操作容器"><a href="#操作容器" class="headerlink" title="操作容器"></a>操作容器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建容器并运行</span><span class="token comment"># -it：参数 -i 交互式操作，参数 -t 表示 终端</span>docker run -it ubuntu:18.04 /bin/bash<span class="token comment"># --rm 这个参数是说容器退出后随之将其删除</span>docker run -it --rm ubuntu:18.04 <span class="token function">bash</span><span class="token comment"># -d：这个参数是说容器运行后不关闭，而是保持运行状态, --name 参数制定容器命名</span>docker run -itd --name ubuntu-test ubuntu /bin/bash<span class="token comment">#  -p 参数：指定容器的网络端口映射，-p 8080:8080：指定容器的 8080 端口映射到宿主机的 8080 端口</span>docker run -d -p <span class="token number">8080</span>:8080 training/webapp python app.py<span class="token comment"># 查看容器的状态</span>docker <span class="token function">ps</span> -a<span class="token comment"># 查看最近的容器</span>docker <span class="token function">ps</span> -l<span class="token comment"># 停止一个已启动的容器</span>docker stop b750bbbcfd88<span class="token comment"># 启动一个已停止的容器</span>docker start b750bbbcfd88<span class="token comment"># 删除容器</span>docker <span class="token function">rm</span> b750bbbcfd88<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Docker-仓库管理"><a href="#Docker-仓库管理" class="headerlink" title="Docker 仓库管理"></a>Docker 仓库管理</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 登录</span>docker login<span class="token comment"># 登出</span>docker <span class="token builtin class-name">logout</span><span class="token comment"># 搜索镜像</span>docker search ubuntu<span class="token comment"># 拉取镜像</span>docker pull ubuntu<span class="token comment"># 推送镜像</span>docker tag ubuntu:18.04 username/ubuntu:18.04docker push username/ubuntu:18.04<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>Dockerfile 是一个文件，用来描述镜像的构建过程，包含了一条条构建镜像所需的指令和说明。</p><h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>FROM：指定构建镜像的基础镜像。</p><p>RUN：指定在构建镜像时执行的命令。</p><p>CMD：类似于 RUN 指令，用于运行程序，但二者运行的时间点不同:</p><ul><li>CMD 在 docker run 时运行。</li><li>RUN 是在 docker build。</li></ul><p>作用：为启动的容器指定默认要运行的程序，程序运行结束，容器也就结束。</p><p>COPY：指定在构建镜像时拷贝文件。</p><p>ENV：指定环境变量。在后续的指令中，可以使用这个环境变量。</p><pre class="line-numbers language-none"><code class="language-none">FROM nginxRUN echo &#39;&lt;h1&gt;Hello, Docker!&lt;&#x2F;h1&gt;&#39; &gt; &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>在 Dockerfile 文件所在目录执行 docker build 命令，会生成一个镜像。</p><pre class="line-numbers language-none"><code class="language-none">docker build [选项] &lt;上下文路径&#x2F;URL&#x2F;-&gt;# -t 指定生成的镜像的名称docker build -t koa-demo .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021 年的 React 状态管理小结</title>
       <link href="/posts/53923.html"/>
       <url>/posts/53923.html</url>
