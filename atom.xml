@@ -6,7 +6,7 @@
   <link href="https://github.com/SilenceZeng/atom.xml" rel="self"/>
   
   <link href="https://github.com/SilenceZeng/"/>
-  <updated>2022-02-26T09:44:04.516Z</updated>
+  <updated>2022-03-06T13:34:54.437Z</updated>
   <id>https://github.com/SilenceZeng/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>chrome 扩展程序开发</title>
+    <link href="https://github.com/SilenceZeng/posts/8033.html"/>
+    <id>https://github.com/SilenceZeng/posts/8033.html</id>
+    <published>2022-03-06T13:32:07.000Z</published>
+    <updated>2022-03-06T13:34:54.437Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Chrome 扩展程序是一种可以在浏览器中运行的程序，借助浏览器提供的 API，可以增强页面的功能。Chrome 扩展程序的语法和 Web</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="chrome 扩展程序" scheme="https://github.com/SilenceZeng/tags/chrome-%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker 基础回顾</title>
     <link href="https://github.com/SilenceZeng/posts/47080.html"/>
     <id>https://github.com/SilenceZeng/posts/47080.html</id>
     <published>2022-02-26T09:42:01.000Z</published>
-    <updated>2022-02-26T09:44:04.516Z</updated>
+    <updated>2022-02-26T09:44:21.005Z</updated>
     
     
       
@@ -529,33 +556,6 @@
     <summary type="html">&lt;p&gt;1.最简单的，使用变量，然后用匿名函数包裹，不封装&lt;/p&gt;
 &lt;p&gt;2.对象字面量简单封装（不完整的模块模式，因为无法达到变量、方法私有效果。不过确实有分离和组织代码的能力，也就算一种简略的模块模式的实现方式）&lt;/p&gt;
 &lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="前端" scheme="https://github.com/SilenceZeng/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="javascript" scheme="https://github.com/SilenceZeng/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js高级程序设计学习之高级函数</title>
-    <link href="https://github.com/SilenceZeng/posts/31836.html"/>
-    <id>https://github.com/SilenceZeng/posts/31836.html</id>
-    <published>2017-03-21T13:50:40.000Z</published>
-    <updated>2021-10-10T09:12:12.424Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安全的类型检测&quot;&gt;&lt;a href=&quot;#安全的类型检测&quot; class=&quot;headerlink&quot; title=&quot;安全的类型检测&quot;&gt;&lt;/a&gt;安全的类型检测&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-javascript&quot;</summary>
         
       
     

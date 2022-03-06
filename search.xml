@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>chrome 扩展程序开发</title>
+      <link href="/posts/8033.html"/>
+      <url>/posts/8033.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Chrome 扩展程序是一种可以在浏览器中运行的程序，借助浏览器提供的 API，可以增强页面的功能。Chrome 扩展程序的语法和 Web 前端类似，也是 html/css/js 的组合。</p><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>Chrome 扩展程序主要由以下几部分组成：</p><ul><li>Manifest.json：描述扩展程序的基本信息，包括名称、版本、作者、描述等。</li><li>Background Script：后台脚本，扩展程序加载时会被自动执行，并且一直存在于扩展程序的整个生命周期。</li><li>Content Script：内容脚本，会插入到页面中，可以访问 DOM 并且可以修改 DOM，也可以和扩展程序通信。</li><li>UI elements：用来增强浏览器的用户体验，如果扩展程序需要显示一些 UI 元素，可以在这里添加。比如右键菜单、快捷键、地址栏和点击插件出现的 popup 等。</li><li>Options page：设置页面，用来设置扩展程序的一些配置信息。</li></ul><p>除了 Manifest.json 必须存在外，其他所有文件都是可选的。</p><h3 id="Manifest-json"><a href="#Manifest-json" class="headerlink" title="Manifest.json"></a>Manifest.json</h3><p>必须有的属性：</p><ul><li>manifest_version - manifest 的版本</li><li>name - 插件的名字</li><li>version - 插件版本</li></ul><p>manifest_version 目前 Chrome 浏览器推荐 3，2023 年将停止支持 2，但目前国内如 360 安全浏览器等浏览器仍然只支持 2。</p><h3 id="Content-Script-的注入方式"><a href="#Content-Script-的注入方式" class="headerlink" title="Content Script 的注入方式"></a>Content Script 的注入方式</h3><p>1）静态声明式注入</p><p>在 manifest.json 中的 content_scripts 的字段：</p><pre class="line-numbers language-none"><code class="language-none">&#123; &quot;name&quot;: &quot;My extension&quot;, ... &quot;content_scripts&quot;: [   &#123;     &quot;matches&quot;: [&quot;https:&#x2F;&#x2F;*.nytimes.com&#x2F;*&quot;],     &quot;css&quot;: [&quot;my-styles.css&quot;],     &quot;js&quot;: [&quot;content-script.js&quot;]   &#125; ], ...&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>2）以编程方式注入</p><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//// content-script.js ////</span>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">'orange'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//// background.js ////</span>chrome<span class="token punctuation">.</span>action<span class="token punctuation">.</span>onClicked<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">tab</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>  chrome<span class="token punctuation">.</span>scripting<span class="token punctuation">.</span><span class="token function">executeScript</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>    target<span class="token operator">:</span> <span class="token punctuation">&#123;</span> tabId<span class="token operator">:</span> tab<span class="token punctuation">.</span>id <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>    files<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'content-script.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="v2-和-v3-版本的一些差异"><a href="#v2-和-v3-版本的一些差异" class="headerlink" title="v2 和 v3 版本的一些差异"></a>v2 和 v3 版本的一些差异</h2><ol><li>background 使用了 service worker 替代了原来的 background 页面</li><li>需要指定 host permissions</li><li>browser_action 和 page_action 合并为 action</li><li>web_accessible_resources 由字符串数组变为对象数组</li></ol><p>更多请查阅官方文档。</p><h2 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h2><ol><li>扩展程序中的 html 不能执行内联 js。</li><li>manifest.json 中的 Match patterns 包含 scheme、host、path 三个部分，v3 版本使用 <all_urls> 匹配所有 url。</li><li>很多扩展 API 已支持 promise，如果没有传 callback 参数则返回 promise。</li></ol><h2 id="为扩展程序提供的常用-API"><a href="#为扩展程序提供的常用-API" class="headerlink" title="为扩展程序提供的常用 API"></a>为扩展程序提供的常用 API</h2><ol><li>chrome.cookies - 操作 cookie</li><li>chrome.tabs - tab 相关</li><li>chrome.webRequest - 观察、分析、拦截、修改请求</li><li>chrome.bookmarks - 操作书签</li><li>chrome.contextMenus - 操作右键菜单</li><li>chrome.storage - 操作本地存储</li></ol><h2 id="安装和调试"><a href="#安装和调试" class="headerlink" title="安装和调试"></a>安装和调试</h2><ol><li>浏览器打开扩展程序管理界面 chrome://extensions</li><li>开启 “开发者模式”</li><li>可以选择 “加载已解压的扩展程序”，选择本地开发目录</li></ol><p>开发时可以点击扩展程序开关旁边的刷新按钮重新载入插件。要调试 popup 需要在菜单栏右键扩展程序选择 Inspect Popup, 调试 background 则需要在扩展程序管理界面中对应扩展找到 background 页面或者 service worker （v3）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> chrome 扩展程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker 基础回顾</title>
       <link href="/posts/47080.html"/>
       <url>/posts/47080.html</url>
